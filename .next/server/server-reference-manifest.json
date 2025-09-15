@@ -1,0 +1,21 @@
+{
+  "node": {
+    "40438af99855e1c86cd59492b5daf0369794ae5898": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/actions/newsletter.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "addEmailToBrevo",
+          "filename": "src/app/actions/newsletter.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "src/app/actions/newsletter.ts",
+      "exportedName": "addEmailToBrevo"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "1v6CzTHjsMUFAbeRpDIYhK92j9HVZ5qVTiAxO6XOjl8="
+}
