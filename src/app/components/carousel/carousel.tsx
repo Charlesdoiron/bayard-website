@@ -89,7 +89,7 @@ export default function Carousel() {
 
   return (
     <section
-      className="relative h-screen w-full overflow-hidden"
+      className="relative h-screen w-full overflow-hidden bg-gray-800"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
@@ -101,7 +101,7 @@ export default function Carousel() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-500 ease-in-out bg-gray-700 ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >

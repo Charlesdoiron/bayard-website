@@ -147,7 +147,7 @@ function Menu() {
         setIsMobileMenuOpen(false);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-        className: "fixed bg-black top-0 left-0 right-0 z-50 border-b border-white/10 transition-transform duration-300 ease-in-out ".concat(isVisible ? "transform translate-y-0" : "transform -translate-y-full"),
+        className: "fixed bg-[#090E16] top-0 left-0 right-0 z-50  transition-transform duration-300 ease-in-out ".concat(isVisible ? "transform translate-y-0" : "transform -translate-y-full"),
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
                 className: "relative flex items-center justify-between px-4 md:px-8 lg:px-12 py-4 md:py-6",

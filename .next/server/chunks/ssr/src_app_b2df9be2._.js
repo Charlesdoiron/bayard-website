@@ -8,40 +8,116 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-ssr] (ecmascript)");
+"use client";
 ;
 ;
+;
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.3,
+            delayChildren: 0.2
+        }
+    }
+};
+const fadeInVariants = {
+    hidden: {
+        opacity: 0
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            duration: 1
+        }
+    }
+};
+const slideUpVariants = {
+    hidden: {
+        opacity: 0,
+        y: 30
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8
+        }
+    }
+};
+const bounceInVariants = {
+    hidden: {
+        opacity: 0,
+        y: 20,
+        scale: 0.8
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            duration: 0.8,
+            type: "spring",
+            bounce: 0.4
+        }
+    }
+};
 function Hero() {
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex flex-col items-start justify-center h-screen px-8 md:px-16 lg:px-32 relative bg-cover bg-center bg-no-repeat overflow-hidden",
-        style: {
-            backgroundImage: "url(/bkg.jpg)"
-        },
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+        className: "flex flex-col items-start justify-center h-screen px-8 md:px-16 lg:px-32 relative overflow-hidden bg-gray-800",
+        variants: containerVariants,
+        initial: "hidden",
+        animate: "visible",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 bg-black/30"
+                className: "absolute inset-0 z-0",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                    src: "/bkg.jpg",
+                    alt: "Club Bayard background",
+                    fill: true,
+                    priority: true,
+                    className: "object-cover object-center",
+                    sizes: "100vw"
+                }, void 0, false, {
+                    fileName: "[project]/src/app/components/hero/hero.tsx",
+                    lineNumber: 68,
+                    columnNumber: 9
+                }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/components/hero/hero.tsx",
-                lineNumber: 10,
+                lineNumber: 67,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-xl md:text-2xl lg:text-3xl text-white relative z-10",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                className: "absolute inset-0 bg-black/30 z-10",
+                variants: fadeInVariants
+            }, void 0, false, {
+                fileName: "[project]/src/app/components/hero/hero.tsx",
+                lineNumber: 79,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].p, {
+                className: "text-xl md:text-2xl lg:text-3xl text-white relative z-20",
+                variants: slideUpVariants,
                 children: "Centre équestre"
             }, void 0, false, {
                 fileName: "[project]/src/app/components/hero/hero.tsx",
-                lineNumber: 12,
+                lineNumber: 84,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                className: "text-4xl md:text-6xl lg:text-8xl font-bold text-white relative z-10",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].h1, {
+                className: "text-4xl md:text-6xl lg:text-8xl font-bold text-white relative z-20",
+                variants: slideUpVariants,
                 children: "Club Bayard"
             }, void 0, false, {
                 fileName: "[project]/src/app/components/hero/hero.tsx",
-                lineNumber: 16,
+                lineNumber: 91,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative z-10 mt-8",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                className: "relative z-20 mt-8",
+                variants: bounceInVariants,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                     src: "/arrow.svg",
                     alt: "arrow",
@@ -49,18 +125,18 @@ function Hero() {
                     height: 50
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/hero/hero.tsx",
-                    lineNumber: 21,
+                    lineNumber: 99,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/components/hero/hero.tsx",
-                lineNumber: 20,
+                lineNumber: 98,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/components/hero/hero.tsx",
-        lineNumber: 5,
+        lineNumber: 60,
         columnNumber: 5
     }, this);
 }
@@ -165,7 +241,7 @@ const offers = [
 ];
 function Offers() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "md:py-8 md:py-16 bg-gradient-to-b from-gray-50 to-white w-full",
+        className: "md:py-16 bg-gradient-to-b from-gray-50 to-white w-full",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -173,7 +249,7 @@ function Offers() {
                 children: offers.map((offer)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "relative overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "relative h-56 sm:h-64 md:h-80 overflow-hidden",
+                            className: "relative h-56 sm:h-64 md:h-80 overflow-hidden bg-gray-600",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     src: offer.image,
@@ -181,7 +257,9 @@ function Offers() {
                                     fill: true,
                                     className: "object-cover",
                                     sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw",
-                                    priority: true
+                                    priority: true,
+                                    placeholder: "blur",
+                                    blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyOiKhGikpyULBWTIzYtWHbLJ2kZzn7"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/offers/offers.tsx",
                                     lineNumber: 46,
@@ -191,7 +269,7 @@ function Offers() {
                                     className: "absolute inset-0 bg-black/50 w-full h-full hover:bg-black/30 transition-colors duration-300"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/offers/offers.tsx",
-                                    lineNumber: 54,
+                                    lineNumber: 56,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -202,7 +280,7 @@ function Offers() {
                                             children: offer.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/offers/offers.tsx",
-                                            lineNumber: 56,
+                                            lineNumber: 58,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -210,13 +288,13 @@ function Offers() {
                                             children: offer.subtitle
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/offers/offers.tsx",
-                                            lineNumber: 59,
+                                            lineNumber: 61,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/offers/offers.tsx",
-                                    lineNumber: 55,
+                                    lineNumber: 57,
                                     columnNumber: 17
                                 }, this)
                             ]
@@ -589,7 +667,7 @@ function Carousel() {
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "relative h-screen w-full overflow-hidden",
+        className: "relative h-screen w-full overflow-hidden bg-gray-800",
         onMouseEnter: handleMouseEnter,
         onMouseLeave: handleMouseLeave,
         onTouchStart: handleTouchStart,
@@ -599,7 +677,7 @@ function Carousel() {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "relative h-full w-full",
                 children: slides.map((slide, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: `absolute inset-0 transition-opacity duration-500 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"}`,
+                        className: `absolute inset-0 transition-opacity duration-500 ease-in-out bg-gray-700 ${index === currentSlide ? "opacity-100" : "opacity-0"}`,
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                 src: slide.image,
@@ -831,7 +909,7 @@ function Infrastructures() {
                             children: "Nos infrastructures"
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-                            lineNumber: 72,
+                            lineNumber: 70,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -839,7 +917,7 @@ function Infrastructures() {
                             children: "Tous temps"
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-                            lineNumber: 75,
+                            lineNumber: 73,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -848,20 +926,20 @@ function Infrastructures() {
                                 "Pour ses 61 chevaux et  73 poneys, le centre équestre s'est doté d'une écurie de 30 boxes, d'une grande halle accueillant 40 boxes et d'une stabulation pour nos 3 amis camarguais.",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-                                    lineNumber: 83,
+                                    lineNumber: 81,
                                     columnNumber: 13
                                 }, this),
                                 " Le poney club, quant à lui agrandi cette année, regroupe 20 boxes et 3 stabulations regroupées dans un nouveau batiment."
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-                            lineNumber: 78,
+                            lineNumber: 76,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-                    lineNumber: 71,
+                    lineNumber: 69,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -874,7 +952,7 @@ function Infrastructures() {
                                     children: infrastructure.title
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-                                    lineNumber: 92,
+                                    lineNumber: 90,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -882,29 +960,29 @@ function Infrastructures() {
                                     children: infrastructure.description
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-                                    lineNumber: 95,
+                                    lineNumber: 93,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, infrastructure.id, true, {
                             fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-                            lineNumber: 91,
+                            lineNumber: 89,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-                    lineNumber: 89,
+                    lineNumber: 87,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-            lineNumber: 70,
+            lineNumber: 68,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/components/infrastructures/infrastructures.tsx",
-        lineNumber: 66,
+        lineNumber: 64,
         columnNumber: 5
     }, this);
 }
@@ -926,7 +1004,7 @@ function History() {
         className: "w-full bg-white",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden",
+                className: "relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-gray-700",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                         src: "/history.jpg",
@@ -934,7 +1012,9 @@ function History() {
                         fill: true,
                         className: "object-cover object-center",
                         sizes: "100vw",
-                        priority: true
+                        priority: true,
+                        placeholder: "blur",
+                        blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyOiKhGikpyULBWTIzYtWHbLJ2kZzn7"
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/history/history.tsx",
                         lineNumber: 8,
@@ -944,7 +1024,7 @@ function History() {
                         className: "absolute inset-0 bg-black/20"
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/history/history.tsx",
-                        lineNumber: 16,
+                        lineNumber: 18,
                         columnNumber: 9
                     }, this)
                 ]
@@ -966,7 +1046,7 @@ function History() {
                                     children: "Notre histoire"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/history/history.tsx",
-                                    lineNumber: 24,
+                                    lineNumber: 26,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -974,13 +1054,13 @@ function History() {
                                     children: "CLUB BAYARD ÉQUITATION"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/history/history.tsx",
-                                    lineNumber: 27,
+                                    lineNumber: 29,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/components/history/history.tsx",
-                            lineNumber: 23,
+                            lineNumber: 25,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -991,7 +1071,7 @@ function History() {
                                     children: "Le 23 décembre 1946, quelques amis, anciens sous-officiers de cavalerie, fonde le Club Bayard Equitation sous la forme d'une association régie par la loi de 1901. Le CBE compte alors environ 250 cavaliers. Il s'installe pendant 4 ans au Fort-Neuf de Vincennes, qu'il quitte pour s'installer à Joinville, dans les bâtiments et écuries de trotteurs de Monsieur VERCRUYSSE."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/history/history.tsx",
-                                    lineNumber: 34,
+                                    lineNumber: 36,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -999,7 +1079,7 @@ function History() {
                                     children: "Pour compléter son installation et y faire une carrière, le CBE loue un terrain de 630 m2 implanté au dessus de galeries d'anciennes champignonnières, plein de fondrières. Pour le rendre utilisable, il faut les combler avec les pavés abandonnés dans le Bois de Vincennes pour recouvrir le tout par de la terre. Ce sont les cavaliers du Club qui s'en chargeront et à cette époque, et le secrétariat du Syndicat occupe l'un des boxes !"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/history/history.tsx",
-                                    lineNumber: 44,
+                                    lineNumber: 46,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1007,7 +1087,7 @@ function History() {
                                     children: "Les années 1950 seront clé. Au cours de l'année 1951, débutent les négociations avec la Ville de Paris pour obtenir une concession dans le Bois de Vincennes, tandis qu'un petit manège couvert voit le jour en 1955. Le terrain couvert de mâchefer qui se trouve à côté du « Grand rond » d'entraînement des trotteurs, sur le polygone de Vincennes, est utilisé comme carrière. C'est à cet emplacement qu'a été ensuite créé, par la Ville de Paris, la « Carrière Saint Hubert » dont profitent actuellement tous les clubs hippiques jouxtant le Bois de Vincennes."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/history/history.tsx",
-                                    lineNumber: 54,
+                                    lineNumber: 56,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1015,24 +1095,24 @@ function History() {
                                     children: "Grâce à l'appui d'Antoine QUINSON, Député-Maire de Vincennes, le Club Bayard Equitation est accepté comme membre de l'Office Municipal des Sports de la ville. En 1957, la municipalité lui met à disposition sa carrière actuelle dans le Parc Municipal des Sports de la Ville de Vincennes."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/history/history.tsx",
-                                    lineNumber: 67,
+                                    lineNumber: 69,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/components/history/history.tsx",
-                            lineNumber: 33,
+                            lineNumber: 35,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/components/history/history.tsx",
-                    lineNumber: 21,
+                    lineNumber: 23,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/components/history/history.tsx",
-                lineNumber: 20,
+                lineNumber: 22,
                 columnNumber: 7
             }, this)
         ]

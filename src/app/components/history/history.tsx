@@ -4,7 +4,7 @@ export default function History() {
   return (
     <section id="history" className="w-full bg-white">
       {/* Hero Image */}
-      <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+      <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-gray-700">
         <Image
           src="/history.jpg"
           alt="Cheval du Club Bayard"
@@ -12,6 +12,8 @@ export default function History() {
           className="object-cover object-center"
           sizes="100vw"
           priority
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyOiKhGikpyULBWTIzYtWHbLJ2kZzn7"
         />
         <div className="absolute inset-0 bg-black/20" />
       </div>

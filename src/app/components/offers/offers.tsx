@@ -34,7 +34,7 @@ const offers: OfferItem[] = [
 
 export default function Offers() {
   return (
-    <section className="md:py-8 md:py-16 bg-gradient-to-b from-gray-50 to-white w-full">
+    <section className="md:py-16 bg-gradient-to-b from-gray-50 to-white w-full">
       <div className="">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-0 relative">
           {offers.map((offer) => (
@@ -42,7 +42,7 @@ export default function Offers() {
               key={offer.id}
               className="relative overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="relative h-56 sm:h-64 md:h-80 overflow-hidden">
+              <div className="relative h-56 sm:h-64 md:h-80 overflow-hidden bg-gray-600">
                 <Image
                   src={offer.image}
                   alt={offer.alt}
@@ -50,6 +50,8 @@ export default function Offers() {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                   priority
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyOiKhGikpyULBWTIzYtWHbLJ2kZzn7"
                 />
                 <div className="absolute inset-0 bg-black/50 w-full h-full hover:bg-black/30 transition-colors duration-300" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-4 md:p-6 text-center">

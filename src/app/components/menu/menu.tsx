@@ -121,7 +121,7 @@ export default function Menu() {
 
   return (
     <header
-      className={`fixed bg-black top-0 left-0 right-0 z-50 border-b border-white/10 transition-transform duration-300 ease-in-out ${
+      className={`fixed bg-[#090E16] top-0 left-0 right-0 z-50  transition-transform duration-300 ease-in-out ${
         isVisible ? "transform translate-y-0" : "transform -translate-y-full"
       }`}
     >
