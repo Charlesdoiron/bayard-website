@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://club-bayard.fr/sitemap.xml
+
+# Disallow common irrelevant paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /.well-known/
+
+# Allow crawling of images
+User-agent: Googlebot-Image
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.gif
+Allow: *.svg
+Allow: *.webp
+
+# Crawl-delay for bots (optional)
+User-agent: *
+Crawl-delay: 1

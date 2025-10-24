@@ -10,6 +10,8 @@ import History from "./components/history/history";
 import Infos from "./components/infos/infos";
 import Newsletter from "./components/newsletter/newsletter";
 import Map from "./components/map/map";
+import Competition from "./components/competition/competition";
+import Restaurant from "./components/restaurant/restaurant";
 
 export default function Home() {
   return (
@@ -18,8 +20,10 @@ export default function Home() {
       <Video />
       <Offers />
       <Activities />
+      <Competition />
       <Carousel />
       <Infrastructures />
+      <Restaurant />
       <History />
       <Infos />
       <Newsletter />

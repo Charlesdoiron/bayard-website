@@ -19,7 +19,7 @@ export default function History() {
       </div>
 
       {/* Content Section */}
-      <div className="py-16 md:py-20 lg:py-24 px-8 md:px-16 lg:px-32 bg-gray-50">
+      <div className="py-16 md:py-20 lg:py-24 px-8 md:px-16 lg:px-32">
         <div className="max-w-4xl mx-auto">
           {/* Title */}
           <div className="text-center mb-12 md:mb-16">

@@ -33,7 +33,7 @@ export default function Activities() {
           <div className="space-y-3 md:space-y-6 px-2 md:px-0">
             <div>
               <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-2">
-                Approche individuelle
+                L&apos; école d&apos;équitation
               </p>
               <h3 className="text-xl md:text-3xl lg:text-4xl text-gray-900 font-bold">
                 Des cours réguliers tout la semaine
@@ -41,15 +41,16 @@ export default function Activities() {
             </div>
 
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              Les cours réguliers s&apos;adressent à toutes celles et ceux qui
-              souhaitent progresser de manière continue et durable. Pensés comme
-              un accompagnement individuel, ces cours permettent d&apos;établir
-              une relation pédagogique forte, d&apos;adapter les contenus aux
-              besoins spécifiques de chaque élève et de suivre les progrès sur
-              le long terme. Le programme est structuré sur l&apos;année
-              scolaire, avec un rythme hebdomadaire ou bimensuel selon les
-              objectifs de chacun. C&apos;est l&apos;option idéale pour les
-              personnes désireuses de s&apos;engager dans une pratique
+              Tous les jours de la semaine, toute l’année, de nombreuses
+              reprises sont programmées, allant du débutant jusqu’à la
+              compétition, tant à poney qu’à cheval. Pensés comme un
+              accompagnement individuel, ces cours collectifs permettent
+              d&apos;établir une relation pédagogique forte, d&apos;adapter les
+              contenus aux besoins spécifiques de chaque élève et de suivre les
+              progrès sur le long terme. Le programme est structuré sur
+              l&apos;année scolaire, avec un rythme hebdomadaire ou bimensuel
+              selon les objectifs de chacun. C&apos;est l&apos;option idéale
+              pour les personnes désireuses de s&apos;engager dans une pratique
               approfondie, régulière et structurée.
             </p>
           </div>
@@ -74,7 +75,7 @@ export default function Activities() {
                 Coaching intensif
               </p>
               <h3 className="text-xl md:text-3xl lg:text-4xl text-gray-900 font-bold">
-                Des stages intensifs pendant les vacances
+                Des stages de tous niveaux pendant les vacances
               </h3>
             </div>
 
@@ -126,6 +127,67 @@ export default function Activities() {
               Galop ou préparer un concours, l&apos;objectif est d&apos;aborder
               l&apos;évaluation avec confiance et sérénité, en s&apos;appuyant
               sur une préparation rigoureuse et progressive.
+            </p>
+          </div>
+        </div>
+        <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
+          {/* Content Section */}
+          <div className="space-y-3 md:space-y-6 px-2 md:px-0">
+            <div>
+              <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-2">
+                Initiation
+              </p>
+              <h3 className="text-xl md:text-3xl lg:text-4xl text-gray-900 font-bold">
+                Baptème de poney
+              </h3>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+              Afin de découvrir l’équitation, dès 2ans, nous organisons des
+              séances d’initiation certains dimanches après-midi.
+            </p>
+          </div>
+          {/* Image Section */}
+          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden ">
+            <Image
+              src="/activity_4.jpg"
+              alt="Baptème de poney"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+          </div>
+        </div>
+        <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
+          {/* Image Section */}
+          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden ">
+            <Image
+              src="/activity_5.jpg"
+              alt="Animations"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+          </div>
+
+          {/* Content Section */}
+          <div className="space-y-3 md:space-y-6 px-2 md:px-0">
+            <div>
+              <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-2">
+                Animations
+              </p>
+              <h3 className="text-xl md:text-3xl lg:text-4xl text-gray-900 font-bold">
+                Animations
+              </h3>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+              Le dimanche après-midi et certains jours fériés, nous proposons
+              des animations permettant de découvrir de nombreuses disciplines :
+              Hunter, saut, dressage, cross, equifun, éthologie, travail à pied
+              …
             </p>
           </div>
         </div>

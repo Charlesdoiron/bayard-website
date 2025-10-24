@@ -119,7 +119,7 @@ export default function Carousel() {
             <div className="absolute inset-0 bg-black/40" />
 
             {/* Content */}
-            <div className="absolute bg-gradient-to-t from-black/80 to-transparent bottom-0 w-full">
+            {/* <div className="absolute bg-gradient-to-t from-black/80 to-transparent bottom-0 w-full">
               <div className="flex items-center justify-between p-4 md:p-8 flex-col md:flex-row gap-4 md:gap-8">
                 <h1 className="text-3xl md:mb-16  max-w-2xl  lg:text-4xl text-white leading-tight text-left md:w-2/3 lg:w-1/2 font-bold">
                   {slide.title}
@@ -132,7 +132,7 @@ export default function Carousel() {
                   {slide.buttonText}
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
