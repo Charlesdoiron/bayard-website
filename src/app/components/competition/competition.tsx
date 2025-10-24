@@ -9,18 +9,23 @@ export default function Competition() {
           <div className="flex flex-col items-center text-center">
             <h2
               id="details-heading"
-              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+              className="text-3xl font-bold tracking-tight text-[#005896] sm:text-4xl"
             >
               La compétition
             </h2>
             <p className="mt-3 max-w-3xl text-lg text-gray-600">
               Le CBE dispose à cheval comme à poney de plusieurs équipes
-              compétition :
+              compétition : Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor
+              sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Quisquam, quos.
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-8">
-            <div>
+          <div className="mt-16 grid grid-cols-1 gap-y-16 ">
+            {/* <div>
               <Image
                 width={1000}
                 height={1000}
@@ -31,7 +36,7 @@ export default function Competition() {
               <p className="mt-8 text-base text-gray-500">
                 À poney : CCE, Equifun, Hunter, Pony Games
               </p>
-            </div>
+            </div> */}
             <div>
               <Image
                 width={1000}
@@ -41,7 +46,12 @@ export default function Competition() {
                 className="aspect-3/2 w-full rounded-lg object-cover"
               />
               <p className="mt-8 text-base text-gray-500">
-                À cheval : CCE, Dressage, Hunter.
+                À cheval : CCE, Dressage, Hunter. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Quisquam, quos. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam, quos.
               </p>
             </div>
           </div>

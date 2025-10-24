@@ -23,7 +23,7 @@ export default function History() {
         <div className="max-w-4xl mx-auto">
           {/* Title */}
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold tracking-tight text-[#005896] sm:text-4xl">
               Notre histoire
             </h2>
             <p className="text-sm md:text-base uppercase tracking-widest text-gray-600">

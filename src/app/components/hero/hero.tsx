@@ -77,24 +77,13 @@ export default function Hero() {
 
       {/* Background overlay for better text readability */}
       <motion.div
-        className="absolute inset-0 bg-black/30 z-10"
+        className="absolute inset-0 bg-black/60 z-10"
         variants={fadeInVariants}
       />
 
-      <motion.p
-        className="text-xl md:text-2xl lg:text-3xl text-white relative z-20"
-        variants={slideUpVariants}
-      >
-        Centre équestre
-      </motion.p>
-
-      <motion.h1
-        className="text-4xl md:text-6xl lg:text-8xl font-bold text-white relative z-20"
-        variants={slideUpVariants}
-      >
-        Club Bayard
-      </motion.h1>
-
+      <h1 className="text-xl md:text-6xl lg:text-8xl font-bold text-white relative z-20">
+        Montez à cheval <br /> au cœur de Paris
+      </h1>
       <motion.div className="relative z-20 mt-8" variants={bounceInVariants}>
         <Image src="/arrow.svg" alt="arrow" width={32} height={50} />
       </motion.div>

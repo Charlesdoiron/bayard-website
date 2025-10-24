@@ -36,10 +36,7 @@ export default function Infos() {
       <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-32">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-4">
-            INFORMATIONS
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl text-gray-900 font-light">
+          <h2 className="text-3xl font-bold tracking-tight text-[#005896] sm:text-4xl">
             Informations Pratiques
           </h2>
         </div>

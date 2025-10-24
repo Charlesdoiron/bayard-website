@@ -11,33 +11,32 @@ export default function Map() {
       {/* Contact Information */}
       <div className="bg-white py-8 px-4 sm:py-12 sm:px-6 md:px-8 lg:px-12 w-full lg:w-1/3">
         <div className="max-w-2xl lg:max-w-6xl mx-auto text-left">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-4 tracking-wide text-gray-900">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold  tracking-wide text-gray-900">
             Club Bayard Equitation
           </h2>
-          <div className="text-sm sm:text-base leading-relaxed text-gray-700 space-y-3 sm:space-y-2">
+          <div className="text-sm sm:text-base leading-relaxed text-gray-700  sm:space-y-2">
             <p>
-              <span className="font-medium text-gray-900">Siège social :</span>{" "}
-              Mairie de Vincennes
+              <span className="font-medium text-gray-900"></span>
+              <br />
+              <span className="font-medium text-gray-900">Adresse:</span>
+              <p className="text-[#005896]"> Avenue du Polygone 75012 PARIS</p>
             </p>
             <p>
-              <span className="font-medium text-gray-900">
-                Adresse courrier :
-              </span>{" "}
-              BP 153 – 94305 Vincennes Cedex
-            </p>
-            <p>
-              <span className="font-medium text-gray-900">
-                CENTRE EQUESTRE BAYARD / UCPA
-              </span>{" "}
-              - Avenue du Polygone 75012 PARIS
-            </p>
-            <p>
-              <span className="font-medium text-gray-900">Tél:</span>{" "}
+              <span className="font-medium text-gray-900">Tél:</span>
               <a
                 href="tel:+33143654687"
-                className="hover:text-blue-600 transition-colors duration-200 sm:hover:underline"
+                className="text-[#005896] transition-colors duration-200 "
               >
                 01 43 65 46 87
+              </a>
+            </p>
+            <p>
+              <span className="font-medium text-gray-900">Email :</span>{" "}
+              <a
+                href="mailto:infos@clubbayard.com"
+                className="text-[#005896] transition-colors duration-200 "
+              >
+                infos@clubbayard.com
               </a>
             </p>
           </div>

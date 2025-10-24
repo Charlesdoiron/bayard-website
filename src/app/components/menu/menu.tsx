@@ -121,7 +121,7 @@ export default function Menu() {
 
   return (
     <header
-      className={`fixed bg-[#090E16] top-0 left-0 right-0 z-50  transition-transform duration-300 ease-in-out ${
+      className={`fixed bg-white top-0 left-0 right-0 z-50  transition-transform duration-300 ease-in-out ${
         isVisible ? "transform translate-y-0" : "transform -translate-y-full"
       }`}
     >
@@ -132,14 +132,7 @@ export default function Menu() {
         <div className="flex-shrink-0">
           <Link href="/" className="block p-2 -m-2">
             <div className="relative">
-              <Image
-                src="/logo.svg"
-                alt="Globe icon"
-                width={60}
-                height={60}
-                className="filter brightness-0 invert"
-              />
-              <div className="absolute inset-0 bg-white/20 rounded-full blur-sm -z-10" />
+              <Image src="/logo.svg" alt="Globe icon" width={60} height={60} />
             </div>
           </Link>
         </div>
@@ -150,7 +143,7 @@ export default function Menu() {
             <div key={item.label}>
               <Link
                 href={item.href}
-                className="relative group px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-white/90 hover:text-white whitespace-nowrap"
+                className="relative group px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-[#005896] hover:text-[#005896] whitespace-nowrap"
               >
                 <span className="relative z-10 uppercase tracking-wide">
                   {item.label}
@@ -169,10 +162,10 @@ export default function Menu() {
         {/* Mobile Menu Button */}
         <button
           onClick={handleMobileMenuToggle}
-          className="lg:hidden p-2 text-white/90 hover:text-white mobile-menu-container"
+          className="lg:hidden p-2 text-black hover:text-black mobile-menu-container"
           aria-label="Toggle mobile menu"
         >
-          <div className="w-6 h-6 flex flex-col justify-center items-center space-y-1">
+          <div className="w-6 h-6 flex flex-col justify-center items-center space-y-1 cursor-pointer">
             <div
               className={`w-full h-0.5 bg-current rounded-full transition-all duration-300 ${
                 isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""

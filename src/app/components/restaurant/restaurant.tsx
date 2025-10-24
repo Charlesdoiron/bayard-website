@@ -41,26 +41,21 @@ export default function Example() {
       <div className="mx-auto max-w-7xl px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="order-2 lg:order-1">
-            <h1 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
-              Notre restaurant
-            </h1>
+            <h2 className="text-3xl font-bold tracking-tight text-[#005896] sm:text-4xl">
+              Le club house
+            </h2>
+
             <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
-              Découvrez notre restaurant au cœur du centre équestre, proposant
+              Découvrez notre club house au cœur du centre équestre, proposant
               une cuisine variée, des boissons rafraîchissantes et une grande
               terrasse pour profiter pleinement de votre visite.
             </p>
             <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-              Notre restaurant vous accueille dans une ambiance chaleureuse et
-              conviviale. Nous proposons une carte variée avec des plats
-              traditionnels et des spécialités locales, préparés avec des
+              Notre club house vous accueille dans une ambiance chaleureuse et
+              conviviale. Nous proposons une carte variée, préparés avec des
               ingrédients frais et de qualité.
             </p>
-            <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-              Que ce soit pour un déjeuner entre amis, un dîner en famille ou
-              simplement pour vous désaltérer après une activité équestre, notre
-              équipe vous propose une sélection de boissons et d&apos;apéritifs
-              pour tous les goûts.
-            </p>
+
             <h2 className="mt-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Grande terrasse ensoleillée
             </h2>

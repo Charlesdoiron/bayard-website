@@ -8,7 +8,7 @@ export default function Activities() {
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl text-center font-bold">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl text-center font-bold text-[#005896]">
             Nos activités
           </h2>
           <h3 className="text-xs md:text-sm text-center uppercase tracking-widest text-gray-600 mt-2">
@@ -53,6 +53,13 @@ export default function Activities() {
               pour les personnes désireuses de s&apos;engager dans une pratique
               approfondie, régulière et structurée.
             </p>
+            <a
+              href="https://www.ucpa.com/centres-sportifs/bayard-vincennes/planning-tarifs"
+              target="_blank"
+              className=" mt-8 text-[#005896] hover:font-bold"
+            >
+              Découvrez nos horaires et tarifs →
+            </a>
           </div>
         </div>
         <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
@@ -75,22 +82,26 @@ export default function Activities() {
                 Coaching intensif
               </p>
               <h3 className="text-xl md:text-3xl lg:text-4xl text-gray-900 font-bold">
-                Des stages de tous niveaux pendant les vacances
+                Des stages de tous niveaux
               </h3>
             </div>
 
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              Les stages intensifs offrent une immersion complète sur une courte
-              période, idéale pour consolider ses acquis, débloquer une
-              difficulté ou découvrir de nouvelles approches. Organisés durant
-              les vacances scolaires, ces stages s&apos;adaptent aux besoins et
-              aux niveaux de chacun, en proposant un encadrement individuel et
-              un programme sur mesure. Que ce soit pour préparer une échéance,
-              explorer une nouvelle discipline ou simplement se perfectionner,
-              chaque stage est conçu comme un accélérateur de progrès. Un format
+              Les stages intensifs pendant les vacances offrent une immersion
+              complète sur une courte période, idéale pour consolider ses
+              acquis, débloquer une difficulté ou découvrir de nouvelles
+              approches. Organisés durant les vacances scolaires, ces stages
+              s&apos;adaptent aux besoins et aux niveaux de chacun. Un format
               idéal pour avancer efficacement tout en profitant de son temps
               libre.
             </p>
+            <a
+              href="https://www.ucpa.com/centres-sportifs/bayard-vincennes/stages"
+              target="_blank"
+              className=" mt-8 text-[#005896] hover:font-bold"
+            >
+              Découvrez nos stages →
+            </a>
           </div>
         </div>
         <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
@@ -98,7 +109,7 @@ export default function Activities() {
           <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden ">
             <Image
               src="/activity_3.jpg"
-              alt="Évaluation et examens fédéraux d'équitation"
+              alt="Examens fédéraux d'équitation"
               fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
@@ -113,20 +124,15 @@ export default function Activities() {
                 Parcours certifiant
               </p>
               <h3 className="text-xl md:text-3xl lg:text-4xl text-gray-900 font-bold">
-                Evaluation & examens fédéraux
+                Examens fédéraux
               </h3>
             </div>
 
-            <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              Les évaluations fédérales sont une étape clé dans la progression
-              du cavalier. Elles permettent de valider les compétences acquises
-              tout au long de l&apos;année et d&apos;obtenir une reconnaissance
-              officielle. Nous accompagnons chaque élève dans la préparation de
-              ces examens avec un suivi individualisé, des mises en situation,
-              et des contenus adaptés au niveau visé. Que ce soit pour passer un
-              Galop ou préparer un concours, l&apos;objectif est d&apos;aborder
-              l&apos;évaluation avec confiance et sérénité, en s&apos;appuyant
-              sur une préparation rigoureuse et progressive.
+            <p className="text-gray-700 leading-relaxed text-md md:text-base">
+              Les examens fédéraux sont une étape clé dans la progression du
+              cavalier. Ils permettent de valider les compétences acquises tout
+              au long de l&apos;année et d&apos;obtenir une reconnaissance
+              officielle.
             </p>
           </div>
         </div>
@@ -135,17 +141,28 @@ export default function Activities() {
           <div className="space-y-3 md:space-y-6 px-2 md:px-0">
             <div>
               <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-2">
-                Initiation
+                Découverte
               </p>
               <h3 className="text-xl md:text-3xl lg:text-4xl text-gray-900 font-bold">
-                Baptème de poney
+                Baptème à poney & initiation à cheval
               </h3>
             </div>
 
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
               Afin de découvrir l’équitation, dès 2ans, nous organisons des
-              séances d’initiation certains dimanches après-midi.
+              séances d’initiation certains dimanches après-midi. Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem
+              ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+              quos.
             </p>
+            <a
+              href="#"
+              target="_blank"
+              className=" mt-8 text-[#005896] hover:font-bold "
+            >
+              Découvrir nos séances d&apos;initiation →
+            </a>
           </div>
           {/* Image Section */}
           <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden ">
@@ -176,7 +193,7 @@ export default function Activities() {
           <div className="space-y-3 md:space-y-6 px-2 md:px-0">
             <div>
               <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-2">
-                Animations
+                Perfectionnement
               </p>
               <h3 className="text-xl md:text-3xl lg:text-4xl text-gray-900 font-bold">
                 Animations
@@ -189,6 +206,13 @@ export default function Activities() {
               Hunter, saut, dressage, cross, equifun, éthologie, travail à pied
               …
             </p>
+            <a
+              href="#"
+              target="_blank"
+              className=" mt-8 text-[#005896] hover:font-bold"
+            >
+              Découvrir nos animations →
+            </a>
           </div>
         </div>
       </div>

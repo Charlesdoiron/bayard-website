@@ -62,9 +62,9 @@ export const SITE_CONFIG = {
 
     // Social Media
     social: {
-      facebook: "https://facebook.com/clubbayard", // Replace with actual URLs
-      instagram: "https://instagram.com/clubbayard",
-      twitter: "@clubbayard", // Replace with actual handle
+      facebook: "https://www.facebook.com/clubbayardequitation", // Replace with actual URLs
+      instagram: "https://www.instagram.com/clubbayardequitation/",
+      twitter: "clubbayardequitation", // Replace with actual handle
     },
   },
 
