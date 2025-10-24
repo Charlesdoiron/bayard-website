@@ -4,10 +4,10 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'tailwindcss.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "tailwindcss.com",
+        port: "",
+        pathname: "/**",
       },
     ],
   },
