@@ -134,8 +134,19 @@ export default function Activities() {
           </div>
         </div>
         <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
+          {/* Image Section */}
+          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden lg:order-2">
+            <Image
+              src="/activity_4.jpg"
+              alt="Baptème de poney"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+          </div>
           {/* Content Section */}
-          <div className="space-y-3 md:space-y-6 px-2 md:px-0">
+          <div className="space-y-3 md:space-y-6 px-2 md:px-0 lg:order-1">
             <div>
               <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-2">
                 Découverte
@@ -160,17 +171,6 @@ export default function Activities() {
             >
               Découvrir nos séances d&apos;initiation →
             </a>
-          </div>
-          {/* Image Section */}
-          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden ">
-            <Image
-              src="/activity_4.jpg"
-              alt="Baptème de poney"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
-              priority
-            />
           </div>
         </div>
         <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">

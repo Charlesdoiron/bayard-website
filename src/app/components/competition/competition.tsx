@@ -50,12 +50,12 @@ export default function Competition() {
                   src={competitionImages[currentImageIndex]}
                   className="aspect-3/2 w-full rounded-lg object-cover transition-opacity duration-500"
                 />
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <div className="hidden md:flex absolute bottom-4 left-1/2 transform -translate-x-1/2 space-x-1.5 sm:space-x-2">
                   {competitionImages.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                      className={`w-1 h-1 sm:w-2 sm:h-2 rounded-full transition-colors duration-200 ${
                         index === currentImageIndex ? "bg-white" : "bg-white/50"
                       }`}
                     />

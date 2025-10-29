@@ -67,7 +67,7 @@ export default function Hero() {
         variants={fadeInVariants}
       />
 
-      <h1 className="text-xl md:text-6xl lg:text-8xl font-bold tracking-tight text-center mx-auto text-white relative z-20">
+      <h1 className=" md:text-8xl text-5xl  font-bold tracking-tight text-center mx-auto text-white relative z-20">
         Montez à cheval <br /> au cœur de Paris
       </h1>
       <motion.div
