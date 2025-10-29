@@ -33,25 +33,23 @@ export default function Activities() {
           <div className="space-y-3 md:space-y-6 px-2 md:px-0">
             <div>
               <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-2">
-                L&apos; école d&apos;équitation
+                L&apos;école d&apos;équitation
               </p>
               <h3 className="text-xl md:text-3xl lg:text-4xl text-gray-900 font-bold">
-                Des cours réguliers tout la semaine
+                Des cours réguliers toute la semaine
               </h3>
             </div>
 
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              Tous les jours de la semaine, toute l’année, de nombreuses
-              reprises sont programmées, allant du débutant jusqu’à la
-              compétition, tant à poney qu’à cheval. Pensés comme un
-              accompagnement individuel, ces cours collectifs permettent
-              d&apos;établir une relation pédagogique forte, d&apos;adapter les
-              contenus aux besoins spécifiques de chaque élève et de suivre les
-              progrès sur le long terme. Le programme est structuré sur
-              l&apos;année scolaire, avec un rythme hebdomadaire ou bimensuel
-              selon les objectifs de chacun. C&apos;est l&apos;option idéale
-              pour les personnes désireuses de s&apos;engager dans une pratique
-              approfondie, régulière et structurée.
+              Tous les jours de la semaine et structuré sur l&apos;année
+              scolaire, de nombreuses reprises pour tous niveaux sont
+              programmées, allant du débutant jusqu&apos;à la compétition, tant
+              à poney qu&apos;à cheval. Pensé comme un accompagnement
+              individuel, ces cours collectifs permettent d&apos;établir une
+              relation pédagogique forte, d&apos;adapter les contenus aux
+              besoins spécifiques et de suivre les progrès sur le long terme.
+              C&apos;est l&apos;option idéale pour les personnes désireuses de
+              s&apos;engager dans une pratique régulière et structurée.
             </p>
             <a
               href="https://www.ucpa.com/centres-sportifs/bayard-vincennes/planning-tarifs"
@@ -67,7 +65,7 @@ export default function Activities() {
           <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden  lg:order-2">
             <Image
               src="/activity_2.jpg"
-              alt="Stages intensifs d'équitation"
+              alt="Stages d'équitation"
               fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
@@ -87,13 +85,12 @@ export default function Activities() {
             </div>
 
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              Les stages intensifs pendant les vacances offrent une immersion
-              complète sur une courte période, idéale pour consolider ses
-              acquis, débloquer une difficulté ou découvrir de nouvelles
-              approches. Organisés durant les vacances scolaires, ces stages
-              s&apos;adaptent aux besoins et aux niveaux de chacun. Un format
-              idéal pour avancer efficacement tout en profitant de son temps
-              libre.
+              Les stages pendant les vacances offrent une immersion complète sur
+              une courte période, idéale pour consolider ses acquis, débloquer
+              une difficulté ou découvrir de nouvelles approches. Organisés
+              durant les vacances scolaires, ces stages s&apos;adaptent aux
+              besoins et aux niveaux de chacun. Un format idéal pour avancer
+              efficacement tout en profitant de son temps libre.
             </p>
             <a
               href="https://www.ucpa.com/centres-sportifs/bayard-vincennes/stages"
@@ -149,12 +146,12 @@ export default function Activities() {
             </div>
 
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              Afin de découvrir l’équitation, dès 2ans, nous organisons des
-              séances d’initiation certains dimanches après-midi. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem
+              Afin de découvrir l&apos;équitation, dès 2ans, nous organisons des
+              séances d&apos;initiation certains dimanches après-midi. Lorem
               ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
+              quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Quisquam, quos.
             </p>
             <a
               href="#"

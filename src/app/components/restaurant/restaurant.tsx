@@ -46,14 +46,10 @@ export default function Example() {
             </h2>
 
             <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
-              Découvrez notre club house au cœur du centre équestre, proposant
-              une cuisine variée, des boissons rafraîchissantes et une grande
-              terrasse pour profiter pleinement de votre visite.
-            </p>
-            <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-              Notre club house vous accueille dans une ambiance chaleureuse et
-              conviviale. Nous proposons une carte variée, préparés avec des
-              ingrédients frais et de qualité.
+              Notre club house est installé au cœur du centre équestre, il vous
+              accueille dans une ambiance chaleureuse et conviviale. Nous
+              proposons une carte variée, préparée avec des produits frais et de
+              qualités.
             </p>
 
             <h2 className="mt-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

@@ -6,29 +6,44 @@ import { useState, useEffect } from "react";
 interface CarouselSlide {
   id: number;
   image: string;
-  title: string;
-  buttonText: string;
-  buttonAction?: () => void;
 }
 
 const slides: CarouselSlide[] = [
   {
     id: 1,
-    image: "/slide_1.jpg",
-    title: "Concours et rendez-vous sportifs tout au long de l'année",
-    buttonText: "DÉCOUVRIR NOS DISCIPLINES",
+    image: "/infr_1.jpg",
   },
   {
     id: 2,
-    image: "/slide_1.jpg",
-    title: "Nos stages intensifs d'équitation tout au long de l'année",
-    buttonText: "DÉCOUVRIR NOS STAGES",
+    image: "/infr_2.jpg",
   },
   {
     id: 3,
-    image: "/slide_1.jpg",
-    title: "Nos infrastructures et nos équipements de qualité",
-    buttonText: "DÉCOUVRIR NOS INFRASTRUCTURES",
+    image: "/infr_3.jpg",
+  },
+  {
+    id: 4,
+    image: "/infr_4.jpg",
+  },
+  {
+    id: 5,
+    image: "/infr_5.jpg",
+  },
+  {
+    id: 6,
+    image: "/infr_6.jpg",
+  },
+  {
+    id: 7,
+    image: "/infr_7.jpg",
+  },
+  {
+    id: 8,
+    image: "/infr_8.jpg",
+  },
+  {
+    id: 9,
+    image: "/infr_9.jpg",
   },
 ];
 
@@ -108,31 +123,12 @@ export default function Carousel() {
             {/* Background Image */}
             <Image
               src={slide.image}
-              alt={slide.title}
+              alt="Carousel slide"
               fill
               className="object-cover"
               priority={index === 0}
               sizes="100vw"
             />
-
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/40" />
-
-            {/* Content */}
-            {/* <div className="absolute bg-gradient-to-t from-black/80 to-transparent bottom-0 w-full">
-              <div className="flex items-center justify-between p-4 md:p-8 flex-col md:flex-row gap-4 md:gap-8">
-                <h1 className="text-3xl md:mb-16  max-w-2xl  lg:text-4xl text-white leading-tight text-left md:w-2/3 lg:w-1/2 font-bold">
-                  {slide.title}
-                </h1>
-
-                <button
-                  onClick={slide.buttonAction}
-                  className="bg-white mb-16 text-black px-6 py-3 md:px-8 md:py-3 text-xs md:text-sm cursor-pointer tracking-wider uppercase hover:bg-gray-100 transition-colors duration-200 whitespace-nowrap min-h-[44px] "
-                >
-                  {slide.buttonText}
-                </button>
-              </div>
-            </div> */}
           </div>
         ))}
       </div>
