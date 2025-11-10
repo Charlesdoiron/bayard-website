@@ -101,7 +101,7 @@ export default function Example() {
               height={1000}
               alt=""
               src="/restaurant.jpg"
-              className="w-full rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 dark:bg-gray-800 dark:ring-white/10"
+              className="w-full  bg-gray-900 shadow-xl ring-1 ring-gray-400/10 dark:bg-gray-800 dark:ring-white/10"
             />
           </div>
         </div>

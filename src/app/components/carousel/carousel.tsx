@@ -104,7 +104,7 @@ export default function Carousel() {
 
   return (
     <section
-      className="relative h-screen w-full overflow-hidden bg-gray-800"
+      className="relative h-screen md:mx-[300px] mx-auto overflow-hidden max-h-[70vh] bg-gray-800"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
@@ -176,28 +176,6 @@ export default function Carousel() {
             </svg>
           </button>
         </>
-      )}
-
-      {/* Slide Indicators */}
-      {slides.length > 1 && (
-        <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-3 md:space-x-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className="p-2 min-h-[44px] min-w-[44px] md:p-1 md:min-h-0 md:min-w-0 flex items-center justify-center transition-colors duration-200"
-              aria-label={`Go to slide ${index + 1}`}
-            >
-              <span
-                className={`w-3 h-3 md:w-2 md:h-2 rounded-full transition-colors duration-200 ${
-                  index === currentSlide
-                    ? "bg-white"
-                    : "bg-white/50 hover:bg-white/70"
-                }`}
-              />
-            </button>
-          ))}
-        </div>
       )}
     </section>
   );
