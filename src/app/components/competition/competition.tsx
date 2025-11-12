@@ -24,7 +24,7 @@ const competitionItems: CompetitionItem[] = [
     title: "HUNTER",
     description:
       "Le hunter consiste à enchaîner un parcours d'obstacles avec la plus grande harmonie possible. C'est une discipline idéale pour former les cavaliers, mais aussi les poneys et chevaux, de manière ludique et pédagogique.",
-    images: ["/hunter.jpg"],
+    images: ["/hunter.jpg", "/hunter_cheval.jpg"],
   },
 
   {
