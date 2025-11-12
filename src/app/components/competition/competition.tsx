@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { ImageCarousel } from "../carousel/image-carousel";
 
 interface CompetitionItem {
   title: string;
   description: string;
-  image: string;
+  images: string[];
 }
 
 const competitionItems: CompetitionItem[] = [
@@ -11,32 +12,32 @@ const competitionItems: CompetitionItem[] = [
     title: "CCE",
     description:
       "Le Concours Complet d'Equitation consiste à enchaîner 3 tests : le dressage, le saut d'obstacles et le cross. Le dressage consiste à faire évoluer les chevaux afin de montrer l'élégance de leurs mouvements et leur facilité d'emploi. Le saut d'obstacles consiste à enchaîner un parcours d'obstacles mobiles sans faute. Le cross consiste à galoper en terrain varié, prairie, sous-bois, chemins, montées, descentes et franchir des obstacles dont la construction évoque des situations naturelles : tronc d'arbres, barrières, contre haut, contre bas, passage de route ou gué.",
-    image: "/compet_1.jpg",
+    images: ["/cce_cheval.jpg", "/cce_poney.jpg", "/cce_shet.jpg"],
   },
   {
     title: "DRESSAGE",
     description:
       "Le dressage consiste à faire évoluer les chevaux afin de montrer l'élégance de leurs mouvements et leur facilité d'emploi. Les reprises sont composées de mouvements classiques et de figures imposées ou libres, le cheval évoluant dans les différentes allures.",
-    image: "/compet_2.jpg",
+    images: ["/compet_2.jpg", "/dressage_shet.jpg"],
   },
   {
     title: "HUNTER",
     description:
       "Le hunter consiste à enchaîner un parcours d'obstacles avec la plus grande harmonie possible. C'est une discipline idéale pour former les cavaliers, mais aussi les poneys et chevaux, de manière ludique et pédagogique.",
-    image: "/compet_3.jpg",
+    images: ["/hunter.jpg"],
   },
 
   {
     title: "Pony-Games",
     description:
       "Sport d'équipe où chacun évolue individuellement, le but est de réaliser un parcours ludique sans erreur le plus rapidement possible : vitesse, habileté motrice et aisance à cheval sont les principales qualités attendues.",
-    image: "/compet_7.jpg",
+    images: ["/compet_7.jpg"],
   },
   {
     title: "Equifun",
     description:
       "L'objectif est de réaliser un parcours composé d'une succession de dispositifs à effectuer au chronomètre : parcours, obstacles, slaloms pour lesquels il faut allier maniabilité, saut, adresse…",
-    image: "/compet_8.jpg",
+    images: ["/compet_8.jpg"],
   },
 ];
 
@@ -54,10 +55,12 @@ export default function Competition() {
             </h2>
             <p className="mt-3 max-w-3xl text-lg text-gray-600">
               Le CBE dispose à cheval comme à poney de plusieurs équipes
-              compétition : DRESSAGE, HUNTER, CCE, EQUIFUN, PONY-GAMES, EQUIFUN.
+              compétition : DRESSAGE, HUNTER, CCE, PONY-GAMES, EQUIFUN.
             </p>
           </div>
-
+          <div className="relative w-full mt-8 md:mt-12 aspect-video overflow-hidden mx-auto">
+            <Image src="/team.jpg" alt="Team" fill className="object-cover" />
+          </div>
           <div className="mt-16 grid grid-cols-1 gap-16 lg:gap-24">
             {competitionItems.map((item) => (
               <div
@@ -65,12 +68,10 @@ export default function Competition() {
                 className="flex flex-col lg:flex-row gap-8 items-center"
               >
                 <div className="w-full lg:w-1/2">
-                  <Image
-                    width={600}
-                    height={400}
+                  <ImageCarousel
+                    images={item.images}
                     alt={item.title}
-                    src={item.image}
-                    className="aspect-3/2 w-full  object-cover"
+                    className="aspect-3/2 w-full"
                   />
                 </div>
                 <div className="w-full lg:w-1/2 space-y-4">

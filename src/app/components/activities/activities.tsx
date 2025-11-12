@@ -41,15 +41,14 @@ export default function Activities() {
             </div>
 
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              Tous les jours de la semaine et structuré sur l&apos;année
-              scolaire, de nombreuses reprises pour tous niveaux sont
-              programmées, allant du débutant jusqu&apos;à la compétition, tant
-              à poney qu&apos;à cheval. Pensé comme un accompagnement
-              individuel, ces cours collectifs permettent d&apos;établir une
-              relation pédagogique forte, d&apos;adapter les contenus aux
-              besoins spécifiques et de suivre les progrès sur le long terme.
-              C&apos;est l&apos;option idéale pour les personnes désireuses de
-              s&apos;engager dans une pratique régulière et structurée.
+              Tous les jours de la semaine de nombreuses reprises pour tous
+              niveaux sont programmées, allant du débutant jusqu&apos;à la
+              compétition, tant à poney qu&apos;à cheval. Pensé comme un
+              accompagnement individuel, ces cours collectifs permettent
+              d&apos;établir une relation pédagogique forte, d&apos;adapter les
+              contenus aux besoins spécifiques et de suivre les progrès sur le
+              long terme. C&apos;est l&apos;option idéale pour les personnes
+              désireuses de s&apos;engager dans une pratique régulière.
             </p>
             <a
               href="https://www.ucpa.com/centres-sportifs/bayard-vincennes/planning-tarifs"
@@ -131,6 +130,13 @@ export default function Activities() {
               au long de l&apos;année et d&apos;obtenir une reconnaissance
               officielle.
             </p>
+            <a
+              href="https://serveur1-ucpa.com/BAYARDASSOC"
+              target="_blank"
+              className=" mt-8 text-[#005896] hover:font-bold"
+            >
+              Découvrez nos examens →
+            </a>
           </div>
         </div>
         <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
@@ -158,14 +164,10 @@ export default function Activities() {
 
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
               Afin de découvrir l&apos;équitation, dès 2ans, nous organisons des
-              séances d&apos;initiation certains dimanches après-midi. Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quisquam, quos.
+              séances d&apos;initiation certains dimanches après-midi.
             </p>
             <a
-              href="#"
+              href="https://serveur1-ucpa.com/BAYARD"
               target="_blank"
               className=" mt-8 text-[#005896] hover:font-bold "
             >
@@ -204,7 +206,7 @@ export default function Activities() {
               …
             </p>
             <a
-              href="#"
+              href="https://serveur1-ucpa.com/BAYARDASSOC"
               target="_blank"
               className=" mt-8 text-[#005896] hover:font-bold"
             >

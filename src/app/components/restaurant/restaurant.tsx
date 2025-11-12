@@ -38,7 +38,7 @@ export default function Example() {
           />
         </svg>
       </div>
-      <div className="mx-auto max-w-7xl px-8">
+      <div className="mx-auto max-w-[1500px] px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="order-2 lg:order-1">
             <h2 className="text-3xl font-bold tracking-tight text-[#005896] sm:text-4xl">
@@ -97,10 +97,10 @@ export default function Example() {
           </div>
           <div className="order-1 lg:order-2">
             <Image
-              width={1000}
+              width={1500}
               height={1000}
               alt=""
-              src="/restaurant.jpg"
+              src="/infr_4.jpg"
               className="w-full  bg-gray-900 shadow-xl ring-1 ring-gray-400/10 dark:bg-gray-800 dark:ring-white/10"
             />
           </div>

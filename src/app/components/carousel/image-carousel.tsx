@@ -3,78 +3,39 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-interface CarouselSlide {
-  id: number;
-  image: string;
+interface ImageCarouselProps {
+  images: string[];
+  alt: string;
+  className?: string;
 }
 
-const slides: CarouselSlide[] = [
-  {
-    id: 1,
-    image: "/infr_1.jpg",
-  },
-  {
-    id: 2,
-    image: "/infr_2.jpg",
-  },
-  {
-    id: 3,
-    image: "/infr_3.jpg",
-  },
-  {
-    id: 4,
-    image: "/infr_4.jpg",
-  },
-  {
-    id: 5,
-    image: "/infr_5.jpg",
-  },
-  {
-    id: 6,
-    image: "/infr_6.jpg",
-  },
-  {
-    id: 7,
-    image: "/infr_7.jpg",
-  },
-  {
-    id: 8,
-    image: "/infr_8.jpg",
-  },
-  {
-    id: 9,
-    image: "/infr_9.jpg",
-  },
-];
-
-export default function Carousel() {
+export function ImageCarousel({ images, alt, className = "" }: ImageCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!isAutoPlay || slides.length <= 1) return;
+    if (!isAutoPlay || images.length <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % images.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlay]);
+  }, [isAutoPlay, images.length]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setCurrentSlide((prev) => (prev + 1) % images.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
   };
 
   const handleMouseEnter = () => setIsAutoPlay(false);
   const handleMouseLeave = () => setIsAutoPlay(true);
 
-  // Touch handling for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
@@ -98,9 +59,11 @@ export default function Carousel() {
     }
   };
 
+  if (images.length === 0) return null;
+
   return (
-    <section
-      className="relative h-screen md:mx-[300px] mx-auto overflow-hidden max-h-[70vh] bg-gray-800"
+    <div
+      className={`relative overflow-hidden ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
@@ -108,37 +71,36 @@ export default function Carousel() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Slides */}
-      <div className="relative h-full w-full">
-        {slides.map((slide, index) => (
+      <div className="relative w-full h-full">
+        {images.map((image, index) => (
           <div
-            key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out bg-gray-700 ${
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
-            {/* Background Image */}
             <Image
-              src={slide.image}
-              alt="Carousel slide"
+              src={image}
+              alt={`${alt} - Image ${index + 1}`}
               fill
               className="object-cover"
               priority={index === 0}
-              sizes="100vw"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
         ))}
       </div>
 
       {/* Navigation Arrows */}
-      {slides.length > 1 && (
+      {images.length > 1 && (
         <>
           <button
             onClick={prevSlide}
-            className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-10 p-3 md:p-2 rounded-full bg-white/20 hover:bg-white/30 group cursor-pointer min-h-[44px] min-w-[44px] md:min-h-0 md:min-w-0 flex items-center justify-center transition-colors duration-200"
-            aria-label="Previous slide"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/20 hover:bg-white/30 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors duration-200"
+            aria-label="Previous image"
           >
             <svg
-              className="w-5 h-5 md:w-6 md:h-6 text-white cursor-pointer"
+              className="w-5 h-5 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -154,11 +116,11 @@ export default function Carousel() {
 
           <button
             onClick={nextSlide}
-            className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-10 p-3 md:p-2 rounded-full bg-white/20 hover:bg-white/30 group min-h-[44px] min-w-[44px] md:min-h-0 md:min-w-0 flex items-center justify-center transition-colors duration-200"
-            aria-label="Next slide"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/20 hover:bg-white/30 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors duration-200"
+            aria-label="Next image"
           >
             <svg
-              className="w-5 h-5 md:w-6 md:h-6 text-white cursor-pointer"
+              className="w-5 h-5 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -171,8 +133,25 @@ export default function Carousel() {
               />
             </svg>
           </button>
+
+          {/* Dots indicator */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2 rounded-full transition-all duration-200 ${
+                  index === currentSlide
+                    ? "w-6 bg-white"
+                    : "w-2 bg-white/50 hover:bg-white/75"
+                }`}
+                aria-label={`Go to image ${index + 1}`}
+              />
+            ))}
+          </div>
         </>
       )}
-    </section>
+    </div>
   );
 }
+

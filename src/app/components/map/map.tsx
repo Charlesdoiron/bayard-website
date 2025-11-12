@@ -15,12 +15,12 @@ export default function Map() {
             Club Bayard Equitation
           </h2>
           <div className="text-sm sm:text-base leading-relaxed text-gray-700  sm:space-y-2">
-            <p>
+            <div>
               <span className="font-medium text-gray-900"></span>
               <br />
               <span className="font-medium text-gray-900">Adresse:</span>
               <p className="text-[#005896]"> Avenue du Polygone 75012 PARIS</p>
-            </p>
+            </div>
             <p>
               <span className="font-medium text-gray-900">Tél:</span>
               <a
