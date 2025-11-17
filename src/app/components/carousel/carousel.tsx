@@ -45,6 +45,30 @@ const slides: CarouselSlide[] = [
     id: 9,
     image: "/infr_9.jpg",
   },
+  {
+    id: 10,
+    image: "/carousel_1.jpeg",
+  },
+  {
+    id: 11,
+    image: "/carousel_2.jpeg",
+  },
+  {
+    id: 12,
+    image: "/carousel_3.jpeg",
+  },
+  {
+    id: 13,
+    image: "/carousel_4.jpeg",
+  },
+  {
+    id: 14,
+    image: "/carousel_5.jpeg",
+  },
+  {
+    id: 15,
+    image: "/carousel_6.jpeg",
+  },
 ];
 
 export default function Carousel() {

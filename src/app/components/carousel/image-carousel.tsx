@@ -9,7 +9,11 @@ interface ImageCarouselProps {
   className?: string;
 }
 
-export function ImageCarousel({ images, alt, className = "" }: ImageCarouselProps) {
+export function ImageCarousel({
+  images,
+  alt,
+  className = "",
+}: ImageCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -133,25 +137,8 @@ export function ImageCarousel({ images, alt, className = "" }: ImageCarouselProp
               />
             </svg>
           </button>
-
-          {/* Dots indicator */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`h-2 rounded-full transition-all duration-200 ${
-                  index === currentSlide
-                    ? "w-6 bg-white"
-                    : "w-2 bg-white/50 hover:bg-white/75"
-                }`}
-                aria-label={`Go to image ${index + 1}`}
-              />
-            ))}
-          </div>
         </>
       )}
     </div>
   );
 }
-
