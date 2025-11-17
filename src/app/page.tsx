@@ -12,10 +12,12 @@ import Newsletter from "./components/newsletter/newsletter";
 import Map from "./components/map/map";
 import Competition from "./components/competition/competition";
 import Restaurant from "./components/restaurant/restaurant";
+import Breadcrumbs from "./components/breadcrumbs/breadcrumbs";
 
 export default function Home() {
   return (
     <div className="font-sans scroll-smooth">
+      <Breadcrumbs items={[]} />
       <Hero />
       <Video />
       <Offers />

@@ -100,6 +100,36 @@ export const SITE_CONFIG = {
     backgroundColor: "#000000",
     tileColor: "#000000",
   },
+
+  // SEO & Verification
+  seo: {
+    // Search Console Verification Codes
+    googleSiteVerification: "", // Add your Google Search Console verification code
+    bingSiteVerification: "", // Add your Bing Webmaster verification code
+    
+    // Additional SEO Settings
+    defaultImage: "/og-image.jpg",
+    twitterHandle: "@clubbayardequitation",
+  },
+
+  // Services offered (for Service schema)
+  services: [
+    {
+      name: "Cours d'équitation",
+      description: "Cours d'équitation pour tous niveaux avec moniteurs diplômés d'état",
+      serviceType: "EquestrianTraining",
+    },
+    {
+      name: "Pension pour chevaux",
+      description: "Pension complète pour chevaux dans un centre équestre moderne",
+      serviceType: "HorseBoarding",
+    },
+    {
+      name: "Compétition",
+      description: "Préparation et participation aux compétitions équestres",
+      serviceType: "EquestrianCompetition",
+    },
+  ],
 } as const;
 
 // Page Metadata

@@ -4,6 +4,7 @@ import "./globals.css";
 import Menu from "@/app/components/menu/menu";
 import Footer from "@/app/components/footer/footer";
 import { SITE_CONFIG } from "@/lib/constants";
+import { generateStructuredDataGraph } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +38,19 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: {
       [SITE_CONFIG.language]: "/",
+      "fr-FR": "/",
+      "fr": "/",
     },
+  },
+  other: {
+    "msapplication-TileColor": SITE_CONFIG.theme.tileColor,
+    "theme-color": SITE_CONFIG.theme.color,
+    ...(SITE_CONFIG.seo.googleSiteVerification && {
+      "google-site-verification": SITE_CONFIG.seo.googleSiteVerification,
+    }),
+    ...(SITE_CONFIG.seo.bingSiteVerification && {
+      "msvalidate.01": SITE_CONFIG.seo.bingSiteVerification,
+    }),
   },
   openGraph: {
     type: "website",
@@ -101,10 +114,6 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
-  other: {
-    "msapplication-TileColor": SITE_CONFIG.theme.tileColor,
-    "theme-color": SITE_CONFIG.theme.color,
-  },
 };
 
 export default function RootLayout({
@@ -112,76 +121,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": `${SITE_CONFIG.url}/#organization`,
-        name: SITE_CONFIG.business.name,
-        alternateName: SITE_CONFIG.business.alternateName,
-        url: SITE_CONFIG.url,
-        logo: {
-          "@type": "ImageObject",
-          url: `${SITE_CONFIG.url}${SITE_CONFIG.images.logo}`,
-          width: 512,
-          height: 512,
-        },
-        description: SITE_CONFIG.description,
-        priceRange: SITE_CONFIG.business.priceRange,
-        telephone: SITE_CONFIG.business.phone,
-        email: SITE_CONFIG.business.email,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: SITE_CONFIG.business.address.street,
-          addressLocality: SITE_CONFIG.business.address.city,
-          postalCode: SITE_CONFIG.business.address.postalCode,
-          addressCountry: SITE_CONFIG.business.address.country,
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: SITE_CONFIG.business.coordinates.latitude,
-          longitude: SITE_CONFIG.business.coordinates.longitude,
-        },
-        openingHoursSpecification: SITE_CONFIG.business.openingHours.map(
-          (hours) => ({
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: hours.days,
-            opens: hours.opens,
-            closes: hours.closes,
-          })
-        ),
-        sameAs: [
-          SITE_CONFIG.business.social.facebook,
-          SITE_CONFIG.business.social.instagram,
-        ],
-      },
-      {
-        "@type": "SportsActivityLocation",
-        "@id": `${SITE_CONFIG.url}/#sports-facility`,
-        name: `${SITE_CONFIG.name} - Centre Équestre`,
-        sport: "Équitation",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: SITE_CONFIG.business.address.street,
-          addressLocality: SITE_CONFIG.business.address.city,
-          postalCode: SITE_CONFIG.business.address.postalCode,
-          addressCountry: SITE_CONFIG.business.address.country,
-        },
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${SITE_CONFIG.url}/#website`,
-        url: SITE_CONFIG.url,
-        name: SITE_CONFIG.name,
-        description: `Site officiel du ${SITE_CONFIG.name}, centre équestre`,
-        publisher: {
-          "@id": `${SITE_CONFIG.url}/#organization`,
-        },
-        inLanguage: SITE_CONFIG.language,
-      },
-    ],
-  };
+  const structuredData = generateStructuredDataGraph();
 
   return (
     <html lang="fr">
@@ -196,8 +136,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
+        <a
+          href="#main-content"
+          className="sr-only"
+        >
+          Aller au contenu principal
+        </a>
         <Menu />
-        {children}
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>
