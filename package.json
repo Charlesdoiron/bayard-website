@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
+    "build": "next build && node copy-assets.js",
+    "start": "node .next/standalone/server.js",
     "lint": "eslint"
   },
   "dependencies": {
