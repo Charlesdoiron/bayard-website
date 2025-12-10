@@ -77,7 +77,12 @@ export default function Footer() {
           <span>© 2025. Tous droits réservés.</span>
           <span>
             Conçu et développé par{" "}
-            <a href="www.linkedin.com" className="font-bold">
+            <a
+              href="https://www.linkedin.com/in/charles-d-oiron/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold"
+            >
               Studio Fragile
             </a>
           </span>
