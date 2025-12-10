@@ -42,7 +42,7 @@ export default function Offers() {
               key={offer.id}
               className="relative overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="relative h-56 sm:h-64 md:h-80 overflow-hidden bg-gray-600">
+              <div className="relative h-56 sm:h-64 md:h-80 overflow-hidden bg-gray-600 shadow-xl ring-1 ring-gray-400/10">
                 <Image
                   src={offer.image}
                   alt={offer.alt}

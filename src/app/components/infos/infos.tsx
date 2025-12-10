@@ -52,7 +52,7 @@ export default function Infos() {
               className="group cursor-pointer bg-white shadow-xs border border-gray-100 overflow-hidden"
             >
               {/* Image */}
-              <div className="relative aspect-[4/3]  overflow-hidden group-hover:scale-105 transition-all duration-300">
+              <div className="relative aspect-[4/3]  overflow-hidden group-hover:scale-105 transition-all duration-300 shadow-xl ring-1 ring-gray-400/10">
                 <Image
                   src={card.image}
                   alt={card.alt}

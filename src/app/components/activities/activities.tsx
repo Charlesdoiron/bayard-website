@@ -18,7 +18,7 @@ export default function Activities() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
           {/* Image Section */}
-          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden ">
+          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden shadow-xl ring-1 ring-gray-400/10">
             <Image
               src="/activity_1.jpg"
               alt="Cours d'équitation individuel"
@@ -61,7 +61,7 @@ export default function Activities() {
         </div>
         <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
           {/* Image Section */}
-          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden  lg:order-2">
+          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden shadow-xl ring-1 ring-gray-400/10 lg:order-2">
             <Image
               src="/activity_2.jpg"
               alt="Stages d'équitation"
@@ -102,7 +102,7 @@ export default function Activities() {
         </div>
         <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
           {/* Image Section */}
-          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden ">
+          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden shadow-xl ring-1 ring-gray-400/10">
             <Image
               src="/activity_3.jpg"
               alt="Examens fédéraux d'équitation"
@@ -141,7 +141,7 @@ export default function Activities() {
         </div>
         <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
           {/* Image Section */}
-          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden lg:order-2">
+          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden shadow-xl ring-1 ring-gray-400/10 lg:order-2">
             <Image
               src="/activity_4.jpg"
               alt="Baptème de poney"
@@ -177,7 +177,7 @@ export default function Activities() {
         </div>
         <div className="mt-10 md:mt-24 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
           {/* Image Section */}
-          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden ">
+          <div className="relative h-[250px] md:h-[400px] lg:h-[500px] overflow-hidden shadow-xl ring-1 ring-gray-400/10">
             <Image
               src="/activity_5.jpg"
               alt="Animations"

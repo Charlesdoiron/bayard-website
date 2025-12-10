@@ -4,7 +4,7 @@ export default function History() {
   return (
     <section id="history" className="w-full bg-white">
       {/* Hero Image */}
-      <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-gray-700">
+      <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-gray-700 shadow-xl ring-1 ring-gray-400/10">
         <Image
           src="/history.jpg"
           alt="Cheval du Club Bayard"

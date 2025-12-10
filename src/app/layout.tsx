@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     languages: {
       [SITE_CONFIG.language]: "/",
       "fr-FR": "/",
-      "fr": "/",
+      fr: "/",
     },
   },
   other: {
@@ -136,10 +136,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
-        <a
-          href="#main-content"
-          className="sr-only"
-        >
+        <a href="#main-content" className="sr-only">
           Aller au contenu principal
         </a>
         <Menu />

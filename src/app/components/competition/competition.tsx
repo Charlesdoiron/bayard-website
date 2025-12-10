@@ -58,7 +58,7 @@ export default function Competition() {
               compétition : DRESSAGE, HUNTER, CCE, PONY-GAMES, EQUIFUN.
             </p>
           </div>
-          <div className="relative w-full mt-8 md:mt-12 aspect-video overflow-hidden mx-auto">
+          <div className="relative w-full mt-8 md:mt-12 aspect-video overflow-hidden mx-auto shadow-xl ring-1 ring-gray-400/10">
             <Image src="/team.jpg" alt="Team" fill className="object-cover" />
           </div>
           <div className="mt-16 grid grid-cols-1 gap-16 lg:gap-24">
