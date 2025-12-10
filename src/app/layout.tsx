@@ -16,6 +16,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const seoVerification: Record<string, string> = {};
+if (SITE_CONFIG.seo.googleSiteVerification) {
+  seoVerification["google-site-verification"] =
+    SITE_CONFIG.seo.googleSiteVerification;
+}
+if (SITE_CONFIG.seo.bingSiteVerification) {
+  seoVerification["msvalidate.01"] = SITE_CONFIG.seo.bingSiteVerification;
+}
+
 export const metadata: Metadata = {
   title: {
     default:
@@ -38,19 +47,12 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: {
       [SITE_CONFIG.language]: "/",
-      "fr-FR": "/",
-      fr: "/",
     },
   },
   other: {
     "msapplication-TileColor": SITE_CONFIG.theme.tileColor,
     "theme-color": SITE_CONFIG.theme.color,
-    ...(SITE_CONFIG.seo.googleSiteVerification && {
-      "google-site-verification": SITE_CONFIG.seo.googleSiteVerification,
-    }),
-    ...(SITE_CONFIG.seo.bingSiteVerification && {
-      "msvalidate.01": SITE_CONFIG.seo.bingSiteVerification,
-    }),
+    ...seoVerification,
   },
   openGraph: {
     type: "website",
