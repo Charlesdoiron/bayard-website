@@ -4,7 +4,7 @@ const infoCards = [
   {
     id: "horaires",
     image: "/info_1.jpg",
-    title: "Horaires d'ouverture",
+    title: "Pratique équestre",
     content: ["Lundi au Vendredi : 9h - 22h", "Samedi et Dimanche : 9h - 19h"],
     alt: "Cavalière avec son cheval",
     href: "https://www.ucpa.com/centres-sportifs/bayard-vincennes/planning-tarifs",

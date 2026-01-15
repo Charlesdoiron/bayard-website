@@ -68,7 +68,6 @@ export default function Activities() {
               fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
-              priority
             />
           </div>
 
@@ -76,7 +75,7 @@ export default function Activities() {
           <div className="space-y-3 md:space-y-6 px-2 md:px-0 lg:order-1">
             <div>
               <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-2">
-                Coaching intensif
+                Pour vous perfectionner
               </p>
               <h3 className="text-xl md:text-3xl lg:text-4xl text-gray-900 font-bold">
                 Des stages de tous niveaux
@@ -109,7 +108,6 @@ export default function Activities() {
               fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
-              priority
             />
           </div>
 
@@ -148,7 +146,6 @@ export default function Activities() {
               fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
-              priority
             />
           </div>
           {/* Content Section */}
@@ -163,8 +160,8 @@ export default function Activities() {
             </div>
 
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              Afin de découvrir l&apos;équitation, dès 2ans, nous organisons des
-              séances d&apos;initiation certains dimanches après-midi.
+              Afin de découvrir l&apos;équitation, dès 2 ans, nous organisons
+              des séances d&apos;initiation certains dimanches après-midi.
             </p>
             <a
               href="https://serveur1-ucpa.com/BAYARD"
@@ -184,7 +181,6 @@ export default function Activities() {
               fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
-              priority
             />
           </div>
 

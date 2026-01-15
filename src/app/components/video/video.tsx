@@ -19,6 +19,7 @@ export default function Video() {
           src="https://www.youtube.com/embed/Oct-WX2uv-A?si=lT3aEvCF9ir5jwD6"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          loading="lazy"
           title="YouTube video player"
           className="absolute inset-0 w-full h-full"
         />

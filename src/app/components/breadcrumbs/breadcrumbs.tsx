@@ -1,5 +1,3 @@
-"use client";
-
 import { generateBreadcrumbList } from "@/lib/seo";
 import { SITE_CONFIG } from "@/lib/constants";
 

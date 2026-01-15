@@ -131,26 +131,36 @@ export default function Carousel() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Slides */}
+      {/* Slides - only render current and adjacent slides for performance */}
       <div className="relative h-full w-full">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out bg-gray-700 ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            {/* Background Image */}
-            <Image
-              src={slide.image}
-              alt="Carousel slide"
-              fill
-              className="object-cover"
-              priority={index === 0}
-              sizes="100vw"
-            />
-          </div>
-        ))}
+        {slides.map((slide, index) => {
+          // Only render current slide and adjacent slides (prev/next)
+          const isVisible = index === currentSlide;
+          const isAdjacent =
+            index === (currentSlide + 1) % slides.length ||
+            index === (currentSlide - 1 + slides.length) % slides.length;
+
+          if (!isVisible && !isAdjacent) return null;
+
+          return (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-opacity duration-500 ease-in-out bg-gray-700 ${
+                isVisible ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              {/* Background Image */}
+              <Image
+                src={slide.image}
+                alt="Carousel slide"
+                fill
+                className="object-cover"
+                priority={index === 0}
+                sizes="100vw"
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* Navigation Arrows */}

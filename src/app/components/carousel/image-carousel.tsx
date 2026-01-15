@@ -74,25 +74,34 @@ export function ImageCarousel({
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Slides */}
+      {/* Slides - only render current and adjacent slides for performance */}
       <div className="relative w-full h-full">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={image}
-              alt={`${alt} - Image ${index + 1}`}
-              fill
-              className="object-cover"
-              priority={index === 0}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
-        ))}
+        {images.map((image, index) => {
+          // Only render current slide and adjacent slides (prev/next)
+          const isVisible = index === currentSlide;
+          const isAdjacent =
+            index === (currentSlide + 1) % images.length ||
+            index === (currentSlide - 1 + images.length) % images.length;
+
+          if (!isVisible && !isAdjacent) return null;
+
+          return (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+                isVisible ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <Image
+                src={image}
+                alt={`${alt} - Image ${index + 1}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* Navigation Arrows */}

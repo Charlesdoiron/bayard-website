@@ -1,0 +1,38 @@
+.container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.overlay {
+  animation: fadeIn 1s ease-out;
+}
+
+.title {
+  animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.arrow {
+  animation: bounceIn 0.8s ease-out 0.5s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  60% {
+    transform: translateY(-5px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
