@@ -49,10 +49,7 @@ const slides: CarouselSlide[] = [
     id: 10,
     image: "/carousel_1.jpeg",
   },
-  {
-    id: 11,
-    image: "/carousel_2.jpeg",
-  },
+  
   {
     id: 12,
     image: "/carousel_3.jpeg",
