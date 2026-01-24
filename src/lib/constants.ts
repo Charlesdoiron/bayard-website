@@ -17,9 +17,9 @@ export const SITE_CONFIG = {
   name: "Club Bayard",
   shortName: "Club Bayard",
   description:
-    "Club Bayard, centre équestre moderne avec moniteurs diplômés d'état. Cours d'équitation pour tous niveaux, pension pour chevaux, installations de qualité. Découvrez l'équitation dans un cadre exceptionnel.",
+    "Club Bayard, centre équestre moderne avec moniteurs diplômés d'état. Cours d'équitation pour tous niveaux,installations de qualité. Découvrez l'équitation dans un cadre exceptionnel.",
   shortDescription:
-    "Club Bayard, centre équestre moderne avec moniteurs diplômés d'état. Cours d'équitation pour tous niveaux, pension pour chevaux.",
+    "Club Bayard, centre équestre moderne avec moniteurs diplômés d'état. Cours d'équitation pour tous niveaux.",
   url: "https://club-bayard.fr", // Replace with your actual domain
   locale: "fr_FR",
   language: "fr-FR",
@@ -74,7 +74,6 @@ export const SITE_CONFIG = {
     "centre équestre",
     "cours équitation",
     "moniteur diplômé",
-    "pension chevaux",
     "bayard",
     "équitation",
     "cavaliers",
@@ -106,7 +105,7 @@ export const SITE_CONFIG = {
     // Search Console Verification Codes
     googleSiteVerification: "", // Add your Google Search Console verification code
     bingSiteVerification: "", // Add your Bing Webmaster verification code
-    
+
     // Additional SEO Settings
     defaultImage: "/og-image.jpg",
     twitterHandle: "@clubbayardequitation",
@@ -116,13 +115,9 @@ export const SITE_CONFIG = {
   services: [
     {
       name: "Cours d'équitation",
-      description: "Cours d'équitation pour tous niveaux avec moniteurs diplômés d'état",
+      description:
+        "Cours d'équitation pour tous niveaux avec moniteurs diplômés d'état",
       serviceType: "EquestrianTraining",
-    },
-    {
-      name: "Pension pour chevaux",
-      description: "Pension complète pour chevaux dans un centre équestre moderne",
-      serviceType: "HorseBoarding",
     },
     {
       name: "Compétition",
@@ -135,7 +130,7 @@ export const SITE_CONFIG = {
 // Page Metadata
 export const PAGES = {
   home: {
-    title: "Club Bayard - Centre Équestre | Cours d'Équitation & Pension",
+    title: "Club Bayard - Centre Équestre | Cours d'Équitation",
     path: "/",
     priority: 1,
   },
