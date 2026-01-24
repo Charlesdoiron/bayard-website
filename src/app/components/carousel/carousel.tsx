@@ -6,65 +6,80 @@ import { useState, useEffect } from "react";
 interface CarouselSlide {
   id: number;
   image: string;
+  alt: string;
 }
 
 const slides: CarouselSlide[] = [
   {
     id: 1,
     image: "/infr_1.jpg",
+    alt: "Manège couvert du Club Bayard",
   },
   {
     id: 2,
     image: "/infr_2.jpg",
+    alt: "Carrière extérieure du centre équestre",
   },
   {
     id: 3,
     image: "/infr_3.jpg",
+    alt: "Écuries et boxes du Club Bayard",
   },
   {
     id: 4,
     image: "/infr_4.jpg",
+    alt: "Club house et espace détente",
   },
   {
     id: 5,
     image: "/infr_5.jpg",
+    alt: "Installations équestres modernes",
   },
   {
     id: 6,
     image: "/infr_6.jpg",
+    alt: "Paddocks et espaces verts",
   },
   {
     id: 7,
     image: "/infr_7.jpg",
+    alt: "Zone de préparation des chevaux",
   },
   {
     id: 8,
     image: "/infr_8.jpg",
+    alt: "Vue d'ensemble du centre équestre",
   },
   {
     id: 9,
     image: "/infr_9.jpg",
+    alt: "Espace d'entraînement du Club Bayard",
   },
   {
     id: 10,
     image: "/carousel_1.jpeg",
+    alt: "Cavaliers en cours d'équitation",
   },
-  
+
   {
     id: 12,
     image: "/carousel_3.jpeg",
+    alt: "Séance de dressage au Club Bayard",
   },
   {
     id: 13,
     image: "/carousel_4.jpeg",
+    alt: "Compétition équestre au centre",
   },
   {
     id: 14,
     image: "/carousel_5.jpeg",
+    alt: "Cours collectif d'équitation",
   },
   {
     id: 15,
     image: "/carousel_6.jpeg",
+    alt: "Activités équestres au Club Bayard",
   },
 ];
 
@@ -149,7 +164,7 @@ export default function Carousel() {
               {/* Background Image */}
               <Image
                 src={slide.image}
-                alt="Carousel slide"
+                alt={slide.alt}
                 fill
                 className="object-cover"
                 priority={index === 0}

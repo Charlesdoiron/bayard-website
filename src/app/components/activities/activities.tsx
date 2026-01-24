@@ -53,6 +53,7 @@ export default function Activities() {
             <a
               href="https://www.ucpa.com/centres-sportifs/bayard-vincennes/planning-tarifs"
               target="_blank"
+              rel="noopener noreferrer"
               className=" mt-8 text-[#005896] hover:font-bold"
             >
               Découvrez nos horaires et tarifs →
@@ -93,6 +94,7 @@ export default function Activities() {
             <a
               href="https://www.ucpa.com/centres-sportifs/bayard-vincennes/stages"
               target="_blank"
+              rel="noopener noreferrer"
               className=" mt-8 text-[#005896] hover:font-bold"
             >
               Découvrez nos stages →
@@ -131,6 +133,7 @@ export default function Activities() {
             <a
               href="https://serveur1-ucpa.com/BAYARDASSOC"
               target="_blank"
+              rel="noopener noreferrer"
               className=" mt-8 text-[#005896] hover:font-bold"
             >
               Découvrez nos examens →
@@ -164,8 +167,9 @@ export default function Activities() {
               des séances d&apos;initiation certains dimanches après-midi.
             </p>
             <a
-              href="https://serveur1-ucpa.com/BAYARD"
+              href="https://www.ucpa.com/centres-sportifs/bayard-vincennes/planning-tarifs"
               target="_blank"
+              rel="noopener noreferrer"
               className=" mt-8 text-[#005896] hover:font-bold "
             >
               Découvrir nos séances d&apos;initiation →
@@ -204,6 +208,7 @@ export default function Activities() {
             <a
               href="https://serveur1-ucpa.com/BAYARDASSOC"
               target="_blank"
+              rel="noopener noreferrer"
               className=" mt-8 text-[#005896] hover:font-bold"
             >
               Découvrir nos animations →

@@ -676,10 +676,6 @@
     bottom: calc(var(--spacing) * 12);
   }
 
-  .bottom-16 {
-    bottom: calc(var(--spacing) * 16);
-  }
-
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
@@ -907,16 +903,8 @@
     height: calc(var(--spacing) * 256);
   }
 
-  .h-\[40vh\] {
-    height: 40vh;
-  }
-
   .h-\[70vh\] {
     height: 70vh;
-  }
-
-  .h-\[80vh\] {
-    height: 80vh;
   }
 
   .h-\[250px\] {
@@ -1701,10 +1689,6 @@
     font-size: 28px;
   }
 
-  .text-\[clamp\(48px\,6vw\,88px\)\] {
-    font-size: max(48px, min(6vw, 88px));
-  }
-
   .leading-\[1\.05\] {
     --tw-leading: 1.05;
     line-height: 1.05;
@@ -2205,12 +2189,6 @@
   @media (min-width: 48rem) {
     .md\:right-8 {
       right: calc(var(--spacing) * 8);
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .md\:bottom-24 {
-      bottom: calc(var(--spacing) * 24);
     }
   }
 

@@ -32,7 +32,7 @@ export default function Hero() {
           Montez à cheval <br /> au cœur de Paris
         </h1>
         <div className="">
-          <Image src="/arrow.svg" alt="arrow" width={32} height={50} />
+          <Image src="/arrow.svg" alt="Flèche vers le bas pour découvrir le contenu" width={32} height={50} />
         </div>
       </div>
     </div>

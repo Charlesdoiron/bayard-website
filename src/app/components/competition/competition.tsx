@@ -37,7 +37,7 @@ const competitionItems: CompetitionItem[] = [
     title: "Equifun",
     description:
       "L'objectif est de réaliser un parcours composé d'une succession de dispositifs à effectuer au chronomètre : parcours, obstacles, slaloms pour lesquels il faut allier maniabilité, saut, adresse…",
-    images: ["/compet_8.jpg"],
+    images: ["/equifun.jpeg"],
   },
 ];
 

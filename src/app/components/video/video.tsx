@@ -4,10 +4,10 @@ export default function Video() {
       id="presentation"
       className="flex flex-col items-start justify-center px-8 md:px-16 lg:px-32 py-16 md:py-20 lg:py-24"
     >
-      <h4 className="text-lg md:text-xl uppercase text-gray-600">
+      <p className="text-lg md:text-xl uppercase text-gray-600">
         Un centre équestre
-      </h4>
-      <h5 className="text-2xl md:text-3xl -mt-1 font-bold">Au cœur de Paris</h5>
+      </p>
+      <h2 className="text-2xl md:text-3xl -mt-1 font-bold">Au cœur de Paris</h2>
       <p className="text-base md:text-lg max-w-2xl mt-8 md:mt-12 leading-relaxed">
         Le Centre Équestre BAYARD-UCPA Vincennes vous accueille dans un cadre
         exceptionnel au cœur du Bois de Vincennes. Notre équipe de

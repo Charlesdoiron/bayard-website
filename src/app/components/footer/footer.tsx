@@ -29,7 +29,7 @@ export default function Footer() {
         <div className="flex flex-col items-center space-y-6 md:space-y-8">
           {/* Logo */}
           <div className="relative mb-22">
-            <Image src="/logo.svg" alt="Globe icon" width={130} height={130} />
+            <Image src="/logo.svg" alt="Logo Club Bayard" width={130} height={130} />
           </div>
 
           {/* Navigation */}

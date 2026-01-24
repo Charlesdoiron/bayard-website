@@ -48,18 +48,18 @@ export default function Example() {
               qualités.
             </p>
 
-            <h2 className="mt-8 text-2xl font-bold tracking-tight text-gray-900">
+            <h3 className="mt-8 text-2xl font-bold tracking-tight text-gray-900">
               Grande terrasse ensoleillée
-            </h2>
+            </h3>
             <p className="mt-4 text-base/7 text-gray-600">
               Profitez de notre grande terrasse pour déguster vos repas en plein
               air, avec une vue imprenable sur les installations équestres.
               L&apos;endroit idéal pour se détendre et partager un moment
               convivial dans un cadre exceptionnel.
             </p>
-            <h2 className="mt-8 text-2xl font-bold tracking-tight text-gray-900">
+            <h3 className="mt-8 text-2xl font-bold tracking-tight text-gray-900">
               Horaires d&apos;ouverture
-            </h2>
+            </h3>
             <div className="mt-4 space-y-2 text-base/7 text-gray-600">
               <div className="flex justify-between">
                 <span>Lundi</span>
@@ -95,7 +95,7 @@ export default function Example() {
             <Image
               width={1500}
               height={1000}
-              alt=""
+              alt="Vue du club house et de la terrasse du Club Bayard"
               src="/infr_4.jpg"
               className="w-full  bg-gray-900 shadow-xl ring-1 ring-gray-400/10"
             />

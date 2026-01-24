@@ -132,7 +132,7 @@ export default function Menu() {
         <div className="flex-shrink-0">
           <Link href="/" className="block p-2 -m-2">
             <div className="relative">
-              <Image src="/logo.svg" alt="Globe icon" width={60} height={60} />
+              <Image src="/logo.svg" alt="Logo Club Bayard" width={60} height={60} />
             </div>
           </Link>
         </div>
