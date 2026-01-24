@@ -103,7 +103,7 @@ export function generateLocalBusinessSchema() {
       width: 512,
       height: 512,
     },
-    image: `${SITE_CONFIG.url}${SITE_CONFIG.images.ogImage}`,
+    image: SITE_CONFIG.images.ogImage,
     description: SITE_CONFIG.description,
     priceRange: SITE_CONFIG.business.priceRange,
     telephone: SITE_CONFIG.business.phone,

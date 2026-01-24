@@ -85,7 +85,7 @@ export const SITE_CONFIG = {
   // Images
   images: {
     logo: "/logo.png",
-    ogImage: "/og-image.jpg",
+    ogImage: "https://bayard-website.vercel.app/og-image.jpg",
     favicon16: "/favicon-16x16.png",
     favicon32: "/favicon-32x32.png",
     appleTouch: "/apple-touch-icon.png",
