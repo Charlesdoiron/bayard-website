@@ -100,21 +100,27 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: SITE_CONFIG.images.favicon, sizes: "48x48", type: "image/x-icon" },
       { url: SITE_CONFIG.images.favicon16, sizes: "16x16", type: "image/png" },
       { url: SITE_CONFIG.images.favicon32, sizes: "32x32", type: "image/png" },
+      { url: SITE_CONFIG.images.favicon96, sizes: "96x96", type: "image/png" },
+      { url: SITE_CONFIG.images.android192, sizes: "192x192", type: "image/png" },
     ],
     apple: [
-      {
-        url: SITE_CONFIG.images.appleTouch,
-        sizes: "180x180",
-        type: "image/png",
-      },
+      { url: SITE_CONFIG.images.appleIcon57, sizes: "57x57", type: "image/png" },
+      { url: SITE_CONFIG.images.appleIcon60, sizes: "60x60", type: "image/png" },
+      { url: SITE_CONFIG.images.appleIcon72, sizes: "72x72", type: "image/png" },
+      { url: SITE_CONFIG.images.appleIcon76, sizes: "76x76", type: "image/png" },
+      { url: SITE_CONFIG.images.appleIcon114, sizes: "114x114", type: "image/png" },
+      { url: SITE_CONFIG.images.appleIcon120, sizes: "120x120", type: "image/png" },
+      { url: SITE_CONFIG.images.appleIcon144, sizes: "144x144", type: "image/png" },
+      { url: SITE_CONFIG.images.appleIcon152, sizes: "152x152", type: "image/png" },
+      { url: SITE_CONFIG.images.appleTouch, sizes: "180x180", type: "image/png" },
     ],
     other: [
       {
-        rel: "mask-icon",
+        rel: "apple-touch-icon-precomposed",
         url: SITE_CONFIG.images.safariPinned,
-        color: SITE_CONFIG.theme.backgroundColor,
       },
     ],
   },
