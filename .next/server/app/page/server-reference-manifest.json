@@ -1,6 +1,6 @@
 {
   "node": {
-    "4014b084458c5d1380c9219b4b679105b89f4a775f": {
+    "4036a846ac3f441aa22989681231d3298a3e3f5488": {
       "workers": {
         "app/page": {
           "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/actions/newsletter.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",

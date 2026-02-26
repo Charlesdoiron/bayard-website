@@ -31,7 +31,7 @@ const competitionItems: CompetitionItem[] = [
     title: "Pony-Games",
     description:
       "Sport d'équipe où chacun évolue individuellement, le but est de réaliser un parcours ludique sans erreur le plus rapidement possible : vitesse, habileté motrice et aisance à cheval sont les principales qualités attendues.",
-    images: ["/compet_7.jpg"],
+    images: ["/pony_game.jpeg"],
   },
   {
     title: "Equifun",
