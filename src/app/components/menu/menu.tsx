@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const DotLottiePlayer = dynamic(
   () => import("@dotlottie/react-player").then((mod) => mod.DotLottiePlayer),
@@ -19,13 +19,13 @@ const menuItems = [
 ];
 
 export default function Menu() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPastHero, setIsPastHero] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const lottieRef = useRef<any>(null);
+  const lottieRef = useRef<import("@dotlottie/react-player").DotLottieCommonPlayer | null>(null);
   const prevScrollY = useRef(0);
   const prevTime = useRef(Date.now());
 
