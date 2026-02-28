@@ -1,10 +1,31 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const heroHeight =
+        window.innerWidth >= 768 ? window.innerHeight : window.innerHeight * 0.7;
+      const progress = Math.min(scrollY / heroHeight, 1);
+      setScale(1 + progress * 0.35);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="relative h-[70vh] md:h-screen overflow-hidden bg-gray-800">
       {/* Background images - art direction for mobile/desktop */}
-      <div className="absolute inset-0 z-0">
+      <div
+        className="absolute inset-0 z-0 will-change-transform transition-none"
+        style={{ transform: `scale(${scale})` }}
+      >
         <Image
           src="/bkg-mobile.webp"
           alt="Club Bayard background"

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
+import { Geist, Geist_Mono, DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Menu from "@/app/components/menu/menu";
 import Footer from "@/app/components/footer/footer";
@@ -20,6 +20,12 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 const seoVerification: Record<string, string> = {};
@@ -145,7 +151,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} antialiased bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} ${inter.variable} antialiased bg-black`}
       >
         <a href="#main-content" className="sr-only">
           Aller au contenu principal

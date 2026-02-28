@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { useState, useEffect, useRef, useCallback } from "react";
+
+const DotLottiePlayer = dynamic(
+  () => import("@dotlottie/react-player").then((mod) => mod.DotLottiePlayer),
+  { ssr: false },
+);
 
 const menuItems = [
   { href: "#presentation", label: "Présentation" },
@@ -16,10 +22,40 @@ export default function Menu() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPastHero, setIsPastHero] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lottieRef = useRef<any>(null);
+  const prevScrollY = useRef(0);
+  const prevTime = useRef(Date.now());
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+
+      // Detect if we've scrolled past the hero section
+      const heroHeight =
+        window.innerWidth >= 768
+          ? window.innerHeight
+          : window.innerHeight * 0.7;
+      setIsPastHero(currentScrollY > heroHeight - 100);
+
+      // Lottie speed based on scroll velocity
+      const now = Date.now();
+      const dt = now - prevTime.current || 16;
+      const dy = Math.abs(currentScrollY - prevScrollY.current);
+      const velocity = dy / dt; // px/ms
+      const speed = Math.min(Math.max(velocity * 3, 0.3), 4);
+      prevScrollY.current = currentScrollY;
+      prevTime.current = now;
+
+      if (lottieRef.current) {
+        lottieRef.current.setSpeed(speed);
+      }
+
+      setIsScrolling(true);
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = setTimeout(() => setIsScrolling(false), 150);
 
       // Don't hide menu if we're at the very top
       if (currentScrollY < 10) {
@@ -64,52 +100,28 @@ export default function Menu() {
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      // Get current scrollbar width to prevent layout shift
-      const scrollbarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
-
-      // Add CSS class for scroll prevention
-      document.body.classList.add("mobile-menu-open");
-
-      // Additional JavaScript-based prevention
       document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
-
-      // Compensate for scrollbar width to prevent layout shift
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-
-      // Also compensate the header if needed
-      const header = document.querySelector("header");
-      if (header) {
-        (header as HTMLElement).style.paddingRight = `${scrollbarWidth}px`;
-      }
     } else {
-      // Remove CSS class
-      document.body.classList.remove("mobile-menu-open");
-
       document.documentElement.style.overflow = "unset";
       document.body.style.overflow = "unset";
-      document.body.style.paddingRight = "0px";
-
-      const header = document.querySelector("header");
-      if (header) {
-        (header as HTMLElement).style.paddingRight = "0px";
-      }
     }
 
     return () => {
-      // Cleanup: remove CSS class and reset styles
-      document.body.classList.remove("mobile-menu-open");
       document.documentElement.style.overflow = "unset";
       document.body.style.overflow = "unset";
-      document.body.style.paddingRight = "0px";
-
-      const header = document.querySelector("header");
-      if (header) {
-        (header as HTMLElement).style.paddingRight = "0px";
-      }
     };
   }, [isMobileMenuOpen]);
+
+  // Play/pause lottie based on scroll
+  useEffect(() => {
+    if (!lottieRef.current) return;
+    if (isScrolling) {
+      lottieRef.current.play();
+    } else {
+      lottieRef.current.pause();
+    }
+  }, [isScrolling]);
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -121,39 +133,65 @@ export default function Menu() {
 
   return (
     <header
-      className={`fixed bg-white top-0 left-0 right-0 z-50  transition-transform duration-300 ease-in-out ${
-        isVisible ? "transform translate-y-0" : "transform -translate-y-full"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${"transform translate-y-0"} ${isMobileMenuOpen ? "bg-black" : isPastHero ? "lg:bg-black bg-transparent" : "bg-transparent"}`}
     >
       {/* Glass morphism background */}
 
-      <nav className="relative flex items-center justify-between px-4 md:px-8 lg:px-12 py-4 md:py-6">
+      <nav
+        className={`relative flex items-center justify-between px-4 md:px-8 lg:px-12 transition-all duration-300 py-4 md:py-6 ${isPastHero && !isMobileMenuOpen ? "lg:py-0" : ""}`}
+      >
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <div
+          className={`flex-shrink-0 transition-opacity duration-300 ${isPastHero && !isMobileMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        >
           <Link href="/" className="block p-2 -m-2">
             <div className="relative">
-              <Image src="/logo.svg" alt="Logo Club Bayard" width={60} height={60} />
+              <Image
+                src="/logo.svg"
+                alt="Logo Club Bayard"
+                width={60}
+                height={60}
+                className="brightness-0 invert"
+              />
             </div>
           </Link>
         </div>
 
+        {/* Lottie Horse - visible when past hero */}
+        <div
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className={`flex-shrink-0 transition-all duration-300 absolute left-4 sm:left-6 lg:left-8 flex items-center gap-3 cursor-pointer ${isPastHero && !isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        >
+          <div className="bg-white lg:bg-transparent rounded-full p-2 ring-1 ring-black/5 lg:ring-0 shadow-sm lg:shadow-none">
+            <div className="brightness-0 lg:brightness-0 lg:invert">
+              <DotLottiePlayer
+                ref={lottieRef}
+                src="/horse.lottie"
+                autoplay={isScrolling}
+                loop
+                style={{ width: 32, height: 32 }}
+              />
+            </div>
+          </div>
+          <span className="-ml-3 hidden lg:block text-white/50 text-sm font-medium font-[family-name:var(--font-inter)] tracking-wide -mb-1">
+            | Club Bayard Equitation
+          </span>
+        </div>
+
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-3 xl:gap-4">
+        <div className="hidden lg:flex items-center gap-3 xl:gap-4 font-[family-name:var(--font-inter)]">
           {menuItems.map((item) => (
             <div key={item.label}>
               <Link
                 href={item.href}
-                className="relative group px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-[#005896] hover:text-[#005896] whitespace-nowrap"
+                className="relative group px-3 xl:px-4 py-2 text-md  font-medium whitespace-nowrap text-white hover:text-white"
               >
-                <span className="relative z-10 uppercase tracking-wide">
+                <span className="relative z-10 tracking-wide">
                   {item.label}
                 </span>
 
-                {/* Hover background */}
-                <div className="absolute inset-0 bg-white/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-
                 {/* Underline effect */}
-                <div className="absolute bottom-1 left-3 xl:left-4 right-3 xl:right-4 h-0.5 bg-gradient-to-r from-white/60 to-white/90 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200" />
+                <div className="absolute bottom-1 left-3 xl:left-4 right-3 xl:right-4 h-px bg-white rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200" />
               </Link>
             </div>
           ))}
@@ -162,7 +200,7 @@ export default function Menu() {
         {/* Mobile Menu Button */}
         <button
           onClick={handleMobileMenuToggle}
-          className="lg:hidden p-2 text-black hover:text-black mobile-menu-container"
+          className={`lg:hidden mobile-menu-container transition-all duration-300 bg-white rounded-full p-3 ring-1 ring-black/5 shadow-sm text-black hover:text-black ${isMobileMenuOpen ? "mr-2" : ""}`}
           aria-label="Toggle mobile menu"
         >
           <div className="w-6 h-6 flex flex-col justify-center items-center space-y-1 cursor-pointer">
@@ -187,7 +225,7 @@ export default function Menu() {
 
       {/* Mobile Menu Panel */}
       <div
-        className={`mobile-menu-container lg:hidden fixed inset-x-0 top-full bg-black/95 backdrop-blur-md border-t border-white/10 transition-all duration-300 ease-in-out transform ${
+        className={`mobile-menu-container lg:hidden fixed inset-x-0 top-full bg-black/95 backdrop-blur-md transition-all duration-300 ease-in-out transform ${
           isMobileMenuOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-4 pointer-events-none"
@@ -198,7 +236,7 @@ export default function Menu() {
           overflow: "hidden",
         }}
       >
-        <nav className="px-4 py-6 space-y-1">
+        <nav className="px-4 py-6 space-y-1 font-[family-name:var(--font-inter)]">
           {menuItems.map((item) => (
             <Link
               key={item.label}
