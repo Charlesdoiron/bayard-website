@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Menu from "@/app/components/menu/menu";
@@ -36,6 +36,10 @@ if (SITE_CONFIG.seo.googleSiteVerification) {
 if (SITE_CONFIG.seo.bingSiteVerification) {
   seoVerification["msvalidate.01"] = SITE_CONFIG.seo.bingSiteVerification;
 }
+
+export const viewport: Viewport = {
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: {

@@ -134,6 +134,7 @@ export default function Menu() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${"transform translate-y-0"} ${isMobileMenuOpen ? "bg-black" : isPastHero ? "lg:bg-black bg-transparent" : "bg-transparent"}`}
+      style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
       {/* Glass morphism background */}
 
