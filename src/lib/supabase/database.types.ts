@@ -197,7 +197,7 @@ export type Database = {
       };
       expire_stale: {
         Args: Record<string, never>;
-        Returns: { expired_listings: number; expired_reservations: number }[];
+        Returns: { kind: "listing" | "reservation"; id: string }[];
       };
       contact_quota_exceeded: { Args: Record<string, never>; Returns: boolean };
       boutique_stats: { Args: Record<string, never>; Returns: BoutiqueStats | null };

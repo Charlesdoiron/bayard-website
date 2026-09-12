@@ -452,32 +452,34 @@ end;
 $$;
 
 -- Expirations automatiques (appelée par le cron avec la clé service).
+-- Retourne une ligne par élément expiré : kind = 'listing' | 'reservation'.
 create or replace function public.expire_stale()
-returns table (expired_listings integer, expired_reservations integer)
+returns table (kind text, id uuid)
 language plpgsql
 security definer
 set search_path = public
 as $$
 declare
-  v_listings integer;
-  v_reservations integer := 0;
   v_id uuid;
 begin
-  update public.listings
-  set status = 'expiree'
-  where status = 'publiee' and expires_at is not null and expires_at < now();
-  get diagnostics v_listings = row_count;
-
   for v_id in
-    select id from public.reservations
-    where status in ('demandee', 'confirmee', 'prete') and expires_at is not null and expires_at < now()
+    select l.id from public.listings l
+    where l.status = 'publiee' and l.expires_at is not null and l.expires_at < now()
   loop
-    perform public.restock_reservation(v_id);
-    update public.reservations set status = 'expiree' where id = v_id;
-    v_reservations := v_reservations + 1;
+    update public.listings set status = 'expiree' where listings.id = v_id;
+    kind := 'listing'; id := v_id;
+    return next;
   end loop;
 
-  return query select v_listings, v_reservations;
+  for v_id in
+    select r.id from public.reservations r
+    where r.status in ('demandee', 'confirmee', 'prete') and r.expires_at is not null and r.expires_at < now()
+  loop
+    perform public.restock_reservation(v_id);
+    update public.reservations set status = 'expiree' where reservations.id = v_id;
+    kind := 'reservation'; id := v_id;
+    return next;
+  end loop;
 end;
 $$;
 
