@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 
 const DotLottiePlayer = dynamic(
@@ -16,9 +17,19 @@ const menuItems = [
   { href: "#infrastructures", label: "Infrastructures" },
   { href: "#infos", label: "Infos pratiques" },
   { href: "#contact", label: "Contact" },
+  { href: "/boutique", label: "Boutique" },
 ];
 
 export default function Menu() {
+  const pathname = usePathname();
+  // Outside the one-page home, anchors must go back to "/" and the header
+  // needs a solid background (there is no hero image behind it).
+  const isHome = pathname === "/";
+  const resolvedItems = menuItems.map((item) => ({
+    ...item,
+    href: item.href.startsWith("#") && !isHome ? `/${item.href}` : item.href,
+    active: !item.href.startsWith("#") && pathname.startsWith(item.href),
+  }));
   const [, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -133,7 +144,7 @@ export default function Menu() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${"transform translate-y-0"} ${isMobileMenuOpen ? "bg-black" : isPastHero ? "lg:bg-black bg-transparent" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${"transform translate-y-0"} ${isMobileMenuOpen || !isHome ? "bg-black" : isPastHero ? "lg:bg-black bg-transparent" : "bg-transparent"}`}
       style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
       {/* Glass morphism background */}
@@ -181,10 +192,11 @@ export default function Menu() {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-3 xl:gap-4 font-[family-name:var(--font-inter)]">
-          {menuItems.map((item) => (
+          {resolvedItems.map((item) => (
             <div key={item.label}>
               <Link
                 href={item.href}
+                aria-current={item.active ? "page" : undefined}
                 className="relative group px-3 xl:px-4 py-2 text-md  font-medium whitespace-nowrap text-white hover:text-white"
               >
                 <span className="relative z-10 tracking-wide">
@@ -192,7 +204,9 @@ export default function Menu() {
                 </span>
 
                 {/* Underline effect */}
-                <div className="absolute bottom-1 left-3 xl:left-4 right-3 xl:right-4 h-px bg-white rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200" />
+                <div
+                  className={`absolute bottom-1 left-3 xl:left-4 right-3 xl:right-4 h-px bg-white rounded-full transition-transform duration-200 ${item.active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+                />
               </Link>
             </div>
           ))}
@@ -238,10 +252,11 @@ export default function Menu() {
         }}
       >
         <nav className="px-4 py-6 space-y-1 font-[family-name:var(--font-inter)]">
-          {menuItems.map((item) => (
+          {resolvedItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
+              aria-current={item.active ? "page" : undefined}
               onClick={handleMobileLinkClick}
               className="block w-full text-left px-4 py-4 text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200 text-lg font-medium uppercase tracking-wide"
             >

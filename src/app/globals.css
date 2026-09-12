@@ -8,8 +8,19 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-bayard: #005896;
+  --color-bayard-dark: #00426f;
+  --color-bayard-light: #e6f0f7;
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+/* Boutique: hide scrollbars on horizontal chip rows while keeping them scrollable */
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 * {
