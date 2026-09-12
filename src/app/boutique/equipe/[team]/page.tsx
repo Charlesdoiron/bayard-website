@@ -9,6 +9,9 @@ import { getTeamItems } from "@/lib/boutique/repository";
 import { isListing, isProduct } from "@/lib/boutique/filters";
 import { ItemGrid } from "../../components/item-card";
 
+// Refresh statically generated pages regularly so status and stock changes show up.
+export const revalidate = 60;
+
 interface PageProps {
   params: Promise<{ team: string }>;
 }

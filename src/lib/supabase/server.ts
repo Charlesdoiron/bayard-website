@@ -1,7 +1,20 @@
 import { createServerClient } from "@supabase/ssr";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
 import type { Database } from "./database.types";
 import { SUPABASE_ANON_KEY, SUPABASE_URL, isSupabaseConfigured } from "./config";
+
+/**
+ * Anonymous, cookie-less client for public reads (catalogue, sitemap,
+ * generateStaticParams). Safe in static rendering because it never touches
+ * request headers. Returns null in demo mode.
+ */
+export function createPublicClient() {
+  if (!isSupabaseConfigured()) return null;
+  return createSupabaseClient<Database>(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}
 
 /**
  * Server-side Supabase client bound to the request cookies. Create one per

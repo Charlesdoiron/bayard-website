@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Search, Tag } from "lucide-react";
 import { useState } from "react";
 import { TEAMS } from "@/lib/boutique/taxonomy";
+import AccountMenu from "./account-menu";
 
 const tabs = [
   { href: "/boutique", label: "Tout", match: (p: string) => p === "/boutique" || p.startsWith("/boutique/annonce") },
@@ -74,6 +75,7 @@ export default function BoutiqueHeader() {
             <span className="hidden sm:inline">Vends tes articles</span>
             <span className="sm:hidden">Vendre</span>
           </Link>
+          <AccountMenu />
         </div>
 
         <nav aria-label="Rubriques de la boutique" className="-mx-4 px-4 sm:mx-0 sm:px-0">

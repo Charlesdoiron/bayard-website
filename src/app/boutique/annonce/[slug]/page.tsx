@@ -26,6 +26,9 @@ import SellerCard from "../../components/seller-card";
 import { DonBadge, StatusBadge, TeamBadge } from "../../components/badges";
 import { ListingCard } from "../../components/item-card";
 
+// Refresh statically generated pages regularly so status and stock changes show up.
+export const revalidate = 60;
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -175,7 +178,7 @@ export default async function ListingPage({ params }: PageProps) {
             ) : null}
 
             <div className="mt-5 space-y-2">
-              <ContactSeller listingTitle={listing.title} sellerName={listing.seller.displayName} disabled={unavailable} />
+              <ContactSeller listingId={listing.id} listingTitle={listing.title} sellerName={listing.seller.displayName} disabled={unavailable} />
               <FavoriteButton itemId={listing.id} variant="inline" className="w-full" />
             </div>
 

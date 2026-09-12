@@ -14,6 +14,9 @@ import FavoriteButton from "../../components/favorite-button";
 import { OfficialBadge, TeamBadge, TeamOnlyBadge } from "../../components/badges";
 import { ProductCard } from "../../components/item-card";
 
+// Refresh statically generated pages regularly so status and stock changes show up.
+export const revalidate = 60;
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
