@@ -16,5 +16,8 @@
   "enabledPlugins": {
     "pstack@pstack-claude": true,
     "plugin-dev@claude-plugins-official": true
+  },
+  "env": {
+    "CLAUDE_CODE_ENABLE_TODO_TOOLS": "1"
   }
 }
