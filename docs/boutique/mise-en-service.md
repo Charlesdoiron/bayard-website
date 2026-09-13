@@ -17,9 +17,13 @@ Supabase ne sont pas définies. Ce guide décrit comment passer en production. C
 4. **Authentication → Email Templates** : dans les gabarits *Confirm signup* et *Reset password*, remplacez le lien par
    `{{ .SiteURL }}/boutique/auth/callback?token_hash={{ .TokenHash }}&type={{ .Type }}&next=/boutique/compte`
    (pour *Reset password*, `next=/boutique/reinitialisation`). Personnalisez les textes en français.
-5. **Authentication → Providers → Email** : laissez « Confirm email » activé. Optionnel : activez un captcha
+5. **Project Settings → Authentication → SMTP Settings** : activez « Custom SMTP » avec les identifiants SMTP de Brevo
+   (`smtp-relay.brevo.com`, port 587, login = votre identifiant SMTP Brevo, mot de passe = clé SMTP créée dans Brevo →
+   SMTP & API). Sans cela, Supabase n'envoie les emails de confirmation et de réinitialisation qu'aux membres de
+   l'équipe du projet, à raison de 2 par heure : l'inscription des membres du club ne fonctionnerait pas.
+6. **Authentication → Providers → Email** : laissez « Confirm email » activé. Optionnel : activez un captcha
    (Cloudflare Turnstile) dans **Authentication → Attack protection** ; un pot de miel est déjà en place côté formulaire.
-6. **Storage** : les buckets `listing-photos` et `product-photos` sont créés par la migration (lecture publique,
+7. **Storage** : les buckets `listing-photos` et `product-photos` sont créés par la migration (lecture publique,
    écriture limitée au propriétaire ou aux administrateurs).
 
 ## 2. Variables d'environnement
