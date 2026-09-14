@@ -129,7 +129,7 @@ export default function FilterBar({ filters, space, brands, total }: FilterBarPr
   };
 
   const chipClass = (active: boolean) =>
-    `inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full border px-3 text-sm font-medium whitespace-nowrap ${
+    `press inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full border px-3 text-sm font-medium whitespace-nowrap ${
       active
         ? "border-bayard bg-bayard-light text-bayard"
         : "border-gray-300 bg-white text-gray-800 hover:border-gray-400"
@@ -146,20 +146,27 @@ export default function FilterBar({ filters, space, brands, total }: FilterBarPr
         {facets.map((key) => {
           const n = facetActive(key);
           const open = openFacet === key;
+          const popoverId = `facet-${key}`;
           return (
             <div key={key} className="relative">
               <button
                 type="button"
                 onClick={() => setOpenFacet(open ? null : key)}
                 aria-expanded={open}
+                aria-controls={popoverId}
                 className={chipClass(n > 0 || open)}
               >
                 {facetLabels[key]}
-                {n > 0 ? <span className="rounded-full bg-bayard px-1.5 text-[11px] text-white">{n}</span> : null}
+                {n > 0 ? <span className="rounded-full bg-bayard px-1.5 text-[11px] tabular-nums text-white">{n}</span> : null}
                 <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} aria-hidden="true" />
               </button>
               {open ? (
-                <div className="absolute left-0 top-11 z-40 w-80 rounded-xl border border-gray-200 bg-white p-4 shadow-xl">
+                <div
+                  id={popoverId}
+                  role="group"
+                  aria-label={facetLabels[key]}
+                  className="enter-pop absolute start-0 top-11 z-40 w-80 rounded-[14px] border border-gray-200 bg-white p-2 shadow-xl"
+                >
                   {renderFacet(key)}
                 </div>
               ) : null}
@@ -186,18 +193,25 @@ export default function FilterBar({ filters, space, brands, total }: FilterBarPr
           Disponibles uniquement
         </button>
 
-        <div className="relative ml-auto">
+        <div className="relative ms-auto">
           <button
             type="button"
             onClick={() => setOpenFacet(openFacet === "tri" ? null : "tri")}
             aria-expanded={openFacet === "tri"}
+            aria-controls="facet-tri"
             className={chipClass(filters.sort !== "recent")}
           >
             Trier : {sortLabel}
             <ChevronDown className="h-4 w-4" aria-hidden="true" />
           </button>
           {openFacet === "tri" ? (
-            <div className="absolute right-0 top-11 z-40 w-56 rounded-xl border border-gray-200 bg-white p-2 shadow-xl">
+            <div
+              id="facet-tri"
+              role="group"
+              aria-label="Trier"
+              style={{ "--origin": "top right" } as React.CSSProperties}
+              className="enter-pop absolute end-0 top-11 z-40 w-56 rounded-[14px] border border-gray-200 bg-white p-2 shadow-xl"
+            >
               <SortOptions filters={filters} update={(p) => { update(p); setOpenFacet(null); }} />
             </div>
           ) : null}
@@ -214,11 +228,12 @@ export default function FilterBar({ filters, space, brands, total }: FilterBarPr
           <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
           Filtres{activeCount > 0 ? ` (${activeCount})` : ""}
         </button>
-        <label className="relative inline-flex h-9 items-center rounded-full border border-gray-300 bg-white pl-3 pr-8 text-sm font-medium text-gray-800">
+        <label className="relative inline-flex h-9 items-center rounded-full border border-gray-300 bg-white pe-8 ps-3 text-sm font-medium text-gray-800">
           <span className="sr-only">Trier</span>
           <select
             value={filters.sort}
             onChange={(e) => update({ sort: e.target.value as CatalogueFilters["sort"] })}
+            aria-label="Trier"
             className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
           >
             {SORT_OPTIONS.map((o) => (
@@ -226,9 +241,9 @@ export default function FilterBar({ filters, space, brands, total }: FilterBarPr
             ))}
           </select>
           <span aria-hidden="true">{sortLabel}</span>
-          <ChevronDown className="pointer-events-none absolute right-2.5 h-4 w-4" aria-hidden="true" />
+          <ChevronDown className="pointer-events-none absolute end-2.5 h-4 w-4" aria-hidden="true" />
         </label>
-        <span className="ml-auto text-sm text-gray-500">{total} article{total > 1 ? "s" : ""}</span>
+        <span className="ms-auto text-sm tabular-nums text-gray-500">{total} article{total > 1 ? "s" : ""}</span>
       </div>
 
       <ActiveChips filters={filters} update={update} clearAll={clearAll} />
@@ -241,7 +256,7 @@ export default function FilterBar({ filters, space, brands, total }: FilterBarPr
                 <span>
                   {facetLabels[key]}
                   {facetActive(key) > 0 ? (
-                    <span className="ml-2 rounded-full bg-bayard px-1.5 py-0.5 text-[11px] text-white">{facetActive(key)}</span>
+                    <span className="ms-2 rounded-full bg-bayard px-1.5 py-0.5 text-[11px] tabular-nums text-white">{facetActive(key)}</span>
                   ) : null}
                 </span>
                 <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" aria-hidden="true" />
@@ -260,14 +275,14 @@ export default function FilterBar({ filters, space, brands, total }: FilterBarPr
           <button
             type="button"
             onClick={clearAll}
-            className="h-11 flex-1 rounded-md border border-gray-300 text-sm font-medium text-gray-800"
+            className="press h-11 flex-1 rounded-md border border-gray-300 text-sm font-medium text-gray-800"
           >
             Tout effacer
           </button>
           <button
             type="button"
             onClick={() => setMobileOpen(false)}
-            className="h-11 flex-1 rounded-md bg-bayard text-sm font-semibold text-white"
+            className="press h-11 flex-1 rounded-md bg-bayard text-sm font-semibold tabular-nums text-white"
           >
             Voir {total} article{total > 1 ? "s" : ""}
           </button>
@@ -316,7 +331,7 @@ function CheckRow({
         }`}
         aria-hidden="true"
       >
-        {checked ? <Check className="h-3.5 w-3.5" /> : null}
+        {checked ? <Check className="h-3.5 w-3.5" strokeWidth={1.5} /> : null}
       </span>
       <input type="checkbox" className="sr-only" checked={checked} onChange={onChange} />
       <span>
@@ -340,7 +355,7 @@ function SortOptions({ filters, update }: { filters: CatalogueFilters; update: (
             }`}
           >
             {o.label}
-            {filters.sort === o.value ? <Check className="h-4 w-4" aria-hidden="true" /> : null}
+            {filters.sort === o.value ? <Check className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> : null}
           </button>
         </li>
       ))}
@@ -360,7 +375,7 @@ function CategoryFacet({ filters, update }: { filters: CatalogueFilters; update:
           onClick={() => setBrowsing(undefined)}
           className="mb-2 inline-flex items-center gap-1 text-sm font-semibold text-gray-900"
         >
-          <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+          <ChevronLeft className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
           {category.label}
         </button>
         <ul className="max-h-72 overflow-y-auto">
@@ -373,7 +388,7 @@ function CategoryFacet({ filters, update }: { filters: CatalogueFilters; update:
               }`}
             >
               Tout {category.label.toLowerCase()}
-              {filters.category === category.slug && !filters.subCategory ? <Check className="h-4 w-4" aria-hidden="true" /> : null}
+              {filters.category === category.slug && !filters.subCategory ? <Check className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> : null}
             </button>
           </li>
           {category.children.map((sub) => {
@@ -386,7 +401,7 @@ function CategoryFacet({ filters, update }: { filters: CatalogueFilters; update:
                   className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : ""}`}
                 >
                   {sub.label}
-                  {active ? <Check className="h-4 w-4" aria-hidden="true" /> : null}
+                  {active ? <Check className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> : null}
                 </button>
               </li>
             );
@@ -412,7 +427,7 @@ function CategoryFacet({ filters, update }: { filters: CatalogueFilters; update:
                     className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : "text-gray-900"}`}
                   >
                     {c.label}
-                    <ChevronDown className="h-4 w-4 -rotate-90 text-gray-400" aria-hidden="true" />
+                    <ChevronDown className="h-4 w-4 -rotate-90 text-gray-400" strokeWidth={1.5} aria-hidden="true" />
                   </button>
                 </li>
               );
@@ -459,7 +474,7 @@ function FacetContent({
                   type="button"
                   onClick={() => update({ size: toggleIn(filters.size, s) })}
                   aria-pressed={active}
-                  className={`h-9 min-w-[3rem] rounded-md border px-2 text-sm ${
+                  className={`press h-9 min-w-[3rem] rounded-md border px-2 text-sm ${
                     active ? "border-bayard bg-bayard text-white" : "border-gray-300 text-gray-800 hover:border-gray-400"
                   }`}
                 >
@@ -495,7 +510,7 @@ function FacetContent({
               className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm hover:bg-gray-100 ${!filters.team ? "font-semibold text-bayard" : ""}`}
             >
               Toutes les équipes
-              {!filters.team ? <Check className="h-4 w-4" aria-hidden="true" /> : null}
+              {!filters.team ? <Check className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> : null}
             </button>
           </li>
           {TEAMS.map((t) => {
@@ -508,7 +523,7 @@ function FacetContent({
                   className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : ""}`}
                 >
                   {t.label}
-                  {active ? <Check className="h-4 w-4" aria-hidden="true" /> : null}
+                  {active ? <Check className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> : null}
                 </button>
               </li>
             );
@@ -556,7 +571,7 @@ function FacetContent({
               inputMode="numeric"
               value={priceMin}
               onChange={(e) => setPriceMin(e.target.value)}
-              className="mt-1 h-10 w-full rounded-md border border-gray-300 px-2 text-sm text-gray-900 focus:border-bayard focus:outline-none"
+              className="mt-1 h-10 w-full rounded-md border border-gray-300 px-2 text-base text-gray-900 focus-visible:border-bayard focus-visible:outline-none sm:text-sm"
             />
           </label>
           <label className="flex-1 text-xs text-gray-600">
@@ -567,10 +582,10 @@ function FacetContent({
               inputMode="numeric"
               value={priceMax}
               onChange={(e) => setPriceMax(e.target.value)}
-              className="mt-1 h-10 w-full rounded-md border border-gray-300 px-2 text-sm text-gray-900 focus:border-bayard focus:outline-none"
+              className="mt-1 h-10 w-full rounded-md border border-gray-300 px-2 text-base text-gray-900 focus-visible:border-bayard focus-visible:outline-none sm:text-sm"
             />
           </label>
-          <button type="submit" className="h-10 rounded-md bg-bayard px-3 text-sm font-semibold text-white">
+          <button type="submit" className="press h-10 rounded-md bg-bayard px-3 text-sm font-semibold text-white">
             OK
           </button>
         </form>
@@ -587,7 +602,7 @@ function FacetContent({
             onChange={(e) => setBrandQuery(e.target.value)}
             placeholder="Rechercher une marque"
             aria-label="Rechercher une marque"
-            className="mb-2 h-10 w-full rounded-md border border-gray-300 px-3 text-sm text-gray-900 focus:border-bayard focus:outline-none"
+            className="mb-2 h-10 w-full rounded-md border border-gray-300 px-3 text-base text-gray-900 focus-visible:border-bayard focus-visible:outline-none sm:text-sm"
           />
           <div className="max-h-56 overflow-y-auto">
             {visible.map((b) => (
@@ -615,7 +630,7 @@ function FacetContent({
                 type="button"
                 onClick={() => update({ color: toggleIn(filters.color, c.slug) })}
                 aria-pressed={active}
-                className={`flex items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : "text-gray-900"}`}
+                className={`press flex items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : "text-gray-900"}`}
               >
                 <span
                   className="h-5 w-5 shrink-0 rounded-full ring-1 ring-black/10"
@@ -627,7 +642,7 @@ function FacetContent({
                   aria-hidden="true"
                 />
                 {c.label}
-                {active ? <Check className="ml-auto h-4 w-4" aria-hidden="true" /> : null}
+                {active ? <Check className="ms-auto h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> : null}
               </button>
             );
           })}
@@ -698,7 +713,7 @@ function ActiveChips({
           key={chip.key}
           type="button"
           onClick={chip.remove}
-          className="inline-flex h-8 items-center gap-1 rounded-full bg-gray-100 pl-3 pr-2 text-xs font-medium text-gray-800 hover:bg-gray-200"
+          className="press inline-flex h-8 items-center gap-1 rounded-full bg-gray-100 pe-2 ps-3 text-xs font-medium text-gray-800 hover:bg-gray-200"
         >
           {chip.label}
           <X className="h-3.5 w-3.5" aria-hidden="true" />

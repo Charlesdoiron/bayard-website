@@ -34,21 +34,21 @@ function CardShell({
   return (
     <article className="group relative flex flex-col">
       <Link href={href} className="block min-h-0 min-w-0" prefetch={false}>
-        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-gray-100">
+        <div className="img-outline relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-gray-100">
           <Image
             src={image}
             alt={alt}
             fill
             sizes={IMAGE_SIZES}
-            className={`object-cover transition-transform duration-300 group-hover:scale-[1.03] ${dimmed ? "opacity-60" : ""}`}
+            className={`object-cover transition-transform duration-300 ease-[var(--ease-standard)] group-hover:scale-[1.03] ${dimmed ? "opacity-60" : ""}`}
           />
           {overlayTopLeft ? (
-            <div className="absolute left-2 top-2 flex flex-col items-start gap-1">{overlayTopLeft}</div>
+            <div className="absolute start-2 top-2 flex flex-col items-start gap-1">{overlayTopLeft}</div>
           ) : null}
         </div>
         <div className="pt-2">{children}</div>
       </Link>
-      <div className="absolute right-2 top-2">
+      <div className="absolute end-2 top-2">
         <FavoriteButton itemId={itemId} />
       </div>
     </article>
@@ -77,7 +77,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
       <p className="truncate text-xs text-gray-500">{listing.seller.displayName}</p>
       <h3 className="mt-0.5 truncate text-sm font-medium text-gray-900">{listing.title}</h3>
       {meta ? <p className="truncate text-xs text-gray-500">{meta}</p> : null}
-      <p className="mt-1 text-sm font-semibold text-gray-900">{formatPrice(listing.price)}</p>
+      <p className="mt-1 text-sm font-semibold tabular-nums text-gray-900">{formatPrice(listing.price)}</p>
     </CardShell>
   );
 }
@@ -108,7 +108,7 @@ export function ProductCard({ product }: { product: Product }) {
       <p className="truncate text-xs text-gray-500">Club Bayard</p>
       <h3 className="mt-0.5 truncate text-sm font-medium text-gray-900">{product.name}</h3>
       <p className="truncate text-xs text-gray-500">{sizeLabel}</p>
-      <p className="mt-1 text-sm font-semibold text-gray-900">{formatPrice(product.price)}</p>
+      <p className="mt-1 text-sm font-semibold tabular-nums text-gray-900">{formatPrice(product.price)}</p>
     </CardShell>
   );
 }

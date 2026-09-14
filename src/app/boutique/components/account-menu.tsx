@@ -79,7 +79,7 @@ export default function AccountMenu() {
     return (
       <Link
         href={`/boutique/connexion?next=${encodeURIComponent(next)}`}
-        className="inline-flex h-11 shrink-0 items-center gap-2 rounded-md border border-gray-300 px-3 text-sm font-medium text-gray-800 hover:bg-gray-50"
+        className="press inline-flex h-11 shrink-0 items-center gap-2 rounded-md border border-gray-300 px-3 text-sm font-medium text-gray-800 hover:bg-gray-50"
       >
         <UserRound className="h-4 w-4" aria-hidden="true" />
         <span className="hidden sm:inline">{isSupabaseConfigured() ? "Se connecter" : "Compte"}</span>
@@ -94,7 +94,7 @@ export default function AccountMenu() {
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-haspopup="menu"
-        className="inline-flex h-11 items-center gap-2 rounded-full border border-gray-300 pl-1 pr-2 text-sm font-medium text-gray-800 hover:bg-gray-50"
+        className="press inline-flex h-11 items-center gap-2 rounded-full border border-gray-300 pe-2 ps-1 text-sm font-medium text-gray-800 hover:bg-gray-50"
       >
         <span
           className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-gray-800"
@@ -107,20 +107,24 @@ export default function AccountMenu() {
         <ChevronDown className="h-4 w-4 text-gray-500" aria-hidden="true" />
       </button>
       {open ? (
-        <div role="menu" className="absolute right-0 top-12 z-40 w-56 rounded-xl border border-gray-200 bg-white p-1.5 shadow-xl">
-          <MenuLink href="/boutique/compte" icon={<UserRound className="h-4 w-4" />}>Mon profil</MenuLink>
-          <MenuLink href="/boutique/compte/annonces" icon={<Package className="h-4 w-4" />}>Mes annonces</MenuLink>
-          <MenuLink href="/boutique/compte/reservations" icon={<ShoppingBag className="h-4 w-4" />}>Mes réservations</MenuLink>
+        <div
+          role="menu"
+          style={{ "--origin": "top right" } as React.CSSProperties}
+          className="enter-pop absolute end-0 top-12 z-40 w-56 rounded-xl border border-gray-200 bg-white p-1.5 shadow-xl"
+        >
+          <MenuLink href="/boutique/compte" icon={<UserRound className="h-4 w-4" strokeWidth={1.5} />}>Mon profil</MenuLink>
+          <MenuLink href="/boutique/compte/annonces" icon={<Package className="h-4 w-4" strokeWidth={1.5} />}>Mes annonces</MenuLink>
+          <MenuLink href="/boutique/compte/reservations" icon={<ShoppingBag className="h-4 w-4" strokeWidth={1.5} />}>Mes réservations</MenuLink>
           {session.isAdmin ? (
-            <MenuLink href="/boutique/admin" icon={<Shield className="h-4 w-4" />}>Administration</MenuLink>
+            <MenuLink href="/boutique/admin" icon={<Shield className="h-4 w-4" strokeWidth={1.5} />}>Administration</MenuLink>
           ) : null}
           <form action={signOut} className="mt-1 border-t border-gray-100 pt-1">
             <button
               type="submit"
               role="menuitem"
-              className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+              className="press flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
             >
-              <LogOut className="h-4 w-4" aria-hidden="true" />
+              <LogOut className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
               Se déconnecter
             </button>
           </form>

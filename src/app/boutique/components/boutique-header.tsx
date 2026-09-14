@@ -43,7 +43,7 @@ export default function BoutiqueHeader() {
     <div className="border-b border-gray-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3 py-3">
-          <Link href="/boutique" className="hidden shrink-0 items-center gap-2 pr-2 sm:flex">
+          <Link href="/boutique" className="hidden shrink-0 items-center gap-2 pe-2 sm:flex">
             <span className="text-lg font-bold tracking-tight text-gray-900">Boutique</span>
           </Link>
 
@@ -53,7 +53,7 @@ export default function BoutiqueHeader() {
             </label>
             <div className="relative w-full">
               <Search
-                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
+                className="pointer-events-none absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
                 aria-hidden="true"
               />
               <input
@@ -62,14 +62,14 @@ export default function BoutiqueHeader() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Rechercher une selle, un casque, une marque…"
-                className="h-11 w-full rounded-md border border-gray-300 bg-gray-50 pl-9 pr-3 text-sm text-gray-900 placeholder:text-gray-500 focus:border-bayard focus:bg-white focus:outline-none focus:ring-2 focus:ring-bayard/30"
+                className="h-11 w-full rounded-md border border-gray-300 bg-gray-50 pe-3 ps-9 text-base text-gray-900 placeholder:text-gray-500 focus-visible:border-bayard focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bayard/30 sm:text-sm"
               />
             </div>
           </form>
 
           <Link
             href="/boutique/vendre"
-            className="inline-flex h-11 shrink-0 items-center gap-2 rounded-md bg-bayard px-4 text-sm font-semibold text-white hover:bg-bayard-dark"
+            className="press inline-flex h-11 shrink-0 items-center gap-2 rounded-md bg-bayard px-4 text-sm font-semibold text-white hover:bg-bayard-dark"
           >
             <Tag className="h-4 w-4" aria-hidden="true" />
             <span className="hidden sm:inline">Vends tes articles</span>
@@ -79,7 +79,7 @@ export default function BoutiqueHeader() {
         </div>
 
         <nav aria-label="Rubriques de la boutique" className="-mx-4 px-4 sm:mx-0 sm:px-0">
-          <ul className="scrollbar-none flex items-center gap-1 overflow-x-auto pb-2 text-sm">
+          <ul className="scrollbar-none scroll-fade flex items-center gap-1 overflow-x-auto pb-2 text-sm lg:mask-none">
             {tabs.map((tab) => {
               const active = tab.match(pathname);
               return (

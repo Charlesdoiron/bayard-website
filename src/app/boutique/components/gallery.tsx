@@ -19,7 +19,7 @@ export default function Gallery({ images, alt, overlay }: GalleryProps) {
 
   return (
     <div>
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gray-100 sm:aspect-[4/3]">
+      <div className="img-outline relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gray-100 sm:aspect-[4/3]">
         <Image
           key={images[index]}
           src={images[index]}
@@ -29,14 +29,14 @@ export default function Gallery({ images, alt, overlay }: GalleryProps) {
           sizes="(max-width: 1024px) 100vw, 60vw"
           className="object-cover"
         />
-        {overlay ? <div className="absolute left-3 top-3 flex flex-col items-start gap-1">{overlay}</div> : null}
+        {overlay ? <div className="absolute start-3 top-3 flex flex-col items-start gap-1">{overlay}</div> : null}
         {count > 1 ? (
           <>
             <button
               type="button"
               onClick={() => go(-1)}
               aria-label="Photo précédente"
-              className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-900 shadow ring-1 ring-black/5 hover:bg-white"
+              className="press absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-900 shadow ring-1 ring-black/5 hover:bg-white"
             >
               <ChevronLeft className="h-5 w-5" aria-hidden="true" />
             </button>
@@ -44,11 +44,11 @@ export default function Gallery({ images, alt, overlay }: GalleryProps) {
               type="button"
               onClick={() => go(1)}
               aria-label="Photo suivante"
-              className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-900 shadow ring-1 ring-black/5 hover:bg-white"
+              className="press absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-900 shadow ring-1 ring-black/5 hover:bg-white"
             >
               <ChevronRight className="h-5 w-5" aria-hidden="true" />
             </button>
-            <span className="absolute bottom-3 right-3 rounded-full bg-black/60 px-2 py-0.5 text-xs font-medium text-white">
+            <span className="absolute bottom-3 end-3 rounded-full bg-black/60 px-2 py-0.5 text-xs font-medium tabular-nums text-white">
               {index + 1} / {count}
             </span>
           </>
@@ -62,12 +62,12 @@ export default function Gallery({ images, alt, overlay }: GalleryProps) {
                 type="button"
                 onClick={() => setIndex(i)}
                 aria-label={`Voir la photo ${i + 1}`}
-                aria-current={i === index}
-                className={`relative block h-16 w-16 min-h-0 min-w-0 overflow-hidden rounded-md ring-2 ${
+                aria-pressed={i === index}
+                className={`press relative block h-16 w-16 min-h-0 min-w-0 overflow-hidden rounded-md ring-2 ${
                   i === index ? "ring-bayard" : "ring-transparent hover:ring-gray-300"
                 }`}
               >
-                <Image src={src} alt="" fill sizes="64px" className="object-cover" />
+                <Image src={src} alt="" fill sizes="64px" className="img-outline object-cover" />
               </button>
             </li>
           ))}

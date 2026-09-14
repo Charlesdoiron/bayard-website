@@ -35,6 +35,8 @@ interface FavoriteButtonProps {
  */
 export default function FavoriteButton({ itemId, variant = "overlay", className = "" }: FavoriteButtonProps) {
   const [active, setActive] = useState(false);
+  // Only a toggle *to* favourite pops; restoring state on mount must not.
+  const [popping, setPopping] = useState(false);
 
   useEffect(() => {
     setActive(readFavorites().has(itemId));
@@ -47,10 +49,13 @@ export default function FavoriteButton({ itemId, variant = "overlay", className 
     if (favs.has(itemId)) favs.delete(itemId);
     else favs.add(itemId);
     writeFavorites(favs);
-    setActive(favs.has(itemId));
+    const next = favs.has(itemId);
+    setActive(next);
+    setPopping(next);
   };
 
   const label = active ? "Retirer des favoris" : "Ajouter aux favoris";
+  const heartClass = `transition-[transform,color] duration-150 ${active ? "scale-100 fill-bayard text-bayard" : "text-gray-700"} ${popping ? "heart-pop" : ""}`;
 
   if (variant === "inline") {
     return (
@@ -59,12 +64,9 @@ export default function FavoriteButton({ itemId, variant = "overlay", className 
         onClick={toggle}
         aria-pressed={active}
         aria-label={label}
-        className={`inline-flex h-11 items-center justify-center gap-2 rounded-md border border-gray-300 px-4 text-sm font-medium text-gray-800 hover:border-gray-400 hover:bg-gray-50 ${className}`}
+        className={`press inline-flex h-11 items-center justify-center gap-2 rounded-md border border-gray-300 px-4 text-sm font-medium text-gray-800 hover:border-gray-400 hover:bg-gray-50 ${className}`}
       >
-        <Heart
-          className={`h-5 w-5 ${active ? "fill-bayard text-bayard" : "text-gray-700"}`}
-          aria-hidden="true"
-        />
+        <Heart className={`h-5 w-5 ${heartClass}`} aria-hidden="true" />
         <span>{active ? "Dans vos favoris" : "Favori"}</span>
       </button>
     );
@@ -76,12 +78,9 @@ export default function FavoriteButton({ itemId, variant = "overlay", className 
       onClick={toggle}
       aria-pressed={active}
       aria-label={label}
-      className={`flex h-9 w-9 min-h-0 min-w-0 items-center justify-center rounded-full bg-white/95 shadow-sm ring-1 ring-black/5 hover:bg-white ${className}`}
+      className={`press flex h-9 w-9 min-h-0 min-w-0 items-center justify-center rounded-full bg-white/95 shadow-sm ring-1 ring-black/5 hover:bg-white ${className}`}
     >
-      <Heart
-        className={`h-[18px] w-[18px] ${active ? "fill-bayard text-bayard" : "text-gray-700"}`}
-        aria-hidden="true"
-      />
+      <Heart className={`h-[18px] w-[18px] ${heartClass}`} aria-hidden="true" />
     </button>
   );
 }

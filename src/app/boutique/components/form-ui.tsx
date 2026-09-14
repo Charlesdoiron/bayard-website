@@ -1,14 +1,15 @@
 "use client";
 
+import { cloneElement, isValidElement } from "react";
 import { useFormStatus } from "react-dom";
 import type { ActionResult } from "../actions/types";
 
 /** Small building blocks shared by the boutique forms (auth, account, admin). */
 
 export const inputClass =
-  "mt-1 h-11 w-full rounded-md border border-gray-300 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-bayard focus:outline-none focus:ring-2 focus:ring-bayard/30 disabled:bg-gray-50 disabled:text-gray-400";
+  "mt-1 h-11 w-full rounded-md border border-gray-300 bg-white px-3 text-base text-gray-900 placeholder:text-gray-400 focus-visible:border-bayard focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bayard/30 disabled:bg-gray-50 disabled:text-gray-400 sm:text-sm";
 export const textareaClass =
-  "mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:border-bayard focus:outline-none focus:ring-2 focus:ring-bayard/30";
+  "mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-base text-gray-900 placeholder:text-gray-400 focus-visible:border-bayard focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bayard/30 sm:text-sm";
 export const labelClass = "block text-sm font-medium text-gray-900";
 
 export function Field({
@@ -24,12 +25,19 @@ export function Field({
   hint?: string;
   children: React.ReactNode;
 }) {
+  const control =
+    error && isValidElement(children)
+      ? cloneElement(children as React.ReactElement<React.AriaAttributes>, {
+          "aria-invalid": true,
+          "aria-describedby": `${name}-error`,
+        })
+      : children;
   return (
     <div>
       <label htmlFor={name} className={labelClass}>
         {label}
       </label>
-      {children}
+      {control}
       {error ? (
         <p id={`${name}-error`} className="mt-1 text-xs text-red-600" role="alert">
           {error}
@@ -62,7 +70,7 @@ export function SubmitButton({
     <button
       type="submit"
       disabled={pending}
-      className={`inline-flex h-11 items-center justify-center rounded-md px-5 text-sm font-semibold disabled:cursor-wait disabled:opacity-60 ${styles} ${className}`}
+      className={`press inline-flex h-11 items-center justify-center rounded-md px-5 text-sm font-semibold disabled:cursor-wait disabled:opacity-60 ${styles} ${className}`}
     >
       {pending ? pendingLabel : children}
     </button>
