@@ -28,8 +28,8 @@ export default async function MembresPage({ searchParams }: PageProps) {
         Rattachez les cavaliers à leurs équipes de compétition : ils accèdent alors aux tenues réservées à l&apos;équipe.
       </p>
       <form method="get" className="mt-4 flex gap-2">
-        <input type="search" name="q" defaultValue={q} placeholder="Nom ou email" className="h-10 w-64 rounded-md border border-gray-300 px-3 text-sm" />
-        <button type="submit" className="h-10 rounded-md bg-gray-900 px-4 text-sm font-semibold text-white">Rechercher</button>
+        <input type="search" name="q" defaultValue={q} placeholder="Nom ou email" className="h-10 w-64 rounded-md border border-gray-300 px-3 text-base sm:text-sm" />
+        <button type="submit" className="press h-10 rounded-md bg-gray-900 px-4 text-sm font-semibold text-white">Rechercher</button>
       </form>
 
       <ul className="mt-6 divide-y divide-gray-100 rounded-xl border border-gray-200">

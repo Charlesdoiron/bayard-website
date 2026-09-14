@@ -32,16 +32,16 @@ export default function MemberRow({ profile, teams }: Props) {
         <div className="min-w-0">
           <p className="text-sm font-medium text-gray-900">
             {profile.name}
-            {profile.role === "admin" ? <span className="ml-2 rounded-full bg-gray-900 px-2 py-0.5 text-[11px] font-semibold uppercase text-white">Admin</span> : null}
-            {profile.suspended ? <span className="ml-2 rounded-full bg-red-100 px-2 py-0.5 text-[11px] font-semibold uppercase text-red-800">Suspendu</span> : null}
+            {profile.role === "admin" ? <span className="ms-2 rounded-full bg-gray-900 px-2 py-0.5 text-[11px] font-semibold uppercase text-white">Admin</span> : null}
+            {profile.suspended ? <span className="ms-2 rounded-full bg-red-100 px-2 py-0.5 text-[11px] font-semibold uppercase text-red-800">Suspendu</span> : null}
           </p>
           <p className="truncate text-xs text-gray-500">{profile.email}{profile.phone ? ` · ${profile.phone}` : ""} · inscrit le {profile.since}</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <button type="button" disabled={pending} onClick={() => run(() => setMemberFlags(profile.id, { suspended: !profile.suspended }), profile.suspended ? undefined : "Suspendre ce compte ? Le membre ne pourra plus publier ni réserver.")} className="inline-flex h-8 items-center rounded-md border border-gray-300 px-2.5 text-xs font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-50">
+          <button type="button" disabled={pending} onClick={() => run(() => setMemberFlags(profile.id, { suspended: !profile.suspended }), profile.suspended ? undefined : "Suspendre ce compte ? Le membre ne pourra plus publier ni réserver.")} className="press inline-flex h-8 items-center rounded-md border border-gray-300 px-2.5 text-xs font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-50">
             {profile.suspended ? "Réactiver" : "Suspendre"}
           </button>
-          <button type="button" disabled={pending} onClick={() => run(() => setMemberFlags(profile.id, { role: profile.role === "admin" ? "member" : "admin" }), profile.role === "admin" ? "Retirer les droits administrateur ?" : "Donner les droits administrateur à ce membre ?")} className="inline-flex h-8 items-center rounded-md border border-gray-300 px-2.5 text-xs font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-50">
+          <button type="button" disabled={pending} onClick={() => run(() => setMemberFlags(profile.id, { role: profile.role === "admin" ? "member" : "admin" }), profile.role === "admin" ? "Retirer les droits administrateur ?" : "Donner les droits administrateur à ce membre ?")} className="press inline-flex h-8 items-center rounded-md border border-gray-300 px-2.5 text-xs font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-50">
             {profile.role === "admin" ? "Retirer admin" : "Rendre admin"}
           </button>
         </div>
@@ -56,7 +56,7 @@ export default function MemberRow({ profile, teams }: Props) {
               disabled={pending}
               aria-pressed={member}
               onClick={() => run(() => setTeamMembership(profile.id, t.slug, !member))}
-              className={`inline-flex h-8 items-center rounded-full border px-3 text-xs font-medium disabled:opacity-50 ${
+              className={`press inline-flex h-8 items-center rounded-full border px-3 text-xs font-medium disabled:opacity-50 ${
                 member ? "border-bayard bg-bayard text-white" : "border-gray-300 text-gray-700 hover:border-gray-400"
               }`}
             >

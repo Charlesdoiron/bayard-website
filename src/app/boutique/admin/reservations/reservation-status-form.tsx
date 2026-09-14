@@ -39,7 +39,7 @@ export default function ReservationStatusForm({ id, status, adminNote }: { id: s
         defaultValue={adminNote}
         placeholder="Note pour le membre (facultatif)"
         maxLength={500}
-        className="h-9 w-full rounded-md border border-gray-300 px-2 text-xs"
+        className="h-9 w-full rounded-md border border-gray-300 px-2 text-base sm:text-xs"
       />
       <div className="flex flex-wrap gap-2">
         {options.map((o) => (
@@ -48,7 +48,7 @@ export default function ReservationStatusForm({ id, status, adminNote }: { id: s
             type="submit"
             name="status"
             value={o.status}
-            className={`inline-flex h-9 items-center rounded-md border px-3 text-xs font-medium ${o.tone}`}
+            className={`press inline-flex h-9 items-center rounded-md border px-3 text-xs font-medium ${o.tone}`}
           >
             {o.label}
           </button>

@@ -5,7 +5,7 @@ import { useState, useTransition } from "react";
 import type { ListingStatus } from "@/lib/boutique/types";
 import { adminDeleteListing, adminSetListingStatus } from "../../actions/admin";
 
-const btn = "inline-flex h-8 items-center rounded-md border px-2.5 text-xs font-medium disabled:opacity-50";
+const btn = "press inline-flex h-8 items-center rounded-md border px-2.5 text-xs font-medium disabled:opacity-50";
 
 export default function AdminListingActions({ id, status }: { id: string; status: ListingStatus }) {
   const router = useRouter();

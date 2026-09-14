@@ -27,10 +27,10 @@ export default function ModerationForm({ id }: { id: string }) {
       <FormMessage result={result} />
       {!refusing ? (
         <div className="flex flex-col gap-2">
-          <button type="submit" name="decision" value="publiee" className="h-11 rounded-md bg-emerald-600 text-sm font-semibold text-white hover:bg-emerald-700">
+          <button type="submit" name="decision" value="publiee" className="press h-11 rounded-md bg-emerald-600 text-sm font-semibold text-white hover:bg-emerald-700">
             Publier
           </button>
-          <button type="button" onClick={() => setRefusing(true)} className="h-11 rounded-md border border-red-200 text-sm font-medium text-red-700 hover:bg-red-50">
+          <button type="button" onClick={() => setRefusing(true)} className="press h-11 rounded-md border border-red-200 text-sm font-medium text-red-700 hover:bg-red-50">
             Refuser…
           </button>
         </div>
@@ -49,7 +49,7 @@ export default function ModerationForm({ id }: { id: string }) {
               <input type="hidden" name="decision" value="refusee" />
               Confirmer le refus
             </SubmitButton>
-            <button type="button" onClick={() => setRefusing(false)} className="h-11 rounded-md border border-gray-300 px-4 text-sm font-medium text-gray-800">
+            <button type="button" onClick={() => setRefusing(false)} className="press h-11 rounded-md border border-gray-300 px-4 text-sm font-medium text-gray-800">
               Annuler
             </button>
           </div>

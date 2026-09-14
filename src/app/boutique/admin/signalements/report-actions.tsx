@@ -21,11 +21,11 @@ export default function ReportActions({ id, canWithdraw }: { id: string; canWith
 
   return (
     <div className="flex flex-wrap gap-2">
-      <button type="button" disabled={pending} onClick={() => run(false)} className="inline-flex h-8 items-center rounded-md border border-gray-300 px-2.5 text-xs font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-50">
+      <button type="button" disabled={pending} onClick={() => run(false)} className="press inline-flex h-8 items-center rounded-md border border-gray-300 px-2.5 text-xs font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-50">
         Classer sans suite
       </button>
       {canWithdraw ? (
-        <button type="button" disabled={pending} onClick={() => run(true)} className="inline-flex h-8 items-center rounded-md border border-red-200 px-2.5 text-xs font-medium text-red-700 hover:bg-red-50 disabled:opacity-50">
+        <button type="button" disabled={pending} onClick={() => run(true)} className="press inline-flex h-8 items-center rounded-md border border-red-200 px-2.5 text-xs font-medium text-red-700 hover:bg-red-50 disabled:opacity-50">
           Retirer l&apos;annonce
         </button>
       ) : null}

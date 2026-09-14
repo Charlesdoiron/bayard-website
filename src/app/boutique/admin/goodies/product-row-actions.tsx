@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { deleteProduct, setProductPublished } from "../../actions/admin";
 
-const btn = "inline-flex h-8 items-center rounded-md border px-2.5 text-xs font-medium disabled:opacity-50";
+const btn = "press inline-flex h-8 items-center rounded-md border px-2.5 text-xs font-medium disabled:opacity-50";
 
 export default function ProductRowActions({ id, published, slug }: { id: string; published: boolean; slug: string }) {
   const router = useRouter();

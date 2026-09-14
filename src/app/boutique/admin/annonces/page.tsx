@@ -39,13 +39,13 @@ export default async function AdminAnnoncesPage({ searchParams }: PageProps) {
           name="q"
           defaultValue={q}
           placeholder="Titre ou marque"
-          className="h-10 rounded-md border border-gray-300 px-3 text-sm"
+          className="h-10 rounded-md border border-gray-300 px-3 text-base sm:text-sm"
         />
-        <select name="statut" defaultValue={status ?? ""} className="h-10 rounded-md border border-gray-300 px-3 text-sm">
+        <select name="statut" defaultValue={status ?? ""} className="h-10 rounded-md border border-gray-300 px-3 text-base sm:text-sm">
           <option value="">Tous les statuts</option>
           {STATUSES.map((s) => <option key={s} value={s}>{LISTING_STATUS_LABELS[s].label}</option>)}
         </select>
-        <button type="submit" className="h-10 rounded-md bg-gray-900 px-4 text-sm font-semibold text-white">Filtrer</button>
+        <button type="submit" className="press h-10 rounded-md bg-gray-900 px-4 text-sm font-semibold text-white">Filtrer</button>
       </form>
 
       <p className="mt-3 text-xs text-gray-500">{listings?.length ?? 0} annonce{(listings?.length ?? 0) > 1 ? "s" : ""}</p>

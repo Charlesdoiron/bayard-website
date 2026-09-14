@@ -32,7 +32,7 @@ export default function ReservationActions({ id, status }: { id: string; status:
         type="button"
         onClick={cancel}
         disabled={pending}
-        className="inline-flex h-9 items-center rounded-md border border-red-200 px-3 text-xs font-medium text-red-700 hover:bg-red-50 disabled:opacity-50"
+        className="press inline-flex h-9 items-center rounded-md border border-red-200 px-3 text-xs font-medium text-red-700 hover:bg-red-50 disabled:opacity-50"
       >
         {pending ? "Annulation…" : "Annuler la réservation"}
       </button>

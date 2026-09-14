@@ -121,9 +121,9 @@ export default function ProductForm({ product }: { product?: Product }) {
         <h2 className="text-base font-semibold text-gray-900">Photos</h2>
         <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-6">
           {photos.map((p, i) => (
-            <div key={p.id} className="relative aspect-square overflow-hidden rounded-lg bg-gray-100">
+            <div key={p.id} className="img-outline relative aspect-square overflow-hidden rounded-lg bg-gray-100">
               <Image src={p.url} alt={`Photo ${i + 1}`} fill unoptimized sizes="120px" className="object-cover" />
-              <button type="button" onClick={() => setPhotos((prev) => prev.filter((x) => x.id !== p.id))} aria-label="Retirer" className="absolute right-1 top-1 flex h-7 w-7 min-h-0 min-w-0 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow">
+              <button type="button" onClick={() => setPhotos((prev) => prev.filter((x) => x.id !== p.id))} aria-label="Retirer" className="press absolute end-1 top-1 flex h-7 w-7 min-h-0 min-w-0 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow">
                 <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
               </button>
             </div>
@@ -189,7 +189,7 @@ export default function ProductForm({ product }: { product?: Product }) {
       <section>
         <div className="flex items-center justify-between">
           <h2 className="text-base font-semibold text-gray-900">Déclinaisons et stock</h2>
-          <button type="button" onClick={addVariant} className="inline-flex h-9 items-center gap-1 rounded-md border border-gray-300 px-3 text-xs font-medium text-gray-800 hover:bg-gray-50">
+          <button type="button" onClick={addVariant} className="press inline-flex h-9 items-center gap-1 rounded-md border border-gray-300 px-3 text-xs font-medium text-gray-800 hover:bg-gray-50">
             <Plus className="h-4 w-4" aria-hidden="true" /> Ajouter
           </button>
         </div>
@@ -198,19 +198,19 @@ export default function ProductForm({ product }: { product?: Product }) {
         <ul className="mt-3 space-y-2">
           {variants.map((v, i) => (
             <li key={v.key} className="grid grid-cols-[auto_1fr_5rem_auto_1fr_auto] items-center gap-2 rounded-lg border border-gray-200 p-2 text-sm">
-              <span className="flex flex-col text-gray-400">
-                <button type="button" onClick={() => move(i, -1)} aria-label="Monter" className="h-4 w-4 min-h-0 min-w-0 leading-none">▲</button>
+              <span className="flex flex-col items-center text-gray-400">
+                <button type="button" onClick={() => move(i, -1)} aria-label="Monter" className="press flex h-6 w-6 min-h-0 min-w-0 items-center justify-center leading-none">▲</button>
                 <GripVertical className="h-4 w-4" aria-hidden="true" />
-                <button type="button" onClick={() => move(i, 1)} aria-label="Descendre" className="h-4 w-4 min-h-0 min-w-0 leading-none">▼</button>
+                <button type="button" onClick={() => move(i, 1)} aria-label="Descendre" className="press flex h-6 w-6 min-h-0 min-w-0 items-center justify-center leading-none">▼</button>
               </span>
-              <input value={v.label} onChange={(e) => updateVariant(v.key, { label: e.target.value })} placeholder="Taille (ex. M, 10 ans, Full)" aria-label="Déclinaison" className="h-10 rounded-md border border-gray-300 px-2" />
-              <input type="number" min={0} value={v.stock} onChange={(e) => updateVariant(v.key, { stock: Math.max(0, Number(e.target.value) || 0) })} disabled={v.onOrder} aria-label="Stock" className="h-10 rounded-md border border-gray-300 px-2 disabled:bg-gray-50 disabled:text-gray-400" />
+              <input value={v.label} onChange={(e) => updateVariant(v.key, { label: e.target.value })} placeholder="Taille (ex. M, 10 ans, Full)" aria-label="Déclinaison" className="h-10 rounded-md border border-gray-300 px-2 text-base sm:text-sm" />
+              <input type="number" min={0} value={v.stock} onChange={(e) => updateVariant(v.key, { stock: Math.max(0, Number(e.target.value) || 0) })} disabled={v.onOrder} aria-label="Stock" className="h-10 rounded-md border border-gray-300 px-2 text-base disabled:bg-gray-50 disabled:text-gray-400 sm:text-sm" />
               <label className="flex items-center gap-1 whitespace-nowrap text-xs text-gray-700">
                 <input type="checkbox" checked={v.onOrder} onChange={(e) => updateVariant(v.key, { onOrder: e.target.checked })} className="h-4 w-4 accent-bayard" />
                 Sur commande
               </label>
-              <input value={v.leadTime} onChange={(e) => updateVariant(v.key, { leadTime: e.target.value })} disabled={!v.onOrder} placeholder="Délai (ex. 6 à 8 semaines)" aria-label="Délai" className="h-10 rounded-md border border-gray-300 px-2 disabled:bg-gray-50 disabled:text-gray-400" />
-              <button type="button" onClick={() => removeVariant(v.key)} aria-label="Supprimer la déclinaison" className="flex h-9 w-9 min-h-0 min-w-0 items-center justify-center rounded-md text-red-600 hover:bg-red-50">
+              <input value={v.leadTime} onChange={(e) => updateVariant(v.key, { leadTime: e.target.value })} disabled={!v.onOrder} placeholder="Délai (ex. 6 à 8 semaines)" aria-label="Délai" className="h-10 rounded-md border border-gray-300 px-2 text-base disabled:bg-gray-50 disabled:text-gray-400 sm:text-sm" />
+              <button type="button" onClick={() => removeVariant(v.key)} aria-label="Supprimer la déclinaison" className="press flex h-9 w-9 min-h-0 min-w-0 items-center justify-center rounded-md text-red-600 hover:bg-red-50">
                 <Trash2 className="h-4 w-4" aria-hidden="true" />
               </button>
             </li>
@@ -220,10 +220,10 @@ export default function ProductForm({ product }: { product?: Product }) {
 
       {progress ? <p className="text-sm text-bayard" aria-live="polite">{progress}</p> : null}
       <div className="flex gap-3">
-        <button type="submit" disabled={pending} className="h-11 rounded-md bg-bayard px-6 text-sm font-semibold text-white hover:bg-bayard-dark disabled:cursor-wait disabled:opacity-60">
+        <button type="submit" disabled={pending} className="press h-11 rounded-md bg-bayard px-6 text-sm font-semibold text-white hover:bg-bayard-dark disabled:cursor-wait disabled:opacity-60">
           {pending ? "Enregistrement…" : "Enregistrer"}
         </button>
-        <button type="button" onClick={() => router.push("/boutique/admin/goodies")} className="h-11 rounded-md border border-gray-300 px-5 text-sm font-medium text-gray-800">
+        <button type="button" onClick={() => router.push("/boutique/admin/goodies")} className="press h-11 rounded-md border border-gray-300 px-5 text-sm font-medium text-gray-800">
           Annuler
         </button>
       </div>

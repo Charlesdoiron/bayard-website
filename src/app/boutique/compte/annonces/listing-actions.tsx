@@ -11,7 +11,7 @@ interface Props {
   status: ListingStatus;
 }
 
-const btn = "inline-flex h-9 items-center rounded-md border px-3 text-xs font-medium disabled:opacity-50";
+const btn = "press inline-flex h-9 items-center rounded-md border px-3 text-xs font-medium disabled:opacity-50";
 const neutral = `${btn} border-gray-300 text-gray-800 hover:bg-gray-50`;
 const primary = `${btn} border-bayard bg-bayard text-white hover:bg-bayard-dark`;
 const danger = `${btn} border-red-200 text-red-700 hover:bg-red-50`;

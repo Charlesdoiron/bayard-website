@@ -61,7 +61,7 @@ export default function ContactSeller({ listingId, listingTitle, sellerName, dis
         {needsLogin && !disabled ? (
           <Link
             href={loginHref}
-            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-bayard text-sm font-semibold text-white hover:bg-bayard-dark"
+            className="press inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-bayard text-sm font-semibold text-white hover:bg-bayard-dark"
           >
             <MessageCircle className="h-5 w-5" aria-hidden="true" />
             Se connecter pour contacter le vendeur
@@ -71,7 +71,7 @@ export default function ContactSeller({ listingId, listingTitle, sellerName, dis
             type="button"
             onClick={() => setOpen("contact")}
             disabled={disabled}
-            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-bayard text-sm font-semibold text-white hover:bg-bayard-dark disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
+            className="press inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-bayard text-sm font-semibold text-white hover:bg-bayard-dark disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
           >
             <MessageCircle className="h-5 w-5" aria-hidden="true" />
             Contacter le vendeur
@@ -167,7 +167,7 @@ function Confirmation({ title, text, onClose }: { title: string; text: string; o
     <div className="py-4 text-center">
       <p className="text-lg font-semibold text-gray-900">{title}</p>
       <p className="mt-2 text-sm text-gray-600">{text}</p>
-      <button type="button" onClick={onClose} className="mt-6 h-11 rounded-md bg-bayard px-6 text-sm font-semibold text-white">
+      <button type="button" onClick={onClose} className="press mt-6 h-11 rounded-md bg-bayard px-6 text-sm font-semibold text-white">
         Fermer
       </button>
     </div>

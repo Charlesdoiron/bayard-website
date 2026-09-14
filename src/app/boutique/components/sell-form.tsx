@@ -176,16 +176,16 @@ export default function SellForm({ listing }: SellFormProps) {
         <p className="mt-1 text-xs text-gray-500">De 1 à {MAX_PHOTOS} photos. La première sera la photo principale. Compressées automatiquement.</p>
         <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-6">
           {photos.map((p, i) => (
-            <div key={p.id} className="relative aspect-square overflow-hidden rounded-lg bg-gray-100">
+            <div key={p.id} className="img-outline relative aspect-square overflow-hidden rounded-lg bg-gray-100">
               <Image src={p.url} alt={`Photo ${i + 1}`} fill unoptimized sizes="120px" className="object-cover" />
               {i === 0 ? (
-                <span className="absolute bottom-1 left-1 rounded bg-black/70 px-1.5 py-0.5 text-[10px] font-semibold text-white">Principale</span>
+                <span className="absolute bottom-1 start-1 rounded bg-black/70 px-1.5 py-0.5 text-[10px] font-semibold text-white">Principale</span>
               ) : null}
               <button
                 type="button"
                 onClick={() => removePhoto(p.id)}
                 aria-label={`Retirer la photo ${i + 1}`}
-                className="absolute right-1 top-1 flex h-7 w-7 min-h-0 min-w-0 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow"
+                className="press absolute end-1 top-1 flex h-7 w-7 min-h-0 min-w-0 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow"
               >
                 <X className="h-4 w-4" aria-hidden="true" />
               </button>
@@ -404,7 +404,7 @@ export default function SellForm({ listing }: SellFormProps) {
           name="intent"
           value="publish"
           disabled={pending}
-          className="h-12 flex-1 rounded-md bg-bayard text-sm font-semibold text-white hover:bg-bayard-dark disabled:cursor-wait disabled:opacity-60"
+          className="press h-12 flex-1 rounded-md bg-bayard text-sm font-semibold text-white hover:bg-bayard-dark disabled:cursor-wait disabled:opacity-60"
         >
           {pending ? "Envoi…" : listing && (listing.status === "publiee" || listing.status === "reservee") ? "Enregistrer les modifications" : "Publier l'annonce"}
         </button>
@@ -413,7 +413,7 @@ export default function SellForm({ listing }: SellFormProps) {
           name="intent"
           value="draft"
           disabled={pending}
-          className="h-12 rounded-md border border-gray-300 px-5 text-sm font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-60"
+          className="press h-12 rounded-md border border-gray-300 px-5 text-sm font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-60"
         >
           Enregistrer le brouillon
         </button>

@@ -1,13 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { requestPasswordReset, signIn, signUp, updatePassword } from "../actions/auth";
 import { idle } from "../actions/types";
 import { Field, FormMessage, SubmitButton, inputClass } from "./form-ui";
 
+/** A rejected submit sends focus to the first field the server refused. */
+function useFocusFirstError(fieldErrors: Record<string, string> | undefined) {
+  useEffect(() => {
+    const first = fieldErrors && Object.keys(fieldErrors)[0];
+    if (first) document.getElementById(first)?.focus();
+  }, [fieldErrors]);
+}
+
 export function SignInForm({ next, initialMessage }: { next: string; initialMessage?: string }) {
   const [result, action] = useActionState(signIn, initialMessage ? { ok: false, message: initialMessage } : idle);
+  useFocusFirstError(result.fieldErrors);
   return (
     <form action={action} className="space-y-4">
       <input type="hidden" name="next" value={next} />
@@ -35,6 +44,7 @@ export function SignInForm({ next, initialMessage }: { next: string; initialMess
 export function SignUpForm({ next }: { next: string }) {
   const [result, action] = useActionState(signUp, idle);
   const errors = result.fieldErrors ?? {};
+  useFocusFirstError(result.fieldErrors);
   if (result.ok) {
     return (
       <div className="space-y-4 text-center">
@@ -96,6 +106,7 @@ export function SignUpForm({ next }: { next: string }) {
 
 export function ResetRequestForm() {
   const [result, action] = useActionState(requestPasswordReset, idle);
+  useFocusFirstError(result.fieldErrors);
   return (
     <form action={action} className="space-y-4">
       <FormMessage result={result} />
@@ -117,6 +128,7 @@ export function ResetRequestForm() {
 export function UpdatePasswordForm() {
   const [result, action] = useActionState(updatePassword, idle);
   const errors = result.fieldErrors ?? {};
+  useFocusFirstError(result.fieldErrors);
   return (
     <form action={action} className="space-y-4">
       <FormMessage result={result} />
