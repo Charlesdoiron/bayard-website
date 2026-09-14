@@ -21,10 +21,18 @@ export default function Modal({ open, onClose, title, children, size = "md" }: M
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
+  // Callers pass an inline onClose that changes identity every render. The
+  // open effect must only run on open/close, otherwise typing in the dialog
+  // would re-run it and bounce focus back to the trigger button.
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") onCloseRef.current();
     };
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
@@ -48,7 +56,7 @@ export default function Modal({ open, onClose, title, children, size = "md" }: M
       background.forEach((el) => (el.inert = false));
       returnFocusTo?.focus();
     };
-  }, [open, onClose]);
+  }, [open]);
 
   if (!open || !mounted) return null;
 
