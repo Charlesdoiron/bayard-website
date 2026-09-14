@@ -23,4 +23,6 @@ Modèles par rôle pour les skills pstack :
 Pour tout travail d'interface (nouveau composant, page, animation, revue visuelle), utilise `emil-design-eng`
 (philosophie de design engineering d'Emil Kowalski) et `better-ui` avec ses compléments `better-typography`,
 `better-accessibility` et `better-layout` (règles de polish : rayons concentriques, alignement optique, hit areas,
-transitions). Ils sont installés via `npx skills add` et versionnés avec le dépôt ; `npx skills update` les met à jour.
+transitions). Pour juger une interface existante, lance `/interface-review` ; pour comparer plusieurs versions d'un
+composant avant de choisir, lance `/variant`. Ils sont installés via `npx skills add` et versionnés avec le dépôt ;
+`npx skills update` les met à jour.
