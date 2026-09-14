@@ -15,12 +15,83 @@
   --font-mono: var(--font-geist-mono);
 }
 
+:root {
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  /* Named once so `.press` can add `transform` without dropping the colour
+     transitions the base rule gives every link and button. */
+  --transition-interactive: color 150ms var(--ease-standard),
+    background-color 150ms var(--ease-standard), border-color 150ms var(--ease-standard),
+    opacity 150ms var(--ease-standard), box-shadow 150ms var(--ease-standard);
+}
+
 /* Boutique: hide scrollbars on horizontal chip rows while keeping them scrollable */
 .scrollbar-none {
   scrollbar-width: none;
 }
 .scrollbar-none::-webkit-scrollbar {
   display: none;
+}
+
+@utility press {
+  transition: var(--transition-interactive), transform 160ms var(--ease-out-strong);
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+@utility img-outline {
+  outline: 1px solid oklch(0 0 0 / 0.1);
+  outline-offset: -1px;
+}
+
+@utility enter-pop {
+  animation: enter-pop 180ms var(--ease-out-strong);
+  transform-origin: var(--origin, top left);
+}
+
+@utility enter-sheet {
+  animation: enter-sheet 240ms var(--ease-out-strong);
+}
+
+@utility enter-fade {
+  animation: enter-fade 200ms var(--ease-out-strong);
+}
+
+@utility heart-pop {
+  animation: heart-pop 200ms var(--ease-out-strong);
+}
+
+@utility scroll-fade {
+  mask-image: linear-gradient(to right, black 90%, transparent);
+}
+
+@keyframes enter-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+}
+
+@keyframes enter-sheet {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes enter-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes heart-pop {
+  from {
+    transform: scale(0.25);
+    opacity: 0;
+    filter: blur(4px);
+  }
 }
 
 * {
@@ -51,6 +122,16 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  .enter-pop,
+  .enter-sheet,
+  .heart-pop {
+    animation: enter-fade 150ms ease-out;
+  }
+
+  .press:active {
+    transform: none;
+  }
 }
 
 /* Custom scrollbar styling */
@@ -71,11 +152,18 @@ body {
   background: #a8a8a8;
 }
 
-/* Smooth transitions for all interactive elements */
-a,
-button,
-[role="button"] {
-  transition: all 0.2s ease-in-out;
+/* Transition only the properties an interactive element actually changes. */
+@layer base {
+  a,
+  button,
+  [role="button"] {
+    transition: var(--transition-interactive);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-bayard);
+    outline-offset: 2px;
+  }
 }
 
 /* Mobile-specific optimizations */
@@ -111,7 +199,17 @@ button,
   h4,
   h5,
   h6,
-  span {
+  span,
+  li,
+  dt,
+  dd,
+  td,
+  th,
+  label,
+  figcaption,
+  blockquote,
+  input,
+  textarea {
     -webkit-user-select: text;
     -moz-user-select: text;
     -ms-user-select: text;
@@ -172,19 +270,8 @@ button,
   animation: newsletter-submit-pulse 1.5s ease-in-out infinite;
 }
 
-/* Screen reader only utility for accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
+/* Reveal the skip link once focused. The hidden state is Tailwind's own
+   `sr-only`; redeclaring it here would outrank `md:not-sr-only` and friends. */
 .sr-only:focus {
   position: static;
   width: auto;
