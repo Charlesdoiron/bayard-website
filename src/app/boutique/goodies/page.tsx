@@ -30,8 +30,8 @@ export default async function GoodiesPage({ searchParams }: PageProps) {
         space="goodies"
         header={
           <div className="py-5 sm:py-6">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Goodies du club</h1>
-            <p className="mt-1 text-sm text-gray-600 sm:text-base">
+            <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900 sm:text-3xl">Goodies du club</h1>
+            <p className="mt-1 text-sm text-pretty text-gray-600 sm:text-base">
               Les articles officiels du Club Bayard. Réservez en ligne, puis payez et retirez au club house ou au
               secrétariat.
             </p>

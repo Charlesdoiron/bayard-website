@@ -51,17 +51,17 @@ export default async function TeamPage({ params }: PageProps) {
 
       <div className="relative mt-4 overflow-hidden rounded-2xl bg-gray-900 text-white">
         <div className="relative aspect-[16/6] w-full sm:aspect-[16/5]">
-          <Image src={team.image} alt="" fill priority sizes="100vw" className="object-cover opacity-70" />
+          <Image src={team.image} alt="" fill priority sizes="100vw" className="img-outline object-cover opacity-70" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
         </div>
         <div className="absolute inset-0 flex flex-col justify-center p-6 sm:p-10">
           <p className="text-xs font-semibold uppercase tracking-wide text-white/80">Équipe de compétition</p>
-          <h1 className="mt-1 text-3xl font-bold sm:text-4xl">{team.label}</h1>
-          <p className="mt-2 max-w-xl text-sm text-white/85 sm:text-base">{team.description}</p>
+          <h1 className="mt-1 text-3xl font-bold text-balance sm:text-4xl">{team.label}</h1>
+          <p className="mt-2 max-w-xl text-sm text-pretty text-white/85 sm:text-base">{team.description}</p>
         </div>
       </div>
 
-      <p className="mt-6 text-sm text-gray-600">
+      <p className="mt-6 text-sm text-pretty text-gray-600">
         Tout ce qui concerne l&apos;{team.label.toLowerCase()} au même endroit : les tenues officielles à
         réserver, et le matériel que les cavaliers de l&apos;équipe revendent. Partagez cette page aux nouveaux
         arrivants.
@@ -72,7 +72,7 @@ export default async function TeamPage({ params }: PageProps) {
           <Link
             key={t.slug}
             href={`/boutique/equipe/${t.slug}`}
-            className="inline-flex h-9 items-center rounded-full border border-gray-300 px-3 text-sm font-medium text-gray-800 hover:border-gray-400"
+            className="press inline-flex h-9 items-center rounded-full border border-gray-300 px-3 text-sm font-medium text-gray-800 hover:border-gray-400"
           >
             {t.shortLabel}
           </Link>
@@ -81,7 +81,7 @@ export default async function TeamPage({ params }: PageProps) {
 
       <section className="mt-10">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-lg font-semibold text-gray-900">Tenues officielles</h2>
+          <h2 className="text-lg font-semibold text-balance text-gray-900">Tenues officielles</h2>
           <Link href={`/boutique/goodies?equipe=${team.slug}`} className="text-sm font-medium text-bayard hover:underline">
             Voir dans les goodies
           </Link>
@@ -97,7 +97,7 @@ export default async function TeamPage({ params }: PageProps) {
 
       <section className="mt-12">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-lg font-semibold text-gray-900">Revendu par les cavaliers</h2>
+          <h2 className="text-lg font-semibold text-balance text-gray-900">Revendu par les cavaliers</h2>
           <Link href={`/boutique/occasion?equipe=${team.slug}`} className="text-sm font-medium text-bayard hover:underline">
             Voir dans l&apos;occasion
           </Link>

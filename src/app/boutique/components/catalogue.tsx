@@ -27,21 +27,22 @@ export default async function Catalogue({ searchParams, space, header }: Catalog
     <section aria-label="Catalogue">
       {header}
       {/* Mobile: the filter row sticks just under the fixed site header (92px). */}
-      <div className="sticky top-[92px] z-30 -mx-4 bg-white/95 px-4 py-3 backdrop-blur md:static md:mx-0 md:bg-transparent md:px-0 md:backdrop-blur-none">
+      <div className="sticky top-[calc(92px+env(safe-area-inset-top))] z-30 -mx-4 bg-white/95 px-4 py-3 backdrop-blur md:static md:mx-0 md:bg-transparent md:px-0 md:backdrop-blur-none">
         <Suspense fallback={<div className="h-9" />}>
           <FilterBar filters={filters} space={space} brands={brands} total={result.total} />
         </Suspense>
       </div>
 
       <div className="mt-4 flex items-baseline justify-between">
-        <p className="hidden text-sm text-gray-600 md:block" aria-live="polite">
+        {/* Kept in the DOM on every viewport so the count is announced on phones too. */}
+        <p className="sr-only text-sm text-gray-600 md:not-sr-only md:block" aria-live="polite">
           {filters.q ? (
             <>
-              <span className="font-semibold text-gray-900">{result.total}</span> résultat{result.total > 1 ? "s" : ""} pour «&nbsp;{filters.q}&nbsp;»
+              <span className="font-semibold tabular-nums text-gray-900">{result.total}</span> résultat{result.total > 1 ? "s" : ""} pour «&nbsp;{filters.q}&nbsp;»
             </>
           ) : (
             <>
-              <span className="font-semibold text-gray-900">{result.total}</span> article{result.total > 1 ? "s" : ""}
+              <span className="font-semibold tabular-nums text-gray-900">{result.total}</span> article{result.total > 1 ? "s" : ""}
             </>
           )}
         </p>
@@ -62,18 +63,18 @@ function EmptyState({ space, query }: { space?: Space; query?: string }) {
   const base = space === "goodies" ? "/boutique/goodies" : space === "occasion" ? "/boutique/occasion" : "/boutique";
   return (
     <div className="mt-10 rounded-2xl border border-dashed border-gray-300 px-6 py-16 text-center">
-      <p className="text-lg font-semibold text-gray-900">
+      <p className="text-lg font-semibold text-balance text-gray-900">
         {query ? `Aucun article pour « ${query} »` : "Aucun article ne correspond à ces filtres"}
       </p>
-      <p className="mt-2 text-sm text-gray-600">
+      <p className="mt-2 text-sm text-pretty text-gray-600">
         Essayez d&apos;élargir la recherche ou de retirer un filtre.
       </p>
       <div className="mt-6 flex flex-wrap justify-center gap-3">
-        <Link href={base} className="inline-flex h-11 items-center rounded-md border border-gray-300 px-4 text-sm font-medium text-gray-800 hover:bg-gray-50">
+        <Link href={base} className="press inline-flex h-11 items-center rounded-md border border-gray-300 px-4 text-sm font-medium text-gray-800 hover:bg-gray-50">
           Réinitialiser les filtres
         </Link>
         {space !== "goodies" ? (
-          <Link href="/boutique/vendre" className="inline-flex h-11 items-center rounded-md bg-bayard px-4 text-sm font-semibold text-white hover:bg-bayard-dark">
+          <Link href="/boutique/vendre" className="press inline-flex h-11 items-center rounded-md bg-bayard px-4 text-sm font-semibold text-white hover:bg-bayard-dark">
             Vendre un article
           </Link>
         ) : null}

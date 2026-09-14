@@ -23,8 +23,8 @@ export default async function MembresPage({ searchParams }: PageProps) {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight text-gray-900">Membres &amp; équipes</h1>
-      <p className="mt-1 text-sm text-gray-600">
+      <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900">Membres &amp; équipes</h1>
+      <p className="mt-1 text-sm text-pretty text-gray-600">
         Rattachez les cavaliers à leurs équipes de compétition : ils accèdent alors aux tenues réservées à l&apos;équipe.
       </p>
       <form method="get" className="mt-4 flex gap-2">

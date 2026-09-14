@@ -36,8 +36,8 @@ export default async function MesAnnoncesPage({ searchParams }: PageProps) {
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900">Mes annonces</h1>
-        <Link href="/boutique/vendre" className="inline-flex h-10 items-center gap-2 rounded-md bg-bayard px-4 text-sm font-semibold text-white hover:bg-bayard-dark">
+        <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900">Mes annonces</h1>
+        <Link href="/boutique/vendre" className="press inline-flex h-10 items-center gap-2 rounded-md bg-bayard px-4 text-sm font-semibold text-white hover:bg-bayard-dark">
           <Plus className="h-4 w-4" aria-hidden="true" />
           Nouvelle annonce
         </Link>
@@ -51,9 +51,9 @@ export default async function MesAnnoncesPage({ searchParams }: PageProps) {
 
       {rows.length === 0 ? (
         <div className="mt-8 rounded-2xl border border-dashed border-gray-300 p-10 text-center">
-          <p className="text-lg font-semibold text-gray-900">Aucune annonce pour l&apos;instant</p>
-          <p className="mt-2 text-sm text-gray-600">Un casque devenu trop petit, une selle qui dort au placard ? Déposez votre première annonce.</p>
-          <Link href="/boutique/vendre" className="mt-6 inline-flex h-11 items-center rounded-md bg-bayard px-5 text-sm font-semibold text-white">
+          <p className="text-lg font-semibold text-balance text-gray-900">Aucune annonce pour l&apos;instant</p>
+          <p className="mt-2 text-sm text-pretty text-gray-600">Un casque devenu trop petit, une selle qui dort au placard ? Déposez votre première annonce.</p>
+          <Link href="/boutique/vendre" className="press mt-6 inline-flex h-11 items-center rounded-md bg-bayard px-5 text-sm font-semibold text-white">
             Vends tes articles
           </Link>
         </div>
@@ -77,13 +77,13 @@ function ListingTable({ title, rows }: { title: string; rows: ListingRow[] }) {
           const status = LISTING_STATUS_LABELS[l.status];
           return (
             <li key={l.id} className="flex gap-4 p-4">
-              <div className="relative h-20 w-16 shrink-0 overflow-hidden rounded-md bg-gray-100">
+              <div className="img-outline relative h-20 w-16 shrink-0 overflow-hidden rounded-md bg-gray-100">
                 {l.images[0] ? <Image src={l.images[0]} alt="" fill sizes="64px" className="object-cover" /> : null}
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <StatusPill label={status.label} tone={status.tone} />
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs tabular-nums text-gray-500">
                     {l.status === "publiee" && l.expires_at ? `Expire le ${formatDate(l.expires_at)}` : `Modifiée le ${formatDate(l.updated_at)}`}
                   </span>
                 </div>
@@ -94,7 +94,7 @@ function ListingTable({ title, rows }: { title: string; rows: ListingRow[] }) {
                     l.title
                   )}
                 </p>
-                <p className="text-sm text-gray-600">{formatPrice(centsToEuros(l.price_cents))}</p>
+                <p className="text-sm tabular-nums text-gray-600">{formatPrice(centsToEuros(l.price_cents))}</p>
                 {l.status === "refusee" && l.rejection_reason ? (
                   <p className="mt-1 rounded-md bg-red-50 px-2 py-1 text-xs text-red-700">Motif du refus : {l.rejection_reason}</p>
                 ) : null}

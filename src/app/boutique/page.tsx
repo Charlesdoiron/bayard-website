@@ -36,10 +36,10 @@ export default async function BoutiquePage({ searchParams }: PageProps) {
 function Intro() {
   return (
     <div className="py-6 sm:py-8">
-      <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+      <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900 sm:text-3xl">
         Occasion entre cavaliers &amp; goodies du club
       </h1>
-      <p className="mt-2 max-w-2xl text-sm text-gray-600 sm:text-base">
+      <p className="mt-2 max-w-2xl text-sm text-pretty text-gray-600 sm:text-base">
         Revendez votre matériel entre membres, retrouvez les tenues des équipes de compétition et
         réservez les articles officiels du Club Bayard. Aucun paiement en ligne : tout se règle au club,
         en main propre.
@@ -67,7 +67,7 @@ function Tile({ href, image, title, subtitle }: { href: string; image: string; t
   return (
     <Link
       href={href}
-      className="group relative block overflow-hidden rounded-2xl bg-gray-900 text-white"
+      className="press group relative block overflow-hidden rounded-2xl bg-gray-900 text-white"
     >
       <div className="relative aspect-[16/7] w-full sm:aspect-[16/8]">
         <Image
@@ -75,14 +75,14 @@ function Tile({ href, image, title, subtitle }: { href: string; image: string; t
           alt=""
           fill
           sizes="(max-width: 640px) 100vw, 50vw"
-          className="object-cover opacity-80 transition-transform duration-500 group-hover:scale-105"
+          className="img-outline object-cover opacity-80 transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
       </div>
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5">
         <div>
-          <p className="text-xl font-bold sm:text-2xl">{title}</p>
-          <p className="mt-1 text-xs text-white/85 sm:text-sm">{subtitle}</p>
+          <p className="text-xl font-bold text-balance sm:text-2xl">{title}</p>
+          <p className="mt-1 text-xs text-pretty text-white/85 sm:text-sm">{subtitle}</p>
         </div>
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-gray-900 transition-transform group-hover:translate-x-1">
           <ArrowRight className="h-5 w-5" aria-hidden="true" />

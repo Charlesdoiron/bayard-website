@@ -155,15 +155,15 @@ export default async function ListingPage({ params }: PageProps) {
           />
 
           <section className="mt-8 hidden lg:block">
-            <h2 className="text-base font-semibold text-gray-900">Description</h2>
-            <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-gray-700">{listing.description}</p>
+            <h2 className="text-base font-semibold text-balance text-gray-900">Description</h2>
+            <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-pretty text-gray-700">{listing.description}</p>
           </section>
         </div>
 
         <div>
           <div className="lg:sticky lg:top-24">
-            <p className="text-2xl font-bold text-gray-900 sm:text-3xl">{formatPrice(listing.price)}</p>
-            <h1 className="mt-1 text-lg font-medium text-gray-900 sm:text-xl">{listing.title}</h1>
+            <p className="text-2xl font-bold tabular-nums text-gray-900 sm:text-3xl">{formatPrice(listing.price)}</p>
+            <h1 className="mt-1 text-lg font-medium text-balance text-gray-900 sm:text-xl">{listing.title}</h1>
             <p className="mt-1 text-sm text-gray-500">
               {[listing.size ? `Taille ${listing.size}` : null, condition.label, listing.brand].filter(Boolean).join(" · ")}
             </p>
@@ -190,7 +190,7 @@ export default async function ListingPage({ params }: PageProps) {
               {details.map((d) => (
                 <div key={d.label} className="flex justify-between gap-4 py-2.5">
                   <dt className="text-gray-500">{d.label}</dt>
-                  <dd className="text-right font-medium text-gray-900">{d.value}</dd>
+                  <dd className="text-end font-medium tabular-nums text-gray-900">{d.value}</dd>
                 </div>
               ))}
             </dl>
@@ -207,13 +207,13 @@ export default async function ListingPage({ params }: PageProps) {
             ) : null}
 
             <section className="mt-6 lg:hidden">
-              <h2 className="text-base font-semibold text-gray-900">Description</h2>
-              <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-gray-700">{listing.description}</p>
+              <h2 className="text-base font-semibold text-balance text-gray-900">Description</h2>
+              <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-pretty text-gray-700">{listing.description}</p>
             </section>
 
             <div className="mt-6 rounded-xl bg-gray-50 p-4 text-xs text-gray-600">
               <p className="font-semibold text-gray-900">Comment ça marche ?</p>
-              <ol className="mt-2 list-decimal space-y-1 pl-4">
+              <ol className="mt-2 list-decimal space-y-1 ps-4">
                 <li>Vous contactez le vendeur, il vous répond par email.</li>
                 <li>Vous convenez d&apos;un rendez-vous au club.</li>
                 <li>Paiement et remise en main propre. Le site ne prend aucune commission.</li>
@@ -226,7 +226,7 @@ export default async function ListingPage({ params }: PageProps) {
       {similar.length ? (
         <section className="mt-14">
           <div className="flex items-baseline justify-between">
-            <h2 className="text-lg font-semibold text-gray-900">Articles similaires</h2>
+            <h2 className="text-lg font-semibold text-balance text-gray-900">Articles similaires</h2>
             <Link href={`/boutique/occasion?categorie=${listing.categorySlug}`} className="text-sm font-medium text-bayard hover:underline">
               Voir tout
             </Link>

@@ -28,19 +28,19 @@ export default async function SignalementsPage() {
       <li className="p-4">
         <div className="flex flex-wrap items-center gap-2">
           {s ? <StatusPill label={s.label} tone={s.tone} /> : null}
-          <span className="text-xs text-gray-500">{formatDate(r.created_at)}</span>
+          <span className="text-xs tabular-nums text-gray-500">{formatDate(r.created_at)}</span>
         </div>
         <p className="mt-1 text-sm font-medium text-gray-900">
           {l ? <Link href={`/boutique/annonce/${l.slug}`} className="hover:underline">{l.title}</Link> : "Annonce supprimée"}
         </p>
         <p className="text-sm text-gray-700">Motif : {r.reason}</p>
-        {r.details ? <p className="mt-1 whitespace-pre-line text-sm text-gray-600">{r.details}</p> : null}
+        {r.details ? <p className="mt-1 whitespace-pre-line text-sm text-pretty text-gray-600">{r.details}</p> : null}
         {!r.handled_at ? (
           <div className="mt-2">
             <ReportActions id={r.id} canWithdraw={!!l && (l.status === "publiee" || l.status === "reservee")} />
           </div>
         ) : (
-          <p className="mt-1 text-xs text-gray-500">Traité le {formatDate(r.handled_at)}</p>
+          <p className="mt-1 text-xs tabular-nums text-gray-500">Traité le {formatDate(r.handled_at)}</p>
         )}
       </li>
     );
@@ -48,9 +48,9 @@ export default async function SignalementsPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight text-gray-900">Signalements</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900">Signalements</h1>
       <section className="mt-6">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500">À traiter ({open.length})</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-wide tabular-nums text-gray-500">À traiter ({open.length})</h2>
         <ul className="mt-3 divide-y divide-gray-100 rounded-xl border border-gray-200">
           {open.map((r) => <Row key={r.id} r={r} />)}
           {!open.length ? <li className="p-8 text-center text-sm text-gray-500">Aucun signalement en attente.</li> : null}

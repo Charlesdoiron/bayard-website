@@ -27,7 +27,7 @@ export default async function ComptePage({ searchParams }: PageProps) {
       ) : null}
 
       <section>
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900">Mon profil</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900">Mon profil</h1>
         <p className="mt-1 text-sm text-gray-500">
           Membre depuis {formatMonth(profile.created_at)} · {profile.email}
         </p>
@@ -37,7 +37,7 @@ export default async function ComptePage({ searchParams }: PageProps) {
       </section>
 
       <section>
-        <h2 className="text-lg font-semibold text-gray-900">Équipes de compétition</h2>
+        <h2 className="text-lg font-semibold text-balance text-gray-900">Équipes de compétition</h2>
         {teams.length ? (
           <ul className="mt-2 flex flex-wrap gap-2">
             {teams.map((t) => (
@@ -47,14 +47,14 @@ export default async function ComptePage({ searchParams }: PageProps) {
         ) : (
           <p className="mt-2 text-sm text-gray-600">Vous n&apos;êtes rattaché à aucune équipe.</p>
         )}
-        <p className="mt-2 text-xs text-gray-500">
+        <p className="mt-2 text-xs text-pretty text-gray-500">
           Le rattachement aux équipes est géré par le secrétariat : il donne accès aux tenues réservées à votre équipe.
         </p>
       </section>
 
       <section className="rounded-xl border border-red-200 p-5">
-        <h2 className="text-lg font-semibold text-gray-900">Supprimer mon compte</h2>
-        <p className="mt-1 text-sm text-gray-600">
+        <h2 className="text-lg font-semibold text-balance text-gray-900">Supprimer mon compte</h2>
+        <p className="mt-1 text-sm text-pretty text-gray-600">
           Vos annonces, réservations, messages et photos seront définitivement supprimés. Cette action est
           irréversible.
         </p>

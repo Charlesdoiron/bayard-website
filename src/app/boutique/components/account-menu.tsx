@@ -122,7 +122,7 @@ export default function AccountMenu() {
             <button
               type="submit"
               role="menuitem"
-              className="press flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+              className="press flex w-full items-center gap-2 rounded-md px-3 py-2 text-start text-sm text-gray-700 hover:bg-gray-100"
             >
               <LogOut className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
               Se déconnecter

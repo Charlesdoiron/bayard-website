@@ -19,8 +19,8 @@ export default async function AdminGoodiesPage() {
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900">Goodies du club</h1>
-        <Link href="/boutique/admin/goodies/nouveau" className="inline-flex h-10 items-center gap-2 rounded-md bg-bayard px-4 text-sm font-semibold text-white hover:bg-bayard-dark">
+        <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900">Goodies du club</h1>
+        <Link href="/boutique/admin/goodies/nouveau" className="press inline-flex h-10 items-center gap-2 rounded-md bg-bayard px-4 text-sm font-semibold text-white hover:bg-bayard-dark">
           <Plus className="h-4 w-4" aria-hidden="true" />
           Nouveau produit
         </Link>
@@ -33,7 +33,7 @@ export default async function AdminGoodiesPage() {
           const onOrder = vs.some((v) => v.on_order);
           return (
             <li key={p.id} className="flex gap-4 p-4">
-              <div className="relative h-16 w-14 shrink-0 overflow-hidden rounded-md bg-gray-100">
+              <div className="img-outline relative h-16 w-14 shrink-0 overflow-hidden rounded-md bg-gray-100">
                 {p.images[0] ? <Image src={p.images[0]} alt="" fill sizes="56px" className="object-cover" /> : null}
               </div>
               <div className="min-w-0 flex-1">
@@ -44,9 +44,9 @@ export default async function AdminGoodiesPage() {
                 </div>
                 <p className="mt-1 truncate text-sm font-medium text-gray-900">
                   <Link href={`/boutique/admin/goodies/${p.id}`} className="hover:underline">{p.name}</Link>
-                  <span className="ml-2 font-normal text-gray-500">{formatPrice(centsToEuros(p.price_cents))}</span>
+                  <span className="ms-2 font-normal tabular-nums text-gray-500">{formatPrice(centsToEuros(p.price_cents))}</span>
                 </p>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs tabular-nums text-gray-500">
                   {getGoodiesCategoryLabel(p.category)} · {vs.length} déclinaison{vs.length > 1 ? "s" : ""} · stock total {stock}
                   {onOrder ? " · sur commande" : ""}
                 </p>

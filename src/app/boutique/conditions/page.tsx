@@ -13,8 +13,8 @@ export const metadata: Metadata = {
  */
 export default function ConditionsPage() {
   return (
-    <article className="mx-auto max-w-2xl py-8 text-sm leading-relaxed text-gray-700 sm:py-12 sm:text-base [&_a]:text-bayard [&_a]:underline-offset-2 hover:[&_a]:underline [&_h2]:mt-8 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:text-gray-900 [&_p]:mt-3">
-      <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Conditions d&apos;utilisation de la boutique</h1>
+    <article className="mx-auto max-w-2xl py-8 text-sm leading-relaxed text-gray-700 sm:py-12 sm:text-base [&_a]:text-bayard [&_a]:underline-offset-2 hover:[&_a]:underline [&_h2]:mt-8 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:text-balance [&_h2]:text-gray-900 [&_p]:mt-3">
+      <h1 className="text-2xl font-bold tracking-tight text-balance sm:text-3xl">Conditions d&apos;utilisation de la boutique</h1>
       <p className="text-sm text-gray-500">Projet de conditions, version à valider par le club. Dernière mise à jour : septembre 2026.</p>
 
       <h2>1. Objet</h2>

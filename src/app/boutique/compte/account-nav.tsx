@@ -14,7 +14,7 @@ export default function AccountNav() {
   const pathname = usePathname();
   return (
     <nav aria-label="Mon compte" className="lg:sticky lg:top-24 lg:self-start">
-      <ul className="scrollbar-none flex gap-1 overflow-x-auto lg:flex-col">
+      <ul className="scrollbar-none scroll-fade flex gap-1 overflow-x-auto lg:mask-none lg:flex-col">
         {links.map(({ href, label, icon: Icon, exact }) => {
           const active = exact ? pathname === href : pathname.startsWith(href);
           return (

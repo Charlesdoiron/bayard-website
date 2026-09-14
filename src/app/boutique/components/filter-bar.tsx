@@ -350,7 +350,7 @@ function SortOptions({ filters, update }: { filters: CatalogueFilters; update: (
           <button
             type="button"
             onClick={() => update({ sort: o.value })}
-            className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm hover:bg-gray-100 ${
+            className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-start text-sm hover:bg-gray-100 ${
               filters.sort === o.value ? "font-semibold text-bayard" : "text-gray-800"
             }`}
           >
@@ -383,7 +383,7 @@ function CategoryFacet({ filters, update }: { filters: CatalogueFilters; update:
             <button
               type="button"
               onClick={() => update({ category: category.slug, subCategory: undefined, size: [] })}
-              className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm hover:bg-gray-100 ${
+              className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-start text-sm hover:bg-gray-100 ${
                 filters.category === category.slug && !filters.subCategory ? "font-semibold text-bayard" : ""
               }`}
             >
@@ -398,7 +398,7 @@ function CategoryFacet({ filters, update }: { filters: CatalogueFilters; update:
                 <button
                   type="button"
                   onClick={() => update({ category: category.slug, subCategory: sub.slug, size: [] })}
-                  className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : ""}`}
+                  className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-start text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : ""}`}
                 >
                   {sub.label}
                   {active ? <Check className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> : null}
@@ -424,7 +424,7 @@ function CategoryFacet({ filters, update }: { filters: CatalogueFilters; update:
                   <button
                     type="button"
                     onClick={() => setBrowsing(c.slug)}
-                    className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : "text-gray-900"}`}
+                    className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-start text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : "text-gray-900"}`}
                   >
                     {c.label}
                     <ChevronDown className="h-4 w-4 -rotate-90 text-gray-400" strokeWidth={1.5} aria-hidden="true" />
@@ -507,7 +507,7 @@ function FacetContent({
             <button
               type="button"
               onClick={() => update({ team: undefined })}
-              className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm hover:bg-gray-100 ${!filters.team ? "font-semibold text-bayard" : ""}`}
+              className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-start text-sm hover:bg-gray-100 ${!filters.team ? "font-semibold text-bayard" : ""}`}
             >
               Toutes les équipes
               {!filters.team ? <Check className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> : null}
@@ -520,7 +520,7 @@ function FacetContent({
                 <button
                   type="button"
                   onClick={() => update({ team: t.slug })}
-                  className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : ""}`}
+                  className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-start text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : ""}`}
                 >
                   {t.label}
                   {active ? <Check className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> : null}
@@ -630,7 +630,7 @@ function FacetContent({
                 type="button"
                 onClick={() => update({ color: toggleIn(filters.color, c.slug) })}
                 aria-pressed={active}
-                className={`press flex items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : "text-gray-900"}`}
+                className={`press flex items-center gap-2 rounded-md px-2 py-1.5 text-start text-sm hover:bg-gray-100 ${active ? "font-semibold text-bayard" : "text-gray-900"}`}
               >
                 <span
                   className="h-5 w-5 shrink-0 rounded-full ring-1 ring-black/10"

@@ -32,7 +32,7 @@ export default async function AdminAnnoncesPage({ searchParams }: PageProps) {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight text-gray-900">Annonces</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900">Annonces</h1>
       <form className="mt-4 flex flex-wrap gap-2" method="get">
         <input
           type="search"
@@ -48,24 +48,24 @@ export default async function AdminAnnoncesPage({ searchParams }: PageProps) {
         <button type="submit" className="press h-10 rounded-md bg-gray-900 px-4 text-sm font-semibold text-white">Filtrer</button>
       </form>
 
-      <p className="mt-3 text-xs text-gray-500">{listings?.length ?? 0} annonce{(listings?.length ?? 0) > 1 ? "s" : ""}</p>
+      <p className="mt-3 text-xs tabular-nums text-gray-500">{listings?.length ?? 0} annonce{(listings?.length ?? 0) > 1 ? "s" : ""}</p>
       <ul className="mt-3 divide-y divide-gray-100 rounded-xl border border-gray-200">
         {(listings ?? []).map((l) => {
           const s = LISTING_STATUS_LABELS[l.status];
           const seller = sellerById.get(l.seller_id);
           return (
             <li key={l.id} className="flex gap-4 p-4">
-              <div className="relative h-16 w-14 shrink-0 overflow-hidden rounded-md bg-gray-100">
+              <div className="img-outline relative h-16 w-14 shrink-0 overflow-hidden rounded-md bg-gray-100">
                 {l.images[0] ? <Image src={l.images[0]} alt="" fill sizes="56px" className="object-cover" /> : null}
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <StatusPill label={s.label} tone={s.tone} />
-                  <span className="text-xs text-gray-500">{formatDate(l.updated_at)}</span>
+                  <span className="text-xs tabular-nums text-gray-500">{formatDate(l.updated_at)}</span>
                 </div>
                 <p className="mt-1 truncate text-sm font-medium text-gray-900">
                   <Link href={`/boutique/annonce/${l.slug}`} className="hover:underline">{l.title}</Link>
-                  <span className="ml-2 font-normal text-gray-500">{formatPrice(centsToEuros(l.price_cents))}</span>
+                  <span className="ms-2 font-normal tabular-nums text-gray-500">{formatPrice(centsToEuros(l.price_cents))}</span>
                 </p>
                 <p className="truncate text-xs text-gray-500">
                   {seller ? `${seller.first_name} ${seller.last_name} · ${seller.email}` : l.seller_id}

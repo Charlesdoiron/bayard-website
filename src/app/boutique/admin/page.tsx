@@ -20,28 +20,28 @@ export default async function AdminDashboardPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight text-gray-900">Tableau de bord</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900">Tableau de bord</h1>
       <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {tiles.map((t) => (
           <Link
             key={t.label}
             href={t.href}
-            className={`rounded-xl border p-4 hover:bg-gray-50 ${t.urgent ? "border-amber-300 bg-amber-50" : "border-gray-200"}`}
+            className={`press rounded-xl border p-4 hover:bg-gray-50 ${t.urgent ? "border-amber-300 bg-amber-50" : "border-gray-200"}`}
           >
-            <p className="text-3xl font-bold text-gray-900">{t.value}</p>
-            <p className="mt-1 text-sm text-gray-600">{t.label}</p>
+            <p className="text-3xl font-bold tabular-nums text-gray-900">{t.value}</p>
+            <p className="mt-1 text-sm text-pretty text-gray-600">{t.label}</p>
           </Link>
         ))}
       </div>
 
       <section className="mt-10">
-        <h2 className="text-lg font-semibold text-gray-900">Goodies les plus demandés</h2>
+        <h2 className="text-lg font-semibold text-balance text-gray-900">Goodies les plus demandés</h2>
         {stats?.top_products?.length ? (
           <ol className="mt-3 divide-y divide-gray-100 rounded-xl border border-gray-200">
             {stats.top_products.map((p, i) => (
               <li key={p.name} className="flex items-center justify-between px-4 py-3 text-sm">
-                <span><span className="mr-2 text-gray-400">{i + 1}.</span>{p.name}</span>
-                <span className="font-semibold text-gray-900">{p.quantity}</span>
+                <span><span className="me-2 tabular-nums text-gray-400">{i + 1}.</span>{p.name}</span>
+                <span className="font-semibold tabular-nums text-gray-900">{p.quantity}</span>
               </li>
             ))}
           </ol>

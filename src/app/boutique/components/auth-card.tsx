@@ -12,8 +12,8 @@ export default function AuthCard({
 }) {
   return (
     <div className="mx-auto max-w-md py-8 sm:py-12">
-      <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{title}</h1>
-      {intro ? <p className="mt-2 text-sm text-gray-600">{intro}</p> : null}
+      <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900 sm:text-3xl">{title}</h1>
+      {intro ? <p className="mt-2 text-sm text-pretty text-gray-600">{intro}</p> : null}
       {!isSupabaseConfigured() ? (
         <p className="mt-4 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-900">
           Version de démonstration : les comptes seront activés avec la mise en service de la base de données.

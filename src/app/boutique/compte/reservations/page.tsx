@@ -36,15 +36,15 @@ export default async function MesReservationsPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight text-gray-900">Mes réservations</h1>
-      <p className="mt-1 text-sm text-gray-600">
+      <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900">Mes réservations</h1>
+      <p className="mt-1 text-sm text-pretty text-gray-600">
         Paiement et retrait au club house ou au secrétariat, {SITE_CONFIG.business.address.street}, {SITE_CONFIG.business.address.city}.
       </p>
 
       {!reservations?.length ? (
         <div className="mt-8 rounded-2xl border border-dashed border-gray-300 p-10 text-center">
-          <p className="text-lg font-semibold text-gray-900">Aucune réservation</p>
-          <Link href="/boutique/goodies" className="mt-6 inline-flex h-11 items-center rounded-md bg-bayard px-5 text-sm font-semibold text-white">
+          <p className="text-lg font-semibold text-balance text-gray-900">Aucune réservation</p>
+          <Link href="/boutique/goodies" className="press mt-6 inline-flex h-11 items-center rounded-md bg-bayard px-5 text-sm font-semibold text-white">
             Voir les goodies du club
           </Link>
         </div>
@@ -59,9 +59,9 @@ export default async function MesReservationsPage() {
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex flex-wrap items-center gap-2">
                     <StatusPill label={status.label} tone={status.tone} />
-                    <span className="text-xs text-gray-500">Réservée le {formatDate(r.created_at)}</span>
+                    <span className="text-xs tabular-nums text-gray-500">Réservée le {formatDate(r.created_at)}</span>
                   </div>
-                  <span className="text-sm font-semibold text-gray-900">{formatPrice(centsToEuros(total))}</span>
+                  <span className="text-sm font-semibold tabular-nums text-gray-900">{formatPrice(centsToEuros(total))}</span>
                 </div>
                 <ul className="mt-3 divide-y divide-gray-100 text-sm">
                   {lines.map((i) => {
@@ -71,15 +71,15 @@ export default async function MesReservationsPage() {
                         <span>
                           {p ? <Link href={`/boutique/goodies/${p.slug}`} className="font-medium text-gray-900 hover:underline">{p.name}</Link> : "Article"}
                           <span className="text-gray-500"> · {variantById.get(i.variant_id)?.label} × {i.quantity}</span>
-                          {!i.stocked ? <span className="ml-2 text-xs text-bayard">sur commande</span> : null}
+                          {!i.stocked ? <span className="ms-2 text-xs text-bayard">sur commande</span> : null}
                         </span>
-                        <span className="text-gray-700">{formatPrice(centsToEuros(i.unit_price_cents * i.quantity))}</span>
+                        <span className="tabular-nums text-gray-700">{formatPrice(centsToEuros(i.unit_price_cents * i.quantity))}</span>
                       </li>
                     );
                   })}
                 </ul>
                 {r.status === "prete" && r.expires_at ? (
-                  <p className="mt-2 text-xs text-emerald-800">À retirer avant le {formatDate(r.expires_at)}.</p>
+                  <p className="mt-2 text-xs tabular-nums text-emerald-800">À retirer avant le {formatDate(r.expires_at)}.</p>
                 ) : null}
                 {r.admin_note ? <p className="mt-2 rounded-md bg-gray-50 px-3 py-2 text-xs text-gray-700">Message du club : {r.admin_note}</p> : null}
                 <div className="mt-3">

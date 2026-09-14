@@ -35,7 +35,7 @@ export default function MemberRow({ profile, teams }: Props) {
             {profile.role === "admin" ? <span className="ms-2 rounded-full bg-gray-900 px-2 py-0.5 text-[11px] font-semibold uppercase text-white">Admin</span> : null}
             {profile.suspended ? <span className="ms-2 rounded-full bg-red-100 px-2 py-0.5 text-[11px] font-semibold uppercase text-red-800">Suspendu</span> : null}
           </p>
-          <p className="truncate text-xs text-gray-500">{profile.email}{profile.phone ? ` · ${profile.phone}` : ""} · inscrit le {profile.since}</p>
+          <p className="truncate text-xs tabular-nums text-gray-500">{profile.email}{profile.phone ? ` · ${profile.phone}` : ""} · inscrit le {profile.since}</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <button type="button" disabled={pending} onClick={() => run(() => setMemberFlags(profile.id, { suspended: !profile.suspended }), profile.suspended ? undefined : "Suspendre ce compte ? Le membre ne pourra plus publier ni réserver.")} className="press inline-flex h-8 items-center rounded-md border border-gray-300 px-2.5 text-xs font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-50">

@@ -19,7 +19,7 @@ export default async function ModifierProduitPage({ params }: PageProps) {
 
   return (
     <div className="max-w-3xl">
-      <h1 className="text-2xl font-bold tracking-tight text-gray-900">Modifier « {product.name} »</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900">Modifier « {product.name} »</h1>
       <div className="mt-6">
         <ProductForm product={productFromRow(product, variants ?? [])} />
       </div>

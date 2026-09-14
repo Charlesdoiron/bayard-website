@@ -43,8 +43,8 @@ export default async function AdminReservationsPage({ searchParams }: PageProps)
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900">Réservations</h1>
-        <a href={`/boutique/admin/reservations/export${status ? `?statut=${status}` : ""}`} className="inline-flex h-10 items-center gap-2 rounded-md border border-gray-300 px-4 text-sm font-medium text-gray-800 hover:bg-gray-50">
+        <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900">Réservations</h1>
+        <a href={`/boutique/admin/reservations/export${status ? `?statut=${status}` : ""}`} className="press inline-flex h-10 items-center gap-2 rounded-md border border-gray-300 px-4 text-sm font-medium text-gray-800 hover:bg-gray-50">
           <Download className="h-4 w-4" aria-hidden="true" />
           Export CSV
         </a>
@@ -71,23 +71,23 @@ export default async function AdminReservationsPage({ searchParams }: PageProps)
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
                     <StatusPill label={s.label} tone={s.tone} />
-                    <span className="text-xs text-gray-500">{formatDate(r.created_at)}</span>
-                    {r.status === "prete" && r.expires_at ? <span className="text-xs text-amber-700">à retirer avant le {formatDate(r.expires_at)}</span> : null}
+                    <span className="text-xs tabular-nums text-gray-500">{formatDate(r.created_at)}</span>
+                    {r.status === "prete" && r.expires_at ? <span className="text-xs tabular-nums text-amber-700">à retirer avant le {formatDate(r.expires_at)}</span> : null}
                   </div>
                   <p className="mt-1 text-sm font-medium text-gray-900">
                     {m ? `${m.first_name} ${m.last_name}` : "Membre"}
-                    {m ? <span className="ml-2 font-normal text-gray-500">{m.email}{m.phone ? ` · ${m.phone}` : ""}</span> : null}
+                    {m ? <span className="ms-2 font-normal text-gray-500">{m.email}{m.phone ? ` · ${m.phone}` : ""}</span> : null}
                   </p>
                   <ul className="mt-2 text-sm text-gray-700">
                     {lines.map((i) => (
                       <li key={i.id}>
                         {productById.get(i.product_id) ?? "Article"} · {variantById.get(i.variant_id)} × {i.quantity}
-                        {!i.stocked ? <span className="ml-1 text-xs text-bayard">(sur commande)</span> : null}
+                        {!i.stocked ? <span className="ms-1 text-xs text-bayard">(sur commande)</span> : null}
                       </li>
                     ))}
                   </ul>
                   {r.note ? <p className="mt-2 rounded-md bg-gray-50 px-3 py-2 text-xs text-gray-700">Message du membre : {r.note}</p> : null}
-                  <p className="mt-2 text-sm font-semibold text-gray-900">{formatPrice(centsToEuros(total))} à encaisser</p>
+                  <p className="mt-2 text-sm font-semibold tabular-nums text-gray-900">{formatPrice(centsToEuros(total))} à encaisser</p>
                 </div>
                 <ReservationStatusForm id={r.id} status={r.status} adminNote={r.admin_note ?? ""} />
               </div>

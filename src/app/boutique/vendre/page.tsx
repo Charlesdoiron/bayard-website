@@ -41,10 +41,10 @@ export default async function VendrePage({ searchParams }: PageProps) {
         ]}
       />
       <div className="mx-auto max-w-2xl py-6 sm:py-8">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+        <h1 className="text-2xl font-bold tracking-tight text-balance text-gray-900 sm:text-3xl">
           {listing ? "Modifier l'annonce" : "Vends tes articles"}
         </h1>
-        <p className="mt-2 text-sm text-gray-600 sm:text-base">
+        <p className="mt-2 text-sm text-pretty text-gray-600 sm:text-base">
           {listing
             ? "Une annonce déjà en ligne reste en ligne après modification. Une annonce refusée ou en brouillon repasse en validation."
             : "Gratuit et sans commission. Vous décrivez l'article, les cavaliers du club vous contactent, vous vous retrouvez au centre pour la remise."}
@@ -59,8 +59,8 @@ export default async function VendrePage({ searchParams }: PageProps) {
             ].map(([n, title, text]) => (
               <li key={n} className="rounded-xl bg-gray-50 p-4">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-bayard text-xs font-bold text-white">{n}</span>
-                <p className="mt-2 text-sm font-semibold text-gray-900">{title}</p>
-                <p className="mt-0.5 text-xs text-gray-600">{text}</p>
+                <p className="mt-2 text-sm font-semibold text-balance text-gray-900">{title}</p>
+                <p className="mt-0.5 text-xs text-pretty text-gray-600">{text}</p>
               </li>
             ))}
           </ol>

@@ -17,12 +17,12 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (!isSupabaseConfigured()) {
     return (
       <div className="mx-auto max-w-2xl py-12 text-center">
-        <h1 className="text-2xl font-bold text-gray-900">Back-office</h1>
-        <p className="mt-3 text-sm text-gray-600">
+        <h1 className="text-2xl font-bold text-balance text-gray-900">Back-office</h1>
+        <p className="mt-3 text-sm text-pretty text-gray-600">
           Le back-office (modération, goodies, réservations, équipes) sera activé avec la mise en service de la base de
           données.
         </p>
-        <Link href="/boutique" className="mt-6 inline-flex h-11 items-center rounded-md bg-bayard px-5 text-sm font-semibold text-white">
+        <Link href="/boutique" className="press mt-6 inline-flex h-11 items-center rounded-md bg-bayard px-5 text-sm font-semibold text-white">
           Retour à la boutique
         </Link>
       </div>

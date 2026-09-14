@@ -20,7 +20,7 @@ export default function AdminNav() {
   return (
     <nav aria-label="Administration" className="lg:sticky lg:top-24 lg:self-start">
       <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wide text-gray-500">Administration</p>
-      <ul className="scrollbar-none flex gap-1 overflow-x-auto lg:flex-col">
+      <ul className="scrollbar-none scroll-fade flex gap-1 overflow-x-auto lg:mask-none lg:flex-col">
         {links.map(({ href, label, icon: Icon, exact }) => {
           const active = exact ? pathname === href : pathname.startsWith(href);
           return (

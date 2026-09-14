@@ -101,16 +101,16 @@ export default async function ProductPage({ params }: PageProps) {
             }
           />
           <section className="mt-8 hidden lg:block">
-            <h2 className="text-base font-semibold text-gray-900">Description</h2>
-            <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-gray-700">{product.description}</p>
+            <h2 className="text-base font-semibold text-balance text-gray-900">Description</h2>
+            <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-pretty text-gray-700">{product.description}</p>
             {product.sizeNote ? <p className="mt-3 text-sm text-gray-500">{product.sizeNote}</p> : null}
           </section>
         </div>
 
         <div>
           <div className="lg:sticky lg:top-24">
-            <p className="text-2xl font-bold text-gray-900 sm:text-3xl">{formatPrice(product.price)}</p>
-            <h1 className="mt-1 text-lg font-medium text-gray-900 sm:text-xl">{product.name}</h1>
+            <p className="text-2xl font-bold tabular-nums text-gray-900 sm:text-3xl">{formatPrice(product.price)}</p>
+            <h1 className="mt-1 text-lg font-medium text-balance text-gray-900 sm:text-xl">{product.name}</h1>
             <p className="mt-1 text-sm text-gray-500">{getGoodiesCategoryLabel(product.category)} · Club Bayard</p>
             {team && product.teamOnly ? <TeamOnlyBadge team={team.slug} className="mt-2" /> : null}
 
@@ -122,8 +122,8 @@ export default async function ProductPage({ params }: PageProps) {
             </div>
 
             <section className="mt-6 lg:hidden">
-              <h2 className="text-base font-semibold text-gray-900">Description</h2>
-              <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-gray-700">{product.description}</p>
+              <h2 className="text-base font-semibold text-balance text-gray-900">Description</h2>
+              <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-pretty text-gray-700">{product.description}</p>
               {product.sizeNote ? <p className="mt-3 text-sm text-gray-500">{product.sizeNote}</p> : null}
             </section>
 
@@ -145,7 +145,7 @@ export default async function ProductPage({ params }: PageProps) {
       {others.length ? (
         <section className="mt-14">
           <div className="flex items-baseline justify-between">
-            <h2 className="text-lg font-semibold text-gray-900">Autres goodies du club</h2>
+            <h2 className="text-lg font-semibold text-balance text-gray-900">Autres goodies du club</h2>
             <Link href="/boutique/goodies" className="text-sm font-medium text-bayard hover:underline">
               Voir tout
             </Link>
