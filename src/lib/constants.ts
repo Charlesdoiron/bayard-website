@@ -169,4 +169,24 @@ export const PAGES = {
     path: "/#contact",
     priority: 0.9,
   },
+  boutique: {
+    title: "Boutique",
+    path: "/boutique",
+    priority: 0.9,
+  },
+  boutiqueOccasion: {
+    title: "Occasion entre cavaliers",
+    path: "/boutique/occasion",
+    priority: 0.8,
+  },
+  boutiqueGoodies: {
+    title: "Goodies du club",
+    path: "/boutique/goodies",
+    priority: 0.8,
+  },
+  boutiqueVendre: {
+    title: "Vendre un article",
+    path: "/boutique/vendre",
+    priority: 0.6,
+  },
 } as const;

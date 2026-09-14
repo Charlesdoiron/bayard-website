@@ -1,11 +1,12 @@
 import Image from "next/image";
 
 const navigationLinks = [
-  { label: "PRÉSENTATION", href: "#presentation" },
-  { label: "ACTIVITÉS", href: "#activites" },
-  { label: "INFRASTRUCTURES", href: "#infrastructures" },
-  { label: "INFOS PRATIQUES", href: "#infos" },
-  { label: "CONTACT", href: "#contact" },
+  { label: "PRÉSENTATION", href: "/#presentation" },
+  { label: "ACTIVITÉS", href: "/#activites" },
+  { label: "INFRASTRUCTURES", href: "/#infrastructures" },
+  { label: "INFOS PRATIQUES", href: "/#infos" },
+  { label: "CONTACT", href: "/#contact" },
+  { label: "BOUTIQUE", href: "/boutique" },
 ];
 
 const socialLinks = [

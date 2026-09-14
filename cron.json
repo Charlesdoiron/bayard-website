@@ -1,0 +1,8 @@
+{
+  "jobs": [
+    {
+      "command": "15 3 * * * curl -fsS -H \"Authorization: Bearer $BOUTIQUE_CRON_SECRET\" \"$NEXT_PUBLIC_SITE_URL/api/boutique/cron\"",
+      "size": "S"
+    }
+  ]
+}
