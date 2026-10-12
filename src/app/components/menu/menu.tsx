@@ -11,11 +11,11 @@ const DotLottiePlayer = dynamic(
 );
 
 const menuItems = [
-  { href: "#presentation", label: "Présentation" },
-  { href: "#activities", label: "Activités" },
-  { href: "#infrastructures", label: "Infrastructures" },
-  { href: "#infos", label: "Infos pratiques" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#presentation", label: "Présentation" },
+  { href: "/#activities", label: "Activités" },
+  { href: "/#infrastructures", label: "Infrastructures" },
+  { href: "/#infos", label: "Infos pratiques" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Menu() {
