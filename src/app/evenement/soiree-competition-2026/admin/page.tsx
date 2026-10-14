@@ -39,6 +39,7 @@ async function fetchSubmissions(apiKey: string) {
       {
         headers: { Authorization: `Bearer ${apiKey}` },
         next: { revalidate: 60 },
+        signal: AbortSignal.timeout(10_000),
       },
     );
     if (!res.ok) throw new Error(`Tally API ${res.status}`);
